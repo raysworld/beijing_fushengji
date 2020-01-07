@@ -30,7 +30,7 @@
 
 class CSelectionDlg : public CDialog
 {
-// Construction
+	// Construction
 public:
 	int m_City;
 	CBitmapPicture m_Picture;
@@ -39,15 +39,15 @@ public:
 	BOOL m_bCloseSound;
 	void GenerateRandomHelpFile();
 	CString m_strHelpFile;
-	CButtonST m_btnPost;	
-	CButtonST m_btnNet;	
+	CButtonST m_btnPost;
+	CButtonST m_btnNet;
 	CButtonST m_btnAgency;
 	CButtonST m_btnHosp;
 	CButtonST m_btnTry;
 	CButtonST m_btnBoss;
 	CButtonST m_btnShanghai;
 	int m_MyCurrentLoc;
-//	void RefreshDisplay();
+	//	void RefreshDisplay();
 	int m_MyFame;
 	int m_nLoc;
 	CTicker m_sTicker;
@@ -71,21 +71,21 @@ public:
 	long MyCash;
 	long MyDebt;
 	long MyBank;
-	
+
 	CDigistring	m_Text2;
 	CDigistring m_HealthDisplay;
 	CDigistring m_FameDisplay;
 	CDigistring m_CashDisplay;
 	CDigistring m_BankDisplay;
-	
+
 	void RefreshDisplay();
-	
-	
+
+
 	CSelectionDlg(CWnd* pParent = NULL);   // standard constructor
 	~CSelectionDlg();
 
-// Dialog Data
-	//{{AFX_DATA(CSelectionDlg)
+	// Dialog Data
+		//{{AFX_DATA(CSelectionDlg)
 	enum { IDD = IDD_SELECTIONDLG };
 	CListCtrl	m_list2;
 	CListCtrl	m_list1;
@@ -95,13 +95,13 @@ public:
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CSelectionDlg)
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	//}}AFX_VIRTUAL
 
 // Implementation
 protected:
-   	HICON m_hIcon;
+	HICON m_hIcon;
 
 	CRect m_TickerRect;
 	CWnd* m_pDragWnd;
@@ -116,8 +116,8 @@ protected:
 	BOOL m_bSortList2Asc;
 
 	void OnBegindrag(CListCtrl* pList, NMHDR* pNMHDR);
-	void MoveListItems(CListCtrl &pFromList, CListCtrl &pToList);
-	CImageList* CreateDragImageEx(CListCtrl *pList, LPPOINT lpPoint);
+	void MoveListItems(CListCtrl& pFromList, CListCtrl& pToList);
+	CImageList* CreateDragImageEx(CListCtrl* pList, LPPOINT lpPoint);
 
 	// Generated message map functions
 	//{{AFX_MSG(CSelectionDlg)
@@ -163,7 +163,7 @@ protected:
 	afx_msg void OnBeijingIntro();
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
-    afx_msg void OnPaint();
+	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnNetwork();
 	afx_msg void OnSteal();

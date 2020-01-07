@@ -143,19 +143,18 @@ void CTopPlayerDlg::LoadSavedScore()
 {
 	int i;
 	FILE* fp;
-	char name[35];
+	//char name[35];
 	char line[31];
-	long score;
-	int health;
+	//long score;
+	//int health;
 	CString str = AfxGetApp()->m_pszHelpFilePath;
 	int n = str.ReverseFind('\\');
 	CString str1 = str.Left(n);
 	str1 += _TEXT("\\score.txt");
-	fp = _tfopen(str1, _TEXT("rb"));
-	if (!fp)   // not find score.txt, create a empty score list
+	//fp = _tfopen(str1, _TEXT("rb"));
+	errno_t err = _tfopen_s(&fp, str1, _TEXT("rb"));
+	if (err != 0)   // not find score.txt, create a empty score list
 	{
-
-
 		_tcscpy(hscores[0].name, _TEXT("赖皮张"));
 		hscores[0].score = 12500720;
 		hscores[0].health = 98;
@@ -175,6 +174,7 @@ void CTopPlayerDlg::LoadSavedScore()
 		hscores[3].score = 239403;
 		hscores[3].health = 97;
 		_tcscpy(hscores[3].fame, _TEXT("很差"));
+
 		_tcscpy(hscores[4].name, _TEXT("li xing"));
 		hscores[4].score = 34900;
 		hscores[4].health = 35;
@@ -183,7 +183,8 @@ void CTopPlayerDlg::LoadSavedScore()
 		_tcscpy(hscores[5].name, _TEXT("li xing"));
 		hscores[5].score = 13400;
 		hscores[5].health = 100;
-		_tcscpy(hscores[5].fame, _TEXT("江湖唾弃"));;
+		_tcscpy(hscores[5].fame, _TEXT("江湖唾弃"));
+
 		_tcscpy(hscores[6].name, _TEXT("li "));
 		hscores[6].score = 2300;
 		hscores[6].health = 77;
@@ -193,6 +194,7 @@ void CTopPlayerDlg::LoadSavedScore()
 		hscores[7].score = 45;
 		hscores[7].health = 12;
 		_tcscpy(hscores[7].fame, _TEXT("杰出青年"));
+
 		_tcscpy(hscores[8].name, _TEXT("li"));
 		hscores[8].score = 34;
 		hscores[8].health = 100;
@@ -255,10 +257,11 @@ void CTopPlayerDlg::SaveScore()
 	int n = str.ReverseFind('\\');
 	CString str1 = str.Left(n);
 	str1 += _TEXT("\\score.txt");
-	fp = _tfopen(str1, _TEXT("w"));
-	if (!fp)
+	//fp = _tfopen(str1, _TEXT("w"));
+	errno_t err = _tfopen_s(&fp, str1, _TEXT("w"));
+	if (err != 0)
 	{
-		AfxMessageBox(_TEXT("Error: score file can not be opened."));
+		AfxMessageBox(_TEXT("Error: score file cannot be opened."));
 		exit(-1);
 	}
 	for (i = 0; i < 10; i++)

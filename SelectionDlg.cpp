@@ -68,6 +68,12 @@ created: 2000/12
 static char THIS_FILE[] = __FILE__;
 #endif
 
+#ifdef UNICODE
+	#define _tcharcountof(array) (sizeof(array) / sizeof(TCHAR))
+#else
+	#define _tcharcountof(array) _countof(array) 
+#endif // UNICODE
+
 
 #define BEIJING     1
 #define SHANGHAI    2
@@ -2021,7 +2027,7 @@ void CSelectionDlg::OnWangba()
 //#define   HELP_ENC
 void CSelectionDlg::OnIntro()
 {
-	FILE* fp1, * fp2;
+	//FILE* fp1, * fp2;
 #ifdef HELP_ENC
 	// encrpty the help information
 	fp1 = fopen("oldhelp", "rb");
@@ -2148,8 +2154,8 @@ void CSelectionDlg::OnNewGame()
 	_tcscpy(m_chDrugName[3], _TEXT("假白酒（剧毒！）"));
 	_tcscpy(m_chDrugName[4], _TEXT("《上海小宝贝》（禁书）"));
 	_tcscpy(m_chDrugName[5], _TEXT("进口玩具"));
-	_tcscpy(m_chDrugName[7], _TEXT("伪劣化妆品"));
 	_tcscpy(m_chDrugName[6], _TEXT("水货手机"));
+	_tcscpy(m_chDrugName[7], _TEXT("伪劣化妆品"));
 	_tcscpy(m_chDrugName[8], _TEXT(""));
 
 

@@ -2,7 +2,7 @@
 Module name: Ticker.cpp
 Written by:  CRanjeet::RanjeetChakraborty() Copyright (c) 2000.
 			 ranjeetc@hotmail.com	| ranjeet.c@mphasis.com
-			 
+
 Purpose:     Provides the implementation file for a scrolling news/stock ticker for your MFC applications.
 ******************************************************************************/
 // This code may be used in compiled form in any way you desire. This
@@ -44,22 +44,22 @@ CTicker::CTicker()
 	m_TickerFontHeight = 15;
 	//Default CFont object//
 	m_pTickerFont = new CFont;
-	m_pTickerFont->CreateFont ( m_TickerFontHeight ,0,0,0,0,FALSE,FALSE,
-			0, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, 
-			DEFAULT_QUALITY, DEFAULT_PITCH, m_TickerFontName);
+	m_pTickerFont->CreateFont(m_TickerFontHeight, 0, 0, 0, 0, FALSE, FALSE,
+		0, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS,
+		DEFAULT_QUALITY, DEFAULT_PITCH, m_TickerFontName);
 	//Default Text Color
-	m_TickerTextColor = RGB(255,255,255);
-	m_TickerRateTextColor = RGB(0,255,0);
+	m_TickerTextColor = RGB(255, 255, 255);
+	m_TickerRateTextColor = RGB(0, 255, 0);
 	//Default Edge and border type of the Window
-	m_EdgeType	 = EDGE_SUNKEN;
+	m_EdgeType = EDGE_SUNKEN;
 	m_BorderType = BF_FLAT;
 
 	m_bIsBkgBmp = FALSE;
 
-	m_BmpDragBar.LoadBitmap (IDB_TICKER_DRAGBAR);
+	m_BmpDragBar.LoadBitmap(IDB_TICKER_DRAGBAR);
 	m_Mode = MODE_RATES_TICKER; //Default mode :RatesDisplay
 
-	SetClassLong(m_hWnd,GCL_HCURSOR,(LONG)::LoadCursor(NULL,IDC_CROSS));
+	SetClassLong(m_hWnd, GCL_HCURSOR, (LONG)::LoadCursor(NULL, IDC_CROSS));
 
 }
 
@@ -68,7 +68,7 @@ CTicker::~CTicker()
 	//if(m_pTickerFont)
 	//	delete m_pTickerFont;
 
-	if(m_pTickerFont){
+	if (m_pTickerFont) {
 		delete m_pTickerFont;
 		m_pTickerFont = NULL;
 	}
@@ -88,102 +88,102 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CTicker message handlers
 
-void CTicker::OnTimer(UINT nIDEvent) 
+void CTicker::OnTimer(UINT nIDEvent)
 {
 	CStatic::OnTimer(nIDEvent);
-	if(nIDEvent == ID_TICKER_TIMER){
-		i -= m_TickerSpeed ;
-		Invalidate ();
+	if (nIDEvent == ID_TICKER_TIMER) {
+		i -= m_TickerSpeed;
+		Invalidate();
 	}
 }
 
 //This is the function where all the parsing and rendering occurs
 //based on the mode of the ticker selected
-void CTicker::OnPaint() 
+void CTicker::OnPaint()
 {
 	CPaintDC dc(this); // device context for painting
 	CDC dcMem;
-	dcMem.CreateCompatibleDC (&dc);
+	dcMem.CreateCompatibleDC(&dc);
 	CBitmap bmpMem;
 	bmpMem.CreateCompatibleBitmap(&dc, m_TickerRect.Width(), m_TickerRect.Height());
 	CBitmap* pOldBmp = dcMem.SelectObject(&bmpMem);
 
-	if(m_bIsBkgBmp){
+	if (m_bIsBkgBmp) {
 		CBrush hBrush;
-		hBrush.CreatePatternBrush (&m_BmpBkg);
-		FillRect(dcMem.m_hDC, &m_TickerRect, (HBRUSH)hBrush);  
+		hBrush.CreatePatternBrush(&m_BmpBkg);
+		FillRect(dcMem.m_hDC, &m_TickerRect, (HBRUSH)hBrush);
 	}
 	// We dont need a solid background
 	//dcMem.FillSolidRect (&m_TickerRect ,RGB(0,0,0)); 
 	dcMem.SetBkMode(TRANSPARENT);
 
-	if(m_bIsBkgBmp == FALSE){
+	if (m_bIsBkgBmp == FALSE) {
 		//draw the gradient
-		DrawLinearWash(&dcMem, &m_TickerRect, 
+		DrawLinearWash(&dcMem, &m_TickerRect,
 			60, RGB(50, 180, 0), RGB(0, 0, 255));
 	}
 
 	CFont* pOldFont;
 	pOldFont = dcMem.SelectObject(m_pTickerFont);
-/*	
-	dcMem.SetTextColor(RGB(255,255,255)); //White foreground
-	dcMem.TextOut (0,0,_TEXT("Loading, Please wait..."));
-*/
+	/*
+		dcMem.SetTextColor(RGB(255,255,255)); //White foreground
+		dcMem.TextOut (0,0,_TEXT("Loading, Please wait..."));
+	*/
 
-/////// TEXT OUT LOGIC FOR MODE_RATES_TICKER  ////////////
-	if(m_TickerTextCharVersion != NULL && m_Mode == MODE_RATES_TICKER){
+	/////// TEXT OUT LOGIC FOR MODE_RATES_TICKER  ////////////
+	if (m_TickerTextCharVersion != NULL && m_Mode == MODE_RATES_TICKER) {
 		//If text has scrolled from Right-Left completely start again
-		if(i <= - dcMem.GetTextExtent (GetTickerText()).cx ){
-			i = m_TickerRect.Width ();
+		if (i <= -dcMem.GetTextExtent(GetTickerText()).cx) {
+			i = m_TickerRect.Width();
 		}
-		CString pr = GetTickerText ();
-		int from = 0,to = 0,origin = i, yCoordFlag = 0;
-			while (pr != _TEXT("")){//Check for '|' delimiters to display
-						//rates in Company-Above,Rate-Below style
-				from = to;	
-				to = m_TextToDisplay.Find('|',from+1);
-				pr = m_TextToDisplay.Mid (from+1,to-from-1);				
-				if(pr != _TEXT("")){ //Check if end of file reached
-					switch (yCoordFlag ){ //Toggle between company
-							//& rates to display company on top(yCoord=0)
-							//& Rate below(yCoord = 3)						
-						
-					case 0: 
-						dcMem.SetTextColor(m_TickerTextColor); //White foreground
-						dcMem.TextOut (origin,0,pr,pr.GetLength());
-						yCoordFlag = 1;
-						break;
-					case 1:
-						dcMem.SetTextColor(m_TickerRateTextColor); //White foreground
-						dcMem.TextOut (origin,3,pr,pr.GetLength());
-						yCoordFlag = 0;
-						break;
-					}
-					origin = origin + (dcMem.GetTextExtent (pr).cx) ;
+		CString pr = GetTickerText();
+		int from = 0, to = 0, origin = i, yCoordFlag = 0;
+		while (pr != _TEXT("")) {//Check for '|' delimiters to display
+					//rates in Company-Above,Rate-Below style
+			from = to;
+			to = m_TextToDisplay.Find('|', from + 1);
+			pr = m_TextToDisplay.Mid(from + 1, to - from - 1);
+			if (pr != _TEXT("")) { //Check if end of file reached
+				switch (yCoordFlag) { //Toggle between company
+						//& rates to display company on top(yCoord=0)
+						//& Rate below(yCoord = 3)						
+
+				case 0:
+					dcMem.SetTextColor(m_TickerTextColor); //White foreground
+					dcMem.TextOut(origin, 0, pr, pr.GetLength());
+					yCoordFlag = 1;
+					break;
+				case 1:
+					dcMem.SetTextColor(m_TickerRateTextColor); //White foreground
+					dcMem.TextOut(origin, 3, pr, pr.GetLength());
+					yCoordFlag = 0;
+					break;
 				}
-			}//While
+				origin = origin + (dcMem.GetTextExtent(pr).cx);
+			}
+		}//While
 	}
-/////// TEXT OUT LOGIC(no logic actually)FOR MODE_REGULAR_TICKER  ////
-	else if(m_Mode == MODE_REGULAR_TICKER){//Display text normally
+	/////// TEXT OUT LOGIC(no logic actually)FOR MODE_REGULAR_TICKER  ////
+	else if (m_Mode == MODE_REGULAR_TICKER) {//Display text normally
 		//If text has scrolled from Right-Left completely start again
-		if(i <= - dcMem.GetTextExtent (GetTickerText()).cx ){
-			i = m_TickerRect.Width ();
+		if (i <= -dcMem.GetTextExtent(GetTickerText()).cx) {
+			i = m_TickerRect.Width();
 		}
 		dcMem.SetTextColor(m_TickerTextColor); //White foreground
-		dcMem.TextOut (i,0,GetTickerText ());
+		dcMem.TextOut(i, 0, GetTickerText());
 	}
-/////////
-	dc.BitBlt(m_TickerRect.left,m_TickerRect.top,m_TickerRect.Width(),m_TickerRect.Height(),&dcMem,0,0,SRCCOPY);
-	::DrawEdge(dc.m_hDC,&m_TickerRect,m_EdgeType, m_BorderType);
-	
+	/////////
+	dc.BitBlt(m_TickerRect.left, m_TickerRect.top, m_TickerRect.Width(), m_TickerRect.Height(), &dcMem, 0, 0, SRCCOPY);
+	::DrawEdge(dc.m_hDC, &m_TickerRect, m_EdgeType, m_BorderType);
+
 	HBITMAP hBmp = (HBITMAP)m_BmpDragBar;
-	if(hBmp != NULL){
+	if (hBmp != NULL) {
 		BITMAP bm; m_BmpDragBar.GetBitmap(&bm);
-		DrawBitmap(dc.m_hDC ,hBmp ,(m_TickerRect.right- bm.bmWidth),0);
+		DrawBitmap(dc.m_hDC, hBmp, (m_TickerRect.right - bm.bmWidth), 0);
 	}
 
 	dcMem.SelectObject(pOldFont);
-    dcMem.SelectObject(pOldBmp);
+	dcMem.SelectObject(pOldBmp);
 	DeleteObject(bmpMem.m_hObject);
 	dcMem.DeleteDC();
 
@@ -196,57 +196,57 @@ void CTicker::DrawBitmap(HDC hdc, HBITMAP hBitmap, int xStart, int yStart)
 	HDC    hdcMem;
 	POINT  ptSize, ptOrg;
 
-	hdcMem = CreateCompatibleDC (hdc);
+	hdcMem = CreateCompatibleDC(hdc);
 	SelectObject(hdcMem, hBitmap);
 	SetMapMode(hdcMem, GetMapMode(hdc));
-	GetObject (hBitmap, sizeof(BITMAP), (LPVOID)&bm);
-	ptSize.x = bm.bmWidth ;
-	ptSize.y = bm.bmHeight ;
+	GetObject(hBitmap, sizeof(BITMAP), (LPVOID)&bm);
+	ptSize.x = bm.bmWidth;
+	ptSize.y = bm.bmHeight;
 	DPtoLP(hdc, &ptSize, 1);
 	ptOrg.x = 0;
 	ptOrg.y = 0;
 	DPtoLP(hdcMem, &ptOrg, 1);
-	::BitBlt(hdc,xStart, yStart, ptSize.x, ptSize.y, hdcMem, ptOrg.x, ptOrg.y, SRCCOPY);  
+	::BitBlt(hdc, xStart, yStart, ptSize.x, ptSize.y, hdcMem, ptOrg.x, ptOrg.y, SRCCOPY);
 	DeleteDC(hdcMem);
 }
 
 //Start the ticker
 void CTicker::StartTicker(int mode)
-{	
+{
 	//Set the mode first
 	m_Mode = mode;
-	GetClientRect (&m_TickerRect);
-	i = m_TickerRect.Width ();
-	KillTimer (ID_TICKER_TIMER);
+	GetClientRect(&m_TickerRect);
+	i = m_TickerRect.Width();
+	KillTimer(ID_TICKER_TIMER);
 	m_bTickerOn = TRUE;
-	SetTimer(ID_TICKER_TIMER,40,NULL);
-} 
+	SetTimer(ID_TICKER_TIMER, 40, NULL);
+}
 
 //Stops the ticker
 void CTicker::StopTicker()
 {
 	m_bTickerOn = FALSE;
-	KillTimer (ID_TICKER_TIMER);
+	KillTimer(ID_TICKER_TIMER);
 }
 
 void CTicker::ResumeTicker()
 {
-	if(!m_bTickerOn){
-		KillTimer (ID_TICKER_TIMER);
-		SetTimer (ID_TICKER_TIMER,40,NULL);	
+	if (!m_bTickerOn) {
+		KillTimer(ID_TICKER_TIMER);
+		SetTimer(ID_TICKER_TIMER, 40, NULL);
 		m_bTickerOn = TRUE;
 	}
 }
 
 void CTicker::SetTickerText(CString DisplayStr)
 {
-	m_TextToDisplay = DisplayStr ;
+	m_TextToDisplay = DisplayStr;
 	//Delete the previous copy of m_TickerTextCharVersion
-	if(m_TickerTextCharVersion){
+	if (m_TickerTextCharVersion) {
 		delete m_TickerTextCharVersion;
 	}
 	m_TickerTextCharVersion = new TCHAR[DisplayStr.GetLength() + 1];
-	_tcscpy(m_TickerTextCharVersion ,(LPCTSTR)DisplayStr);
+	_tcscpy(m_TickerTextCharVersion, (LPCTSTR)DisplayStr);
 }
 
 
@@ -257,50 +257,50 @@ CString CTicker::GetTickerText()
 
 CRect CTicker::GetTickerRect()
 {
-	return m_TickerRect ;
+	return m_TickerRect;
 }
 
 void CTicker::SetTickerRect(CRect rect)
 {
-	m_TickerRect = rect ;
+	m_TickerRect = rect;
 }
 
 void CTicker::SetTickerFontName(CString FontNameStr)
 {
-	m_TickerFontName = FontNameStr ;
+	m_TickerFontName = FontNameStr;
 }
 
 CString CTicker::GetTickerFontName()
 {
-	return m_TickerFontName ;
+	return m_TickerFontName;
 }
 
 int CTicker::GetTickerFontHeight()
 {
-	return m_TickerFontHeight ;
+	return m_TickerFontHeight;
 }
 
 void CTicker::SetTickerFontHeight(int ht)
 {
 	m_TickerFontHeight = ht;
-	if(m_pTickerFont)
+	if (m_pTickerFont)
 		delete m_pTickerFont;
-		m_pTickerFont = NULL;
-	
+	m_pTickerFont = NULL;
+
 	//Default CFont object//
 	m_pTickerFont = new CFont;
-	m_pTickerFont->CreateFont ( m_TickerFontHeight ,0,0,0,0,FALSE,FALSE,
-			0, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, 
-			DEFAULT_QUALITY, DEFAULT_PITCH, m_TickerFontName);
+	m_pTickerFont->CreateFont(m_TickerFontHeight, 0, 0, 0, 0, FALSE, FALSE,
+		0, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS,
+		DEFAULT_QUALITY, DEFAULT_PITCH, m_TickerFontName);
 }
 
 
 TCHAR* CTicker::GetTickerTextCharVersion()
 {
-	return m_TickerTextCharVersion ;
+	return m_TickerTextCharVersion;
 }
 
-void CTicker::SetTickerTextCharVersion(TCHAR *Str)
+void CTicker::SetTickerTextCharVersion(TCHAR* Str)
 {
 	m_TickerTextCharVersion = Str;
 }
@@ -310,7 +310,7 @@ void CTicker::SetTickerTextCharVersion(TCHAR *Str)
 //This code is borrowed from Fabian Toader (Fabi Pantera) (fabian_toader@hotmail.com)
 // Copyright (c) 1999 who has written the excellent class CJumpyDraw
 void CTicker::DrawLinearWash(CDC* pDC, CRect* prc, int iSegments,
-								COLORREF crStart, COLORREF crEnd)
+	COLORREF crStart, COLORREF crEnd)
 {
 	// Get the starting RGB values and calculate the incremental
 	// changes to be applied.
@@ -369,29 +369,29 @@ void CTicker::SetTickerTextColor(COLORREF TextColor)
 void CTicker::SetTickerTextColor(COLORREF TextColor, COLORREF RatesTextColor)
 {
 	m_TickerTextColor = TextColor;
-	m_TickerRateTextColor = RatesTextColor ;
+	m_TickerRateTextColor = RatesTextColor;
 }
 
-void CTicker::OnLButtonDown(UINT nFlags, CPoint point) 
+void CTicker::OnLButtonDown(UINT nFlags, CPoint point)
 {
-/*	CStatic::OnLButtonDown(nFlags, point);
-	//Make sure the LButtonDown only works for all area except 
-	//DragBar Image
-	CRect RectDragBar;
-	BITMAP bm;
-	m_BmpDragBar.GetBitmap(&bm);
-	RectDragBar.left = 0;
-	RectDragBar.top = 0;
-	RectDragBar.right = bm.bmWidth ;
-	RectDragBar.bottom = bm.bmHeight ;
-	if(!RectDragBar.PtInRect (point))
-		ShellExecute(0 ,_TEXT("open"), _TEXT("http://www.cemaze.com/News.htm"), NULL, NULL, SW_MAXIMIZE);
-*/
+	/*	CStatic::OnLButtonDown(nFlags, point);
+		//Make sure the LButtonDown only works for all area except
+		//DragBar Image
+		CRect RectDragBar;
+		BITMAP bm;
+		m_BmpDragBar.GetBitmap(&bm);
+		RectDragBar.left = 0;
+		RectDragBar.top = 0;
+		RectDragBar.right = bm.bmWidth ;
+		RectDragBar.bottom = bm.bmHeight ;
+		if(!RectDragBar.PtInRect (point))
+			ShellExecute(0 ,_TEXT("open"), _TEXT("http://www.cemaze.com/News.htm"), NULL, NULL, SW_MAXIMIZE);
+	*/
 }
 
 
-  
-void CTicker::OnMouseMove(UINT nFlags, CPoint point) 
+
+void CTicker::OnMouseMove(UINT nFlags, CPoint point)
 {
 	//CCBDlg* pp = (CCBDlg*)AfxGetMainWnd();
 	//pp->OnMouseMove (nFlags,point);
@@ -412,7 +412,7 @@ void CTicker::OnMouseMove(UINT nFlags, CPoint point)
 		if(nFlags == MK_LBUTTON){
 			POINT pt; GetCursorPos(&pt);
 			//ClientToSc
-			::SetWindowPos (m_hWnd,NULL,pt.x ,pt.y  ,0,0,SWP_NOSIZE |SWP_NOSENDCHANGING | SWP_SHOWWINDOW);   
+			::SetWindowPos (m_hWnd,NULL,pt.x ,pt.y  ,0,0,SWP_NOSIZE |SWP_NOSENDCHANGING | SWP_SHOWWINDOW);
 			//MoveWindow (pt.x ,pt.y ,m_TickerRect.Width (),m_TickerRect.Height());
 		}
 	}
@@ -420,23 +420,23 @@ void CTicker::OnMouseMove(UINT nFlags, CPoint point)
 		m_EdgeType	 = EDGE_SUNKEN;
 		m_BorderType = BF_FLAT;
 	}*/
-	StopTicker ();	
+	StopTicker();
 
 }
 
 
 
-void CTicker::OnDestroy() 
+void CTicker::OnDestroy()
 {
 	CStatic::OnDestroy();
 
-	
+
 }
 
-void CTicker::ShowRatesWithBkgBmp(CString pszFileName,COLORREF bkg, COLORREF fore, LPCTSTR pszFontName, int FontHeight, int TickerSpeed, int mode, int BmpResId)
+void CTicker::ShowRatesWithBkgBmp(CString pszFileName, COLORREF bkg, COLORREF fore, LPCTSTR pszFontName, int FontHeight, int TickerSpeed, int mode, int BmpResId)
 {
 	m_bIsBkgBmp = TRUE;
-	m_BmpBkg.LoadBitmap (BmpResId);
+	m_BmpBkg.LoadBitmap(BmpResId);
 	ShowRates(pszFileName, bkg, fore, pszFontName, FontHeight, TickerSpeed, mode);
 }
 
@@ -451,69 +451,70 @@ void CTicker::ShowRatesWithBkgBmp(CString pszFileName,COLORREF bkg, COLORREF for
 
 void CTicker::ShowRates(CString pszFileName, COLORREF bkg, COLORREF fore, LPCTSTR pszFontName, int FontHeight, int TickerSpeed, int mode)
 {
-	
-   FILE * fp, *fp1, *fp2;
+
+	FILE* fp;
+	//FILE** fp1, * fp2;
 #ifndef DECRY
-   
-//	 Encry message
-	  fp1=fopen(_TEXT("ticker.txt"),_TEXT("rb"));
-   fp2=fopen(_TEXT("news.txt"),_TEXT("wb"));
-   int i;
-   if(fp1!=NULL){
 
-      char *buf;
-	  buf=(char *)malloc(_filelength(_fileno(fp1)));
-	  fread(buf,_filelength(_fileno(fp1)),1,fp1);
-	  for(i=0;i<_filelength(_fileno(fp1));i++){
-		  buf[i]=buf[i]  ^ 0x38;
-		  fprintf(fp2,_TEXT("%c"),buf[i]);
-	  }
-	  fclose(fp2);
-	
+	//	 Encry message
+	fp1 = fopen(_TEXT("ticker.txt"), _TEXT("rb"));
+	fp2 = fopen(_TEXT("news.txt"), _TEXT("wb"));
+	int i;
+	if (fp1 != NULL) {
 
-	fclose(fp1);
+		char* buf;
+		buf = (char*)malloc(_filelength(_fileno(fp1)));
+		fread(buf, _filelength(_fileno(fp1)), 1, fp1);
+		for (i = 0; i < _filelength(_fileno(fp1)); i++) {
+			buf[i] = buf[i] ^ 0x38;
+			fprintf(fp2, _TEXT("%c"), buf[i]);
+		}
+		fclose(fp2);
 
-	
+
+		fclose(fp1);
+
+
 #else
 
-   //fp=fopen(_TEXT("guo.txt"),_TEXT("rb"));
-   //int completelen = strlen(AfxGetApp()->m_pszHelpFilePath);
-	//char psz[1000];
-	//strcpy(psz,AfxGetApp()->m_pszHelpFilePath);
-   CString str=AfxGetApp()->m_pszHelpFilePath;
-   int n=str.ReverseFind('\\');
-   CString str1=str.Left(n);
-   str1+=_TEXT("\\news.txt");
+	//fp=fopen(_TEXT("guo.txt"),_TEXT("rb"));
+	//int completelen = strlen(AfxGetApp()->m_pszHelpFilePath);
+	 //char psz[1000];
+	 //strcpy(psz,AfxGetApp()->m_pszHelpFilePath);
+	CString str = AfxGetApp()->m_pszHelpFilePath;
+	int n = str.ReverseFind('\\');
+	CString str1 = str.Left(n);
+	str1 += _TEXT("\\news.txt");
 	//psz[completelen - 14] = '\0';
 	//strcat(psz,_TEXT("tips.txt"));
-   fp= _tfopen(str1,_TEXT("rb"));
-   int i;
-   if(fp!=NULL){
-	  char *buf;
-	  buf=(char *)malloc(_filelength(_fileno(fp)));
-	  fread(buf,_filelength(_fileno(fp)),1,fp);
-	  for(i=0;i<_filelength(_fileno(fp));i++)
-		  buf[i]=buf[i]  ^ 0x38;
-	  CString str=buf;
-	
-	  free(buf);
-	        
-	SetTickerText(str);
-     
-	fclose(fp);
+	fp = _tfopen(str1, _TEXT("rb"));
+	int i;
+	if (fp != NULL) {
+		char* buf;
+		buf = (char*)malloc(_filelength(_fileno(fp)));
+		fread(buf, _filelength(_fileno(fp)), 1, fp);
+		for (i = 0; i < _filelength(_fileno(fp)); i++)
+			buf[i] = buf[i] ^ 0x38;
+		CString str = buf;
 
-   }
+		free(buf);
 
-	else{
+		SetTickerText(str);
+
+		fclose(fp);
+
+	}
+
+	else {
 		SetTickerText(_TEXT("Error : Couldnt load File..."));
 	}
 #endif
 
-	SetTickerTextColor (bkg,fore);
-	SetTickerFontName (pszFontName);
-	SetTickerFontHeight (FontHeight);
-	SetTickerSpeed (TickerSpeed);  
-	StartTicker(mode);	
+	SetTickerTextColor(bkg, fore);
+	SetTickerFontName(pszFontName);
+	SetTickerFontHeight(FontHeight);
+	SetTickerSpeed(TickerSpeed);
+	StartTicker(mode);
 
 }
 
