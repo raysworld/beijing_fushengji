@@ -40,7 +40,7 @@ CTicker::CTicker()
 {
 	m_TickerTextCharVersion = NULL;
 	//Default FontName//
-	m_TickerFontName = "Comic Sans MS";
+	m_TickerFontName = _TEXT("Comic Sans MS");
 	m_TickerFontHeight = 15;
 	//Default CFont object//
 	m_pTickerFont = new CFont;
@@ -127,7 +127,7 @@ void CTicker::OnPaint()
 	pOldFont = dcMem.SelectObject(m_pTickerFont);
 /*	
 	dcMem.SetTextColor(RGB(255,255,255)); //White foreground
-	dcMem.TextOut (0,0,"Loading, Please wait...");
+	dcMem.TextOut (0,0,_TEXT("Loading, Please wait..."));
 */
 
 /////// TEXT OUT LOGIC FOR MODE_RATES_TICKER  ////////////
@@ -138,12 +138,12 @@ void CTicker::OnPaint()
 		}
 		CString pr = GetTickerText ();
 		int from = 0,to = 0,origin = i, yCoordFlag = 0;
-			while (pr != ""){//Check for '|' delimiters to display
+			while (pr != _TEXT("")){//Check for '|' delimiters to display
 						//rates in Company-Above,Rate-Below style
 				from = to;	
 				to = m_TextToDisplay.Find('|',from+1);
 				pr = m_TextToDisplay.Mid (from+1,to-from-1);				
-				if(pr != ""){ //Check if end of file reached
+				if(pr != _TEXT("")){ //Check if end of file reached
 					switch (yCoordFlag ){ //Toggle between company
 							//& rates to display company on top(yCoord=0)
 							//& Rate below(yCoord = 3)						
@@ -385,7 +385,7 @@ void CTicker::OnLButtonDown(UINT nFlags, CPoint point)
 	RectDragBar.right = bm.bmWidth ;
 	RectDragBar.bottom = bm.bmHeight ;
 	if(!RectDragBar.PtInRect (point))
-		ShellExecute(0 ,"open", "http://www.cemaze.com/News.htm", NULL, NULL, SW_MAXIMIZE);
+		ShellExecute(0 ,_TEXT("open"), _TEXT("http://www.cemaze.com/News.htm"), NULL, NULL, SW_MAXIMIZE);
 */
 }
 
@@ -456,8 +456,8 @@ void CTicker::ShowRates(CString pszFileName, COLORREF bkg, COLORREF fore, LPCTST
 #ifndef DECRY
    
 //	 Encry message
-	  fp1=fopen("ticker.txt","rb");
-   fp2=fopen("news.txt","wb");
+	  fp1=fopen(_TEXT("ticker.txt"),_TEXT("rb"));
+   fp2=fopen(_TEXT("news.txt"),_TEXT("wb"));
    int i;
    if(fp1!=NULL){
 
@@ -466,7 +466,7 @@ void CTicker::ShowRates(CString pszFileName, COLORREF bkg, COLORREF fore, LPCTST
 	  fread(buf,_filelength(_fileno(fp1)),1,fp1);
 	  for(i=0;i<_filelength(_fileno(fp1));i++){
 		  buf[i]=buf[i]  ^ 0x38;
-		  fprintf(fp2,"%c",buf[i]);
+		  fprintf(fp2,_TEXT("%c"),buf[i]);
 	  }
 	  fclose(fp2);
 	
@@ -476,17 +476,17 @@ void CTicker::ShowRates(CString pszFileName, COLORREF bkg, COLORREF fore, LPCTST
 	
 #else
 
-   //fp=fopen("guo.txt","rb");
+   //fp=fopen(_TEXT("guo.txt"),_TEXT("rb"));
    //int completelen = strlen(AfxGetApp()->m_pszHelpFilePath);
 	//char psz[1000];
 	//strcpy(psz,AfxGetApp()->m_pszHelpFilePath);
    CString str=AfxGetApp()->m_pszHelpFilePath;
    int n=str.ReverseFind('\\');
    CString str1=str.Left(n);
-   str1+="\\news.txt";
+   str1+=_TEXT("\\news.txt");
 	//psz[completelen - 14] = '\0';
-	//strcat(psz,"tips.txt");
-   fp=fopen(str1,"rb");
+	//strcat(psz,_TEXT("tips.txt"));
+   fp=fopen(str1,_TEXT("rb"));
    int i;
    if(fp!=NULL){
 	  char *buf;
@@ -505,7 +505,7 @@ void CTicker::ShowRates(CString pszFileName, COLORREF bkg, COLORREF fore, LPCTST
    }
 
 	else{
-		SetTickerText("Error : Couldnt load File...");
+		SetTickerText(_TEXT("Error : Couldnt load File..."));
 	}
 #endif
 

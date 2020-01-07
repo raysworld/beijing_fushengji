@@ -82,7 +82,7 @@ CDualListDemoDlg::CDualListDemoDlg(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CDualListDemoDlg)
 		// NOTE: the ClassWizard will add member initialization here
-	m_strPlayerName="小二黑";
+	m_strPlayerName= _TEXT("小二黑");
 	m_nScore=0;
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
@@ -191,9 +191,9 @@ void CDualListDemoDlg::OnSelectionDlg()
 {
     CString name;	
 	GetDlgItem(IDC_NAME)->GetWindowText(name);
-	if(name=="郭祥昊")
+	if(name== _TEXT("郭祥昊"))
 	{
-		CString str="本游戏的作者郭祥昊不玩这个游戏。";
+		CString str= _TEXT("本游戏的作者郭祥昊不玩这个游戏。");
 	CNewsDlg dlg(NULL,str);
     dlg.DoModal();
 	return ;
@@ -225,9 +225,9 @@ void CDualListDemoDlg::OnSelectionDlg()
 		CString name;
 		GetDlgItem(IDC_NAME)->GetWindowText(name);
 		CString str;
-		str+="《北京游戏报》报道: 玩家“";
+		str+= _TEXT("《北京游戏报》报道: 玩家“");
 		str+=name;
-		str+="”在北京没挣着钱，被遣送回家。";
+		str+= _TEXT("”在北京没挣着钱，被遣送回家。");
 		CNewsDlg dlg(NULL,str);
     dlg.DoModal();
 	}

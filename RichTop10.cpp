@@ -42,23 +42,23 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CRichTop10 message handlers
 
-BOOL CRichTop10::OnInitDialog() 
+BOOL CRichTop10::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-	CString str[5]={
-		    "北京市优秀赚钱员",
-			"北京十大杰出小青年",
-			"京城最酷倒卖手",
-			"京都捞钱大师",
-			"北京第一金手指"};
+	CString str[5] = {
+			_TEXT("北京市优秀赚钱员"),
+			_TEXT("北京十大杰出小青年"),
+			_TEXT("京城最酷倒卖手"),
+			_TEXT("京都捞钱大师"),
+			_TEXT("北京第一金手指") };
 	// TODO: Add extra initialization here
-	m_strMsg.Format("您的财富%ld人民币已经进入北京富人前%d名。",m_Score, m_Order);
+	m_strMsg.Format(_TEXT("您的财富%ld人民币已经进入北京富人前%d名。"), m_Score, m_Order);
 	GetDlgItem(IDC_RICH_MSG)->SetWindowText(m_strMsg);
-	CString fm=str[rand()%5];
-    m_strMsg="您还被授予“";
-    m_strMsg+=fm;
-    m_strMsg+="”。";
+	CString fm = str[rand() % 5];
+	m_strMsg = _TEXT("您还被授予“");
+	m_strMsg += fm;
+	m_strMsg += _TEXT("”。");
 	GetDlgItem(IDC_FAME_GET)->SetWindowText(m_strMsg);
 	return TRUE;  // return TRUE unless you set the focus to a control
-	              // EXCEPTION: OCX Property Pages should return FALSE
+				  // EXCEPTION: OCX Property Pages should return FALSE
 }

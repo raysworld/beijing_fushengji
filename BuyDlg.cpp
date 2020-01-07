@@ -31,7 +31,7 @@ void CBuyDlg::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//DDX_Control(pDX, IDC_BUY_COUNT, m_ccbDropListOld);
 	DDX_Control(pDX, IDC_SPIN1, m_spinner);
-	DDX_Text(pDX, IDC_EDIT1,m_nMaxCount );
+	DDX_Text(pDX, IDC_EDIT1, m_nMaxCount);
 	DDV_MinMaxInt(pDX, m_nMaxCount, 0, max);
 	//}}AFX_DATA_MAP
 
@@ -47,52 +47,52 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CBuyDlg message handlers
 
-BOOL CBuyDlg::OnInitDialog() 
+BOOL CBuyDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
 	//m_ccbDropListOld.ResetContent();
-  
-	// TODO: Add extra initialization here
-	
 
-    CString str;
-	if(m_nMaxCount!=0){
-	str.Format("%ld元人民币,最多可以买%d个",cash,m_nMaxCount);
-	str+=drug_name;
-	str+="。";
+	// TODO: Add extra initialization here
+
+
+	CString str;
+	if (m_nMaxCount != 0) {
+		str.Format(_TEXT("%ld元人民币,最多可以买%d个"), cash, m_nMaxCount);
+		str += drug_name;
+		str += _TEXT("。");
 	}
-	else{
-    str.Format("%ld元人民币, 您租的房子放满了东西，所以不能再进货了。",cash);
+	else {
+		str.Format(_TEXT("%ld元人民币, 您租的房子放满了东西，所以不能再进货了。"), cash);
 
 	}
 	GetDlgItem(IDC_BUY_CASH)->SetWindowText(str);
-	if(m_nMaxCount==0){
-	str.Format("为扩大生意规模，建议您去租更大的房子。");
-    GetDlgItem(IDC_NO_HOUSE)->SetWindowText(str);
-    }
-	
-	m_spinner.SetRange ( 1, m_nMaxCount );
+	if (m_nMaxCount == 0) {
+		str.Format(_TEXT("为扩大生意规模，建议您去租更大的房子。"));
+		GetDlgItem(IDC_NO_HOUSE)->SetWindowText(str);
+	}
+
+	m_spinner.SetRange(1, m_nMaxCount);
 	return TRUE;  // return TRUE unless you set the focus to a control
-	              // EXCEPTION: OCX Property Pages should return FALSE
+				  // EXCEPTION: OCX Property Pages should return FALSE
 }
 
-void CBuyDlg::OnOK() 
+void CBuyDlg::OnOK()
 {
 	// TODO: Add extra validation here
 /*	CString str;
 	GetDlgItem(IDC_EDIT1)->SetWindowText(str);
 	m_cursel=atoi(str);
 */
-	
+
 	CDialog::OnOK();
 }
 
-void CBuyDlg::OnMove(int x, int y) 
+void CBuyDlg::OnMove(int x, int y)
 {
 	//CDialog::OnMove(x, y);
-	
+
 	// TODO: Add your message handler code here
 
-	return ;
+	return;
 }

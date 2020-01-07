@@ -17,12 +17,12 @@ static char THIS_FILE[] = __FILE__;
 // CEnterBank dialog
 
 
-CEnterBank::CEnterBank(CWnd* pParent /*=NULL*/,CSelectionDlg *p)
+CEnterBank::CEnterBank(CWnd* pParent /*=NULL*/, CSelectionDlg* p)
 	: CDialog(CEnterBank::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CEnterBank)
 		// NOTE: the ClassWizard will add member initialization here
-	se=p;
+	se = p;
 	//}}AFX_DATA_INIT
 }
 
@@ -45,52 +45,52 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CEnterBank message handlers
 
-void CEnterBank::OnOK() 
+void CEnterBank::OnOK()
 {
 	// TODO: Add extra validation here
 //	MyCash
 
-    CBankJiaoyi  dlg(NULL, se);
-	dlg.m_strMsg="您存多少钱?";	
-	dlg.m_nWhatToDo=1;
-	dlg.m_nMaxMoney=se->MyCash;
-	if(dlg.DoModal()==IDOK){
-		se->MyCash-=dlg.m_nMaxMoney;
-		se->MyBank+=dlg.m_nMaxMoney;
+	CBankJiaoyi  dlg(NULL, se);
+	dlg.m_strMsg = _TEXT("您存多少钱?");
+	dlg.m_nWhatToDo = 1;
+	dlg.m_nMaxMoney = se->MyCash;
+	if (dlg.DoModal() == IDOK) {
+		se->MyCash -= dlg.m_nMaxMoney;
+		se->MyBank += dlg.m_nMaxMoney;
 	}
 	CDialog::OnOK();
 }
 
-void CEnterBank::OnCancel() 
+void CEnterBank::OnCancel()
 {
 	// TODO: Add extra cleanup here
 	CBankJiaoyi  dlg(NULL, se);
-	dlg.m_strMsg="您提走多少钱?";
-	dlg.m_nWhatToDo=2;
-	dlg.m_nMaxMoney=se->MyBank;
-	if(dlg.DoModal()==IDOK){
-		se->MyCash+=dlg.m_nMaxMoney;
-		se->MyBank-=dlg.m_nMaxMoney;
+	dlg.m_strMsg = _TEXT("您提走多少钱?");
+	dlg.m_nWhatToDo = 2;
+	dlg.m_nMaxMoney = se->MyBank;
+	if (dlg.DoModal() == IDOK) {
+		se->MyCash += dlg.m_nMaxMoney;
+		se->MyBank -= dlg.m_nMaxMoney;
 	}
 	CDialog::OnCancel();
 }
 
-BOOL CEnterBank::OnInitDialog() 
+BOOL CEnterBank::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-    CString str;
-	str.Format("客户您好! 您的现金是%d, 您的存款是%d. 请问您要...",
+	CString str;
+	str.Format(_TEXT("客户您好! 您的现金是%d, 您的存款是%d. 请问您要..."),
 		se->MyCash, se->MyBank);
 	GetDlgItem(IDC_BANK_GREETING)->SetWindowText(str);
 	// TODO: Add extra initialization here
-	
+
 	return TRUE;  // return TRUE unless you set the focus to a control
-	              // EXCEPTION: OCX Property Pages should return FALSE
+				  // EXCEPTION: OCX Property Pages should return FALSE
 }
 
-void CEnterBank::OnQuit() 
+void CEnterBank::OnQuit()
 {
 	// TODO: Add your control notification handler code here
-		CDialog::OnCancel();
-	return ;
+	CDialog::OnCancel();
+	return;
 }

@@ -33,7 +33,7 @@ CStaticCounter::CStaticCounter()
 	// Set default background brush
 	m_brForeground.CreateSolidBrush(m_crColorForeground);
 
-	m_strNumber = "0";
+	m_strNumber = _TEXT("0");
 
 	m_bGotMetrics = false;
 }
@@ -207,15 +207,15 @@ void CStaticCounter::Draw(CMemDC* pDC, DWORD dwChar, int nCol)
 void CStaticCounter::Display(int nNumber)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 {
-	m_strNumber.Format("%d", nNumber);
+	m_strNumber.Format(_TEXT("%d"), nNumber);
 	Invalidate(FALSE);
 }
 
 void CStaticCounter::Displaylong(long lNumber)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 {
-	m_strNumber.Format("%ld", lNumber);
-   // m_strNumber.Format("%d", lNumber/100);
+	m_strNumber.Format(_TEXT("%ld"), lNumber);
+   // m_strNumber.Format(_TEXT("%d"), lNumber/100);
 	Invalidate(FALSE);
 }
 

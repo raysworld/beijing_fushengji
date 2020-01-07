@@ -21,6 +21,7 @@ CBankJiaoyi::CBankJiaoyi(CWnd* pParent,CSelectionDlg *p /*=NULL*/)
 	//{{AFX_DATA_INIT(CBankJiaoyi)
 		// NOTE: the ClassWizard will add member initialization here
 	se=p;
+	
 
 	//}}AFX_DATA_INIT
 }

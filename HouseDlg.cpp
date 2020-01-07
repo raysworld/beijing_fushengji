@@ -41,27 +41,27 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CHouseDlg message handlers
 
-void CHouseDlg::OnOK() 
+void CHouseDlg::OnOK()
 {
 	// TODO: Add extra validation here
-	
+
 	CDialog::OnOK();
 }
 
-BOOL CHouseDlg::OnInitDialog() 
+BOOL CHouseDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-	
+
 	// TODO: Add extra initialization here
 	CString say;
-	say.Format("想把生意做大?您现在的房子只能放%d个物品，太小啦!",old_number);
+	say.Format(_TEXT("想把生意做大?您现在的房子只能放%d个物品，太小啦!"), old_number);
 	GetDlgItem(IDC_SAY1)->SetWindowText(say);
-	if(money>30000)
-	  say.Format("您花费%ld元，可以租能放%d个物品的房子。",
-	     money/2, old_number+10);
+	if (money > 30000)
+		say.Format(_TEXT("您花费%ld元，可以租能放%d个物品的房子。"),
+			money / 2, old_number + 10);
 	else
-     say.Format("您花费20000元，可以租能放%d个物品的房子。",old_number+10);
+		say.Format(_TEXT("您花费20000元，可以租能放%d个物品的房子。"), old_number + 10);
 	GetDlgItem(IDC_SAY2)->SetWindowText(say);
 	return TRUE;  // return TRUE unless you set the focus to a control
-	              // EXCEPTION: OCX Property Pages should return FALSE
+				  // EXCEPTION: OCX Property Pages should return FALSE
 }

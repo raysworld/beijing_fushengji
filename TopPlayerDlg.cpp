@@ -62,11 +62,11 @@ BOOL CTopPlayerDlg::OnInitDialog()
 	m_list1.SendMessage(LVM_SETEXTENDEDLISTVIEWSTYLE, LVS_EX_FULLROWSELECT, LVS_EX_FULLROWSELECT);
 
 	// create column
-	m_list1.InsertColumn(0, "名次", LVCFMT_LEFT, 68);
-	m_list1.InsertColumn(1, "姓名", LVCFMT_LEFT, 100);
-	m_list1.InsertColumn(2, "金钱", LVCFMT_LEFT, 120);
-	m_list1.InsertColumn(3, "健康程度", LVCFMT_LEFT, 80);
-	m_list1.InsertColumn(4, "名声", LVCFMT_LEFT, 80);
+	m_list1.InsertColumn(0, _TEXT("名次"), LVCFMT_LEFT, 68);
+	m_list1.InsertColumn(1, _TEXT("姓名"), LVCFMT_LEFT, 100);
+	m_list1.InsertColumn(2, _TEXT("金钱"), LVCFMT_LEFT, 120);
+	m_list1.InsertColumn(3, _TEXT("健康程度"), LVCFMT_LEFT, 80);
+	m_list1.InsertColumn(4, _TEXT("名声"), LVCFMT_LEFT, 80);
 //    LoadSavedScore();
     ShowScores();
          
@@ -114,18 +114,18 @@ void CTopPlayerDlg::InsertScore(CString playername, long newscore,int health,int
 
 void CTopPlayerDlg::ShowScores()
 {
-	CString str[10]={"第一名","第二名","第三名","第四名","第五名",
-	"第六名","第七名","第八名","第九名","第十名"};
+	CString str[10]={_TEXT("第一名"),_TEXT("第二名"),_TEXT("第三名"),_TEXT("第四名"),_TEXT("第五名"),
+	_TEXT("第六名"),_TEXT("第七名"),_TEXT("第八名"),_TEXT("第九名"),_TEXT("第十名")};
     int i;
     CString tempstr;
 	for(i=0;i<10;i++){
 	   int n=m_list1.InsertItem(0,str[9-i]);
 	   m_list1.SetItemText(n,1,hscores [9-i].name);
-	   tempstr.Format("%ld",hscores [9-i].score);
+	   tempstr.Format(_TEXT("%ld"),hscores [9-i].score);
 	   m_list1.SetItemText(n,2,tempstr);
-	   tempstr.Format("%d",hscores[9-i].health);
+	   tempstr.Format(_TEXT("%d"),hscores[9-i].health);
 	   m_list1.SetItemText(n,3,tempstr);
-       //tempstr.Format("%d",hscores[9-i].fame);
+       //tempstr.Format(_TEXT("%d"),hscores[9-i].fame);
 	   m_list1.SetItemText(n,4,hscores[9-i].fame);
 	}
 	m_list1.SetItemState(m_nCurSel, LVIS_SELECTED, LVIS_SELECTED);
@@ -150,56 +150,56 @@ void CTopPlayerDlg::LoadSavedScore()
 	CString str=AfxGetApp()->m_pszHelpFilePath;
    int n=str.ReverseFind('\\');
    CString str1=str.Left(n);
-   str1+="\\score.txt";
-	fp=fopen(str1,"rb");
+   str1+=_TEXT("\\score.txt");
+	fp=fopen(str1,_TEXT("rb"));
 	if(!fp)   // not find score.txt, create a empty score list
 	{
 
 
-		strcpy (hscores [0].name, "赖皮张");
+		strcpy (hscores [0].name, _TEXT("赖皮张"));
 		hscores [0].score = 12500720;
 		hscores[0].health =98;
-	    strcpy(hscores[0].fame,"争议人物");
+	    strcpy(hscores[0].fame,_TEXT("争议人物"));
 
-		strcpy (hscores [1].name, "萧峰");
+		strcpy (hscores [1].name, _TEXT("萧峰"));
 		hscores [1].score = 830050;
 		hscores[1].health =100;
- 	    strcpy(hscores[1].fame,"杰出青年");
+ 	    strcpy(hscores[1].fame,_TEXT("杰出青年"));
 		
-		strcpy (hscores [2].name, "二黑");
+		strcpy (hscores [2].name, _TEXT("二黑"));
 		hscores [2].score = 500447;
 			hscores[2].health =78;
-				    strcpy(hscores[2].fame,"德高望重");
+				    strcpy(hscores[2].fame,_TEXT("德高望重"));
 	    
-		strcpy (hscores [3].name, "Andy Rocky");
+		strcpy (hscores [3].name, _TEXT("Andy Rocky"));
 		hscores [3].score = 239403;
 			hscores[3].health =97;
-				    strcpy(hscores[3].fame ,"很差");
-        strcpy (hscores [4].name, "li xing");
+				    strcpy(hscores[3].fame ,_TEXT("很差"));
+        strcpy (hscores [4].name, _TEXT("li xing"));
 		hscores [4].score = 34900;
 			hscores[4].health =35;
-				    strcpy(hscores[4].fame,"江湖唾弃");
+				    strcpy(hscores[4].fame,_TEXT("江湖唾弃"));
 
-strcpy (hscores [5].name, "li xing");
+strcpy (hscores [5].name, _TEXT("li xing"));
 		hscores [5].score = 13400;
 			hscores[5].health =100;
-				    strcpy(hscores[5].fame ,"江湖唾弃");;
-strcpy (hscores [6].name, "li ");
+				    strcpy(hscores[5].fame ,_TEXT("江湖唾弃"));;
+strcpy (hscores [6].name, _TEXT("li "));
 		hscores [6].score = 2300;
 			hscores[6].health =77;
-				    strcpy(hscores[6].fame,"不佳");
+				    strcpy(hscores[6].fame,_TEXT("不佳"));
 
-strcpy (hscores [7].name, "li ");
+strcpy (hscores [7].name, _TEXT("li "));
 		hscores [7].score = 45;
 			hscores[7].health =12;
-				  	    strcpy(hscores[7].fame,"杰出青年");
-strcpy (hscores [8].name, "li");
+				  	    strcpy(hscores[7].fame,_TEXT("杰出青年"));
+strcpy (hscores [8].name, _TEXT("li"));
 		hscores [8].score = 34;
-			hscores[8].health =100;	    strcpy(hscores[8].fame,"一般般");
+			hscores[8].health =100;	    strcpy(hscores[8].fame,_TEXT("一般般"));
 				   
-strcpy (hscores [9].name, "li");
+strcpy (hscores [9].name, _TEXT("li"));
 		hscores [9].score = 3;
-			hscores[9].health =100;	    strcpy(hscores[9].fame,"杰出青年");
+			hscores[9].health =100;	    strcpy(hscores[9].fame,_TEXT("杰出青年"));
 				   
 	    
 	    return ;
@@ -209,7 +209,7 @@ strcpy (hscores [9].name, "li");
     for(i=0;i<10;i++)
 	{
            fgets(line, MAXSTRLEN, fp);  
-		   //sprintf(name,"%s",line);
+		   //sprintf(name,_TEXT("%s"),line);
 		   for(int j=0;j<strlen(line);j++)
 		   {
 			   if(line[j]==0x0d){
@@ -222,12 +222,12 @@ strcpy (hscores [9].name, "li");
 		   strcpy(hscores[i].name,temp);
 
            fgets(line, MAXSTRLEN, fp);  
-		   //sprintf(name,"%ld",);
+		   //sprintf(name,_TEXT("%ld"),);
            hscores[i].score=atol(line);
 
            fgets(line, MAXSTRLEN, fp); 
 		   hscores[i].health=atoi(line);
-		   //sprintf(name,"%s",line);
+		   //sprintf(name,_TEXT("%s"),line);
            fgets(line, MAXSTRLEN, fp); 
            for(int j=0;j<strlen(line);j++)
 		   {
@@ -253,19 +253,19 @@ void CTopPlayerDlg::SaveScore()
 	CString str=AfxGetApp()->m_pszHelpFilePath;
    int n=str.ReverseFind('\\');
    CString str1=str.Left(n);
-   str1+="\\score.txt";
-	fp=fopen(str1,"w");
+   str1+=_TEXT("\\score.txt");
+	fp=fopen(str1,_TEXT("w"));
 	if(!fp)
 	{
-		AfxMessageBox("Error: score file can not be opened.");
+		AfxMessageBox(_TEXT("Error: score file can not be opened."));
 		exit(-1);
 	}
     for(i=0;i<10;i++)
 	{      strcpy(temp,hscores[i].name);
-           fprintf(fp,"%s\n",temp);
-           fprintf(fp,"%ld\n",hscores[i].score);
-		   fprintf(fp,"%d\n",hscores[i].health);
-		   fprintf(fp,"%s\n",hscores[i].fame);
+           fprintf(fp,_TEXT("%s\n"),temp);
+           fprintf(fp,_TEXT("%ld\n"),hscores[i].score);
+		   fprintf(fp,_TEXT("%d\n"),hscores[i].health);
+		   fprintf(fp,_TEXT("%s\n"),hscores[i].fame);
 	}
 	fclose(fp);
 }
@@ -273,23 +273,23 @@ void CTopPlayerDlg::SaveScore()
 CString GetFameStr(int fame)
 {
   if(fame>=100)
-	  return "德高望重";
+	  return _TEXT("德高望重");
   else if(fame <100 && fame >=90)
-	  return "杰出青年";
+	  return _TEXT("杰出青年");
  else if(fame <90 && fame >=80)
-	  return "一般般";
+	  return _TEXT("一般般");
  else if(fame <80 && fame >=60)
-	  return "不佳";
+	  return _TEXT("不佳");
  else if(fame <60 && fame >=40)
-	  return "争议人物";
+	  return _TEXT("争议人物");
  else if(fame <40 && fame >=20)
-	  return "差";
+	  return _TEXT("差");
  else if(fame <20 && fame >=10)
-	  return "很差";
+	  return _TEXT("很差");
  else if(fame <10)
-      return "江湖唾弃";
+      return _TEXT("江湖唾弃");
  else 
-	 return "江湖唾弃";
+	 return _TEXT("江湖唾弃");
 
 
 }
