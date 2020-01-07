@@ -229,7 +229,7 @@ strcpy (hscores [9].name, "li");
 		   hscores[i].health=atoi(line);
 		   //sprintf(name,"%s",line);
            fgets(line, MAXSTRLEN, fp); 
-           for(j=0;j<strlen(line);j++)
+           for(int j=0;j<strlen(line);j++)
 		   {
 			   if(line[j]==0x0d){
 				   temp[j]='\0';
