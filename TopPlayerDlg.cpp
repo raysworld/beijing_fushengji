@@ -284,7 +284,7 @@ CString GetFameStr(int fame)
 	  return "争议人物";
  else if(fame <40 && fame >=20)
 	  return "差";
- else if(fame <20 >=10)
+ else if(fame <20 && fame >=10)
 	  return "很差";
  else if(fame <10)
       return "江湖唾弃";
