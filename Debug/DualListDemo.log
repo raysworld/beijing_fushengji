@@ -1,8 +1,102 @@
-﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  StdAfx.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  Wangba.cpp
+﻿  StdAfx.cpp
+  BankJiaoyi.cpp
+C:\Users\raysw\Repositories\temp\beijing_fushengji\BankJiaoyi.cpp(58,28): warning C4244: 'argument': conversion from 'long' to 'short', possible loss of data
+C:\Users\raysw\Repositories\temp\beijing_fushengji\BankJiaoyi.cpp(60,31): warning C4244: 'argument': conversion from 'long' to 'short', possible loss of data
+  BeijingIntroDlg.cpp
+  BitmapPicture.cpp
+  BossComeDlg.cpp
+  BtnST.cpp
+  BuyDlg.cpp
+  Curvefit.cpp
+  Digistring.cpp
+C:\Users\raysw\Repositories\temp\beijing_fushengji\Digistring.cpp(258,56): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\raysw\Repositories\temp\beijing_fushengji\Digistring.cpp(257,71): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\raysw\Repositories\temp\beijing_fushengji\Digistring.cpp(290,33): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+C:\Users\raysw\Repositories\temp\beijing_fushengji\Digistring.cpp(291,33): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+C:\Users\raysw\Repositories\temp\beijing_fushengji\Digistring.cpp(292,33): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+C:\Users\raysw\Repositories\temp\beijing_fushengji\Digistring.cpp(293,33): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+C:\Users\raysw\Repositories\temp\beijing_fushengji\Digistring.cpp(696,1): warning C4996: '_vsnprintf': This function or variable may be unsafe. Consider using _vsnprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1400): message : see declaration of '_vsnprintf'
+  DualListDemo.cpp
+  DualListDemoDlg.cpp
+  EnterBank.cpp
+  Hispital.cpp
+  HouseDlg.cpp
+  HyperLink.cpp
+  ListCtrlSortClass.cpp
+  NetworkClub.cpp
+  NewsDlg.cpp
+  PostMoneyDlg.cpp
+  ReplayLoad.cpp
+C:\Users\raysw\Repositories\temp\beijing_fushengji\ReplayLoad.cpp(57,29): warning C4244: 'argument': conversion from 'long' to 'short', possible loss of data
+  RichTop10.cpp
+  Generating Code...
+  Compiling...
+  RijiDlg.cpp
+  SelectionDlg.cpp
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(352,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(353,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(354,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(355,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(356,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(357,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(358,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(359,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(360,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2023,8): warning C4101: 'fp1': unreferenced local variable
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2023,14): warning C4101: 'fp2': unreferenced local variable
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2144,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2145,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2146,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2147,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2148,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2149,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2150,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2151,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2152,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+  SellDlg.cpp
+  SetUpGame.cpp
+  ShengmingDlg.cpp
+  StaticCounter.cpp
+  StoryDlg.cpp
+C:\Users\raysw\Repositories\temp\beijing_fushengji\StoryDlg.cpp(74,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\StoryDlg.cpp(84,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
+  Ticker.cpp
+C:\Users\raysw\Repositories\temp\beijing_fushengji\Ticker.cpp(249,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\Ticker.cpp(489,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\Ticker.cpp(455,16): warning C4101: 'fp1': unreferenced local variable
+C:\Users\raysw\Repositories\temp\beijing_fushengji\Ticker.cpp(455,22): warning C4101: 'fp2': unreferenced local variable
+  TipDlg.cpp
+C:\Users\raysw\Repositories\temp\beijing_fushengji\TipDlg.cpp(46,1): warning C4996: '__p__pgmptr': This function or variable may be unsafe. Consider using _get_pgmptr instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdlib.h(238): message : see declaration of '__p__pgmptr'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\TipDlg.cpp(47,1): warning C4996: '_splitpath': This function or variable may be unsafe. Consider using _splitpath_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdlib.h(1112): message : see declaration of '_splitpath'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\TipDlg.cpp(56,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
+C:\Users\raysw\Repositories\temp\beijing_fushengji\TipDlg.cpp(70,1): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\time.h(476): message : see declaration of 'ctime'
   TopPlayerDlg.cpp
 C:\Users\raysw\Repositories\temp\beijing_fushengji\TopPlayerDlg.cpp(100,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
@@ -68,106 +162,7 @@ C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): m
 C:\Users\raysw\Repositories\temp\beijing_fushengji\TopPlayerDlg.cpp(264,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
 C:\Users\raysw\Repositories\temp\beijing_fushengji\TopPlayerDlg.cpp(287,23): warning C4804: '>=': unsafe use of type 'bool' in operation
-  TipDlg.cpp
-C:\Users\raysw\Repositories\temp\beijing_fushengji\TipDlg.cpp(46,1): warning C4996: '__p__pgmptr': This function or variable may be unsafe. Consider using _get_pgmptr instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdlib.h(238): message : see declaration of '__p__pgmptr'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\TipDlg.cpp(47,1): warning C4996: '_splitpath': This function or variable may be unsafe. Consider using _splitpath_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdlib.h(1112): message : see declaration of '_splitpath'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\TipDlg.cpp(56,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\TipDlg.cpp(70,1): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\time.h(476): message : see declaration of 'ctime'
-  Ticker.cpp
-C:\Users\raysw\Repositories\temp\beijing_fushengji\Ticker.cpp(249,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\Ticker.cpp(489,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\Ticker.cpp(455,16): warning C4101: 'fp1': unreferenced local variable
-C:\Users\raysw\Repositories\temp\beijing_fushengji\Ticker.cpp(455,22): warning C4101: 'fp2': unreferenced local variable
-  StoryDlg.cpp
-C:\Users\raysw\Repositories\temp\beijing_fushengji\StoryDlg.cpp(74,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\StoryDlg.cpp(84,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
-  StaticCounter.cpp
-  ShengmingDlg.cpp
-  SetUpGame.cpp
-  SellDlg.cpp
-  SelectionDlg.cpp
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(352,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(353,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(354,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(355,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(356,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(357,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(358,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(359,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(360,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2023,8): warning C4101: 'fp1': unreferenced local variable
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2023,14): warning C4101: 'fp2': unreferenced local variable
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2144,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2145,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2146,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2147,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2148,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2149,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2150,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2151,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-C:\Users\raysw\Repositories\temp\beijing_fushengji\SelectionDlg.cpp(2152,1): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(133): message : see declaration of 'strcpy'
-  RijiDlg.cpp
-  RichTop10.cpp
-  ReplayLoad.cpp
-C:\Users\raysw\Repositories\temp\beijing_fushengji\ReplayLoad.cpp(57,29): warning C4244: 'argument': conversion from 'long' to 'short', possible loss of data
-  PostMoneyDlg.cpp
-  NewsDlg.cpp
-  NetworkClub.cpp
-  ListCtrlSortClass.cpp
-  HyperLink.cpp
-  HouseDlg.cpp
-  Hispital.cpp
-  Generating Code...
-  Compiling...
-  EnterBank.cpp
-  DualListDemoDlg.cpp
-  DualListDemo.cpp
-C:\Users\raysw\Repositories\temp\beijing_fushengji\DualListDemo.cpp(60,1): warning C4996: 'CWinApp::Enable3dControlsStatic': CWinApp::Enable3dControlsStatic is no longer needed. You should remove this call.
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\atlmfc\include\afxwin.h(5232): message : see declaration of 'CWinApp::Enable3dControlsStatic'
-  Digistring.cpp
-C:\Users\raysw\Repositories\temp\beijing_fushengji\Digistring.cpp(258,56): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\raysw\Repositories\temp\beijing_fushengji\Digistring.cpp(257,71): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\raysw\Repositories\temp\beijing_fushengji\Digistring.cpp(290,33): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
-C:\Users\raysw\Repositories\temp\beijing_fushengji\Digistring.cpp(291,33): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
-C:\Users\raysw\Repositories\temp\beijing_fushengji\Digistring.cpp(292,33): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
-C:\Users\raysw\Repositories\temp\beijing_fushengji\Digistring.cpp(293,33): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
-C:\Users\raysw\Repositories\temp\beijing_fushengji\Digistring.cpp(696,1): warning C4996: '_vsnprintf': This function or variable may be unsafe. Consider using _vsnprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1400): message : see declaration of '_vsnprintf'
-  Curvefit.cpp
-  BuyDlg.cpp
-  BtnST.cpp
-  BossComeDlg.cpp
-  BitmapPicture.cpp
-  BeijingIntroDlg.cpp
-  BankJiaoyi.cpp
-C:\Users\raysw\Repositories\temp\beijing_fushengji\BankJiaoyi.cpp(58,28): warning C4244: 'argument': conversion from 'long' to 'short', possible loss of data
-C:\Users\raysw\Repositories\temp\beijing_fushengji\BankJiaoyi.cpp(60,31): warning C4244: 'argument': conversion from 'long' to 'short', possible loss of data
+  Wangba.cpp
   Generating Code...
 BankJiaoyi.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   DualListDemo.vcxproj -> C:\Users\raysw\Repositories\temp\beijing_fushengji\.\Debug\DualListDemo.exe

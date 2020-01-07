@@ -15,7 +15,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-int g_showtips=1;
+int g_showtips = 1;
 
 /////////////////////////////////////////////////////////////////////////////
 // CDualListDemoApp
@@ -54,14 +54,16 @@ BOOL CDualListDemoApp::InitInstance()
 	//  of your final executable, you should remove from the following
 	//  the specific initialization routines you do not need.
 
+#if _MSC_VER <= 1200 // MFC 6.0 or earlier
 #ifdef _AFXDLL
 	Enable3dControls();			// Call this when using MFC in a shared DLL
 #else
 	Enable3dControlsStatic();	// Call this when linking to MFC statically
 #endif
+#endif
 
 	ShowTipAtStartup();
-//	CDualListDemoDlg dlg;
+	//	CDualListDemoDlg dlg;
 
 	CSelectionDlg dlg;
 	m_pMainWnd = &dlg;
@@ -84,20 +86,20 @@ BOOL CDualListDemoApp::InitInstance()
 
 void CDualListDemoApp::ShowTipAtStartup()
 {
-    CCommandLineInfo cmdInfo;
+	CCommandLineInfo cmdInfo;
 	ParseCommandLine(cmdInfo);
 	if (cmdInfo.m_bShowSplash)
 	{
 		CStoryDlg dlg;
-		
+
 		dlg.DoModal();
 	}
-    
+
 
 }
 
 void CDualListDemoApp::ShowTipOfTheDay()
 {
 
- 
+
 }
