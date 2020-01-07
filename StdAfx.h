@@ -22,5 +22,7 @@
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Developer Studio will insert additional declarations immediately before the previous line.
+//https://blog.csdn.net/xxxbbjjfz/article/details/53874913
+#define CMemDC XCMemDC
 
 #endif // !defined(AFX_STDAFX_H__D86241DB_1492_11D4_B3AB_006008BD86D1__INCLUDED_)

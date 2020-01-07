@@ -170,5 +170,4 @@ C:\Users\raysw\Repositories\temp\beijing_fushengji\BankJiaoyi.cpp(58,28): warnin
 C:\Users\raysw\Repositories\temp\beijing_fushengji\BankJiaoyi.cpp(60,31): warning C4244: 'argument': conversion from 'long' to 'short', possible loss of data
   Generating Code...
 BankJiaoyi.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-nafxcwd.lib(afxglobals.obj) : error LNK2005: "public: virtual __thiscall CMemDC::~CMemDC(void)" (??1CMemDC@@UAE@XZ) already defined in Digistring.obj
-.\Debug\DualListDemo.exe : fatal error LNK1169: one or more multiply defined symbols found
+  DualListDemo.vcxproj -> C:\Users\raysw\Repositories\temp\beijing_fushengji\.\Debug\DualListDemo.exe
