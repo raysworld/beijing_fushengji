@@ -75,8 +75,8 @@ public:
 	void SetTickerTextColor(COLORREF TextColor);
 	int GetTickerSpeed();
 	void SetTickerSpeed(int sp);
-	void SetTickerTextCharVersion(char* Str);
-	char* GetTickerTextCharVersion();
+	void SetTickerTextCharVersion(TCHAR* Str);
+	TCHAR* GetTickerTextCharVersion();
 	void SetTickerFontHeight(int ht);
 	int GetTickerFontHeight();
 	CString GetTickerFontName();
@@ -104,7 +104,7 @@ protected:
 	CBitmap m_BmpBkg ;
 	BOOL m_bIsBkgBmp;
 
-	char* m_TickerTextCharVersion;
+	TCHAR* m_TickerTextCharVersion;
 	int m_TickerFontHeight;
 	CString m_TickerFontName;
 	CRect m_TickerRect;

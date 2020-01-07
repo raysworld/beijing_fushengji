@@ -111,7 +111,7 @@ int  RandomNum(int upper)
 */
 typedef struct MessageType {
 	int freq;   // the frequency of the events 
-	char* msg;  // what message to display when event happen
+	TCHAR* msg;  // what message to display when event happen
 	int drug;  // goods ID to be influenced
 	int plus;  // price increased ( *)
 	int minus; //price decrease   ( /)
@@ -144,9 +144,9 @@ Message gameMessages[GAME_MESSAGE_COUNT] = {
 
 typedef struct EventType {
 	int freq;     // the frequency of this event
-	char* msg;    // the message to dispplay while event happen
+	TCHAR* msg;    // the message to dispplay while event happen
 	int hunt;     // how many points user get hurted when event happen
-	char* sound;  // the sound file to play for the event
+	TCHAR* sound;  // the sound file to play for the event
 } BadEvent;
 
 #define EVENT_CNT    12    // total such events 
@@ -171,7 +171,7 @@ BadEvent random_event[EVENT_CNT] = {
 */
 typedef struct StealType {
 	int freq;  //the frequency of the event
-	char* msg; //the message to display when event happen
+	TCHAR* msg; //the message to display when event happen
 	int ratoi;  // how many ratio decreased. money=money*(1-ratoi)
 } StealEvent;
 
@@ -346,28 +346,18 @@ CSelectionDlg::CSelectionDlg(CWnd* pParent /*=NULL*/)
 		m_nMyDrugs[i] = -1;  // do not have any goods in the begining
 	}
 	for (i = 0; i < 9; i++)       // alloc memory for goods' name
-		m_chDrugName[i] = (char*)malloc(100);
+		m_chDrugName[i] = (TCHAR*)malloc(100);
 
 	// init the goods' name	
-	//strcpy_s(m_chDrugName[0], _countof(m_chDrugName[0]), _TEXT("进口香烟"));
-	//strcpy_s(m_chDrugName[1], _countof(m_chDrugName[1]), _TEXT("走私汽车"));
-	//strcpy_s(m_chDrugName[2], _countof(m_chDrugName[2]), _TEXT("盗版VCD、游戏"));
-	//strcpy_s(m_chDrugName[3], _countof(m_chDrugName[3]), _TEXT("假白酒（剧毒！）"));
-	//strcpy_s(m_chDrugName[4], _countof(m_chDrugName[4]), _TEXT("《上海小宝贝》（禁书）"));
-	//strcpy_s(m_chDrugName[5], _countof(m_chDrugName[5]), _TEXT("进口玩具"));
-	//strcpy_s(m_chDrugName[7], _countof(m_chDrugName[7]), _TEXT("伪劣化妆品"));
-	//strcpy_s(m_chDrugName[6], _countof(m_chDrugName[6]), _TEXT("水货手机"));
-	//strcpy_s(m_chDrugName[8], _countof(m_chDrugName[8]), _TEXT(""));
-
-	strcpy(m_chDrugName[0], _TEXT("进口香烟"));
-	strcpy(m_chDrugName[1], _TEXT("走私汽车"));
-	strcpy(m_chDrugName[2], _TEXT("盗版VCD、游戏"));
-	strcpy(m_chDrugName[3], _TEXT("假白酒（剧毒！）"));
-	strcpy(m_chDrugName[4], _TEXT("《上海小宝贝》（禁书）"));
-	strcpy(m_chDrugName[5], _TEXT("进口玩具"));
-	strcpy(m_chDrugName[7], _TEXT("伪劣化妆品"));
-	strcpy(m_chDrugName[6], _TEXT("水货手机"));
-	strcpy(m_chDrugName[8], _TEXT(""));
+	_tcscpy(m_chDrugName[0], _TEXT("进口香烟"));
+	_tcscpy(m_chDrugName[1], _TEXT("走私汽车"));
+	_tcscpy(m_chDrugName[2], _TEXT("盗版VCD、游戏"));
+	_tcscpy(m_chDrugName[3], _TEXT("假白酒（剧毒！）"));
+	_tcscpy(m_chDrugName[4], _TEXT("《上海小宝贝》（禁书）"));
+	_tcscpy(m_chDrugName[5], _TEXT("进口玩具"));
+	_tcscpy(m_chDrugName[7], _TEXT("伪劣化妆品"));
+	_tcscpy(m_chDrugName[6], _TEXT("水货手机"));
+	_tcscpy(m_chDrugName[8], _TEXT(""));
 
 	/*------------------- end of init goods -----------------------------------------*/
 }
@@ -670,7 +660,7 @@ void CSelectionDlg::OnAdd()
 		int nItem = m_list1.GetNextSelectedItem(pos);
 		drug_name = m_list1.GetItemText(nItem, 0);
 		num = m_list1.GetItemText(nItem, 1);
-		price = atol(num);
+		price = _tstol(num);
 
 	}
 	if (price == 0)  //user did not select any drugs
@@ -804,13 +794,13 @@ void CSelectionDlg::MoveListItems(CListCtrl& pFromList, CListCtrl& pToList)
 			int old_price;
 			old_cnt = m_list2.GetItemText(i, 2);
 			old = old_cnt;
-			old_price = atoi(m_list2.GetItemText(i, 1));
-			j = atoi(old_cnt);
+			old_price = _tstoi(m_list2.GetItemText(i, 1));
+			j = _tstoi(old_cnt);
 			j += m_nBuyCount;
 			old_cnt.Format(_TEXT("%d"), j);
 			m_list2.SetItemText(i, 2, old_cnt);
 			CString guo;
-			guo.Format(_TEXT("%d"), (int)((atoi(price) * m_nBuyCount + old_price * atoi(old)) / (j)));
+			guo.Format(_TEXT("%d"), (int)((_tstoi(price) * m_nBuyCount + old_price * _tstoi(old)) / (j)));
 			m_list2.SetItemText(i, 1, guo);
 
 		}
@@ -868,9 +858,9 @@ void CSelectionDlg::MoveListItems(CListCtrl& pFromList, CListCtrl& pToList)
 
 			*/
 			CSellDlg dlg;
-			dlg.m_nMaxCount = atoi(count);
-			dlg.max = atoi(count);
-			dlg.m_strSellMsg.Format(_TEXT("您有%d个"), atoi(count));
+			dlg.m_nMaxCount = _tstoi(count);
+			dlg.max = _tstoi(count);
+			dlg.m_strSellMsg.Format(_TEXT("您有%d个"), _tstoi(count));
 			dlg.m_strSellMsg += drug_name;
 			dlg.m_strSellMsg += _TEXT("，想卖出多少？");
 			if (dlg.DoModal() == IDOK) {
@@ -878,17 +868,17 @@ void CSelectionDlg::MoveListItems(CListCtrl& pFromList, CListCtrl& pToList)
 					PlaySound(_TEXT("sound\\money.wav"), NULL, SND_ASYNC);
 				m_nSellCount = dlg.m_nMaxCount;   //this is the acutal number user buy
 				myTotal -= m_nSellCount;  // coat occupied since drug in
-				MyCash += m_nSellCount * atoi(m_list1.GetItemText(i, 1));
+				MyCash += m_nSellCount * _tstoi(m_list1.GetItemText(i, 1));
 				CString str;
 
 				str.Format(_TEXT("%ld"), MyCash);
 				m_CashDisplay.SetText(str);
-				if (m_nSellCount == atoi(count))  // all sold out
+				if (m_nSellCount == _tstoi(count))  // all sold out
 					m_list2.DeleteItem(nItem);
 				else                          // sell only a part
 				{
 					CString drug_left;
-					drug_left.Format(_TEXT("%d"), atoi(count) - m_nSellCount);
+					drug_left.Format(_TEXT("%d"), _tstoi(count) - m_nSellCount);
 					m_list2.SetItemText(nItem, 2, drug_left);
 				}
 				// some drug would decrease user's fame
@@ -1268,7 +1258,7 @@ void CSelectionDlg::DoRandomStuff(void)
 				int j;
 				for (j = 0; j < m_list2.GetItemCount(); j++)
 				{
-					if (strcmp(m_list2.GetItemText(j, 0),
+					if (_tcscmp(m_list2.GetItemText(j, 0),
 						m_chDrugName[gameMessages[i].drug]) == 0)
 					{
 						exist = 1;
@@ -1278,7 +1268,7 @@ void CSelectionDlg::DoRandomStuff(void)
 				// ok, user have the goods to be added 
 				if (exist)   //add to existing goods
 				{
-					int new_cnt = atoi(m_list2.GetItemText(j, 2)) + addcount;
+					int new_cnt = _tstoi(m_list2.GetItemText(j, 2)) + addcount;
 					CString str;
 					str.Format(_TEXT("%d"), new_cnt);
 					myTotal += addcount;
@@ -1531,7 +1521,7 @@ void CSelectionDlg::HandleNormalEvents()
 				{
 
 					goods_name = m_list2.GetItemText(i, 0);
-					goods_num = atoi(m_list2.GetItemText(i, 2));
+					goods_num = _tstoi(m_list2.GetItemText(i, 2));
 					// check the right for price
 					for (j = 0; j < m_list1.GetItemCount(); j++)
 					{
@@ -1539,7 +1529,7 @@ void CSelectionDlg::HandleNormalEvents()
 						if (goods_name == m_list1.GetItemText(j, 0))
 						{
 							// sell the goods using current black market price
-							MyCash += goods_num * (atoi(m_list1.GetItemText(j, 1)));
+							MyCash += goods_num * (_tstoi(m_list1.GetItemText(j, 1)));
 
 
 						}
@@ -1950,7 +1940,8 @@ void CSelectionDlg::OnExit()
 		str += _TEXT("”在北京没挣着钱，被遣送回家。");
 		CNewsDlg dlg(NULL, str);
 		dlg.DoModal();
-		remove(m_strHelpFile);
+		CT2A ascii(m_strHelpFile, CP_UTF8);
+		remove(ascii.m_psz);  //delete the help file
 		OnOK();
 		return;
 	}
@@ -1960,8 +1951,8 @@ void CSelectionDlg::OnExit()
 		OnNewGame();
 	}
 	else {
-
-		remove(m_strHelpFile);  //delete the help file
+		CT2A ascii(m_strHelpFile, CP_UTF8);
+		remove(ascii.m_psz);  //delete the help file
 		OnOK();  //then, quit
 	}
 }
@@ -2150,16 +2141,16 @@ void CSelectionDlg::OnNewGame()
 		m_nMyDrugs[i] = -1;  // do not have any drug in the begining
 	}
 	for (i = 0; i < 9; i++)
-		m_chDrugName[i] = (char*)malloc(100);
-	strcpy(m_chDrugName[0], _TEXT("进口香烟"));
-	strcpy(m_chDrugName[1], _TEXT("走私汽车"));
-	strcpy(m_chDrugName[2], _TEXT("盗版VCD、游戏"));
-	strcpy(m_chDrugName[3], _TEXT("假白酒（剧毒！）"));
-	strcpy(m_chDrugName[4], _TEXT("《上海小宝贝》（禁书）"));
-	strcpy(m_chDrugName[5], _TEXT("进口玩具"));
-	strcpy(m_chDrugName[7], _TEXT("伪劣化妆品"));
-	strcpy(m_chDrugName[6], _TEXT("水货手机"));
-	strcpy(m_chDrugName[8], _TEXT(""));
+		m_chDrugName[i] = (TCHAR*)malloc(100);
+	_tcscpy(m_chDrugName[0], _TEXT("进口香烟"));
+	_tcscpy(m_chDrugName[1], _TEXT("走私汽车"));
+	_tcscpy(m_chDrugName[2], _TEXT("盗版VCD、游戏"));
+	_tcscpy(m_chDrugName[3], _TEXT("假白酒（剧毒！）"));
+	_tcscpy(m_chDrugName[4], _TEXT("《上海小宝贝》（禁书）"));
+	_tcscpy(m_chDrugName[5], _TEXT("进口玩具"));
+	_tcscpy(m_chDrugName[7], _TEXT("伪劣化妆品"));
+	_tcscpy(m_chDrugName[6], _TEXT("水货手机"));
+	_tcscpy(m_chDrugName[8], _TEXT(""));
 
 
 	// add some items

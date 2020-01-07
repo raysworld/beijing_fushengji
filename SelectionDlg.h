@@ -65,7 +65,7 @@ public:
 	void makeDrugPrices(int leaveout);
 	CString GetDrugName(int id);
 	int m_nMyDrugs[8];   // the drug ID I have in pocket
-	char * m_chDrugName[9]; // drug names
+	TCHAR* m_chDrugName[9]; // drug names
 	long m_DrugPrice[8];  // current drug price
 	int m_nTimeLeft;      //how many turns left
 	long MyCash;

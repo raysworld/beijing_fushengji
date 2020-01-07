@@ -71,7 +71,7 @@ void CStoryDlg::ProcessHelpFile()
 	CString str1 = str.Left(n);
 	CString   m_strHelpFile = str1;
 	str1 += _TEXT("\\helpinfo");
-	FILE* fp = fopen(str1, _TEXT("rb"));
+	FILE* fp = _tfopen(str1, _TEXT("rb"));
 	if (!fp) {
 		AfxMessageBox(str1);
 		exit(-1);
@@ -81,7 +81,7 @@ void CStoryDlg::ProcessHelpFile()
 	tmp.Format(_TEXT("help.html"));
 	m_strHelpFile += _TEXT("\\");
 	m_strHelpFile += tmp;
-	FILE* fp1 = fopen(m_strHelpFile, _TEXT("wb"));
+	FILE* fp1 = _tfopen(m_strHelpFile, _TEXT("wb"));
 	int i;
 	if (fp != NULL) {
 		char* buf;

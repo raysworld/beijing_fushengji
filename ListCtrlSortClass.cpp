@@ -66,9 +66,9 @@ int CALLBACK CListCtrlSortClass::Compare(LPARAM lParam1, LPARAM lParam2, LPARAM 
 	switch (dtType)
 	{
 	case SortDataType::dtINT:
-		return (atol(pItem1->m_txt) - atol(pItem2->m_txt)) * nOrder;
+		return (_tstol(pItem1->m_txt) - _tstol(pItem2->m_txt)) * nOrder;
 	case SortDataType::dtDEC:
-		return (int) ((atof(pItem1->m_txt) - atof(pItem2->m_txt)) * nOrder);
+		return (int) ((_tstof(pItem1->m_txt) - _tstof(pItem2->m_txt)) * nOrder);
 	case SortDataType::dtSTRING:
 		return pItem1->m_txt.Compare(pItem2->m_txt) * nOrder;
 	case SortDataType::dtSTRINGNOCASE:

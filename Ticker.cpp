@@ -246,7 +246,7 @@ void CTicker::SetTickerText(CString DisplayStr)
 		delete m_TickerTextCharVersion;
 	}
 	m_TickerTextCharVersion = new TCHAR[DisplayStr.GetLength() + 1];
-	strcpy(m_TickerTextCharVersion ,(LPCTSTR)DisplayStr);
+	_tcscpy(m_TickerTextCharVersion ,(LPCTSTR)DisplayStr);
 }
 
 
@@ -295,12 +295,12 @@ void CTicker::SetTickerFontHeight(int ht)
 }
 
 
-char* CTicker::GetTickerTextCharVersion()
+TCHAR* CTicker::GetTickerTextCharVersion()
 {
 	return m_TickerTextCharVersion ;
 }
 
-void CTicker::SetTickerTextCharVersion(char *Str)
+void CTicker::SetTickerTextCharVersion(TCHAR *Str)
 {
 	m_TickerTextCharVersion = Str;
 }
@@ -486,7 +486,7 @@ void CTicker::ShowRates(CString pszFileName, COLORREF bkg, COLORREF fore, LPCTST
    str1+=_TEXT("\\news.txt");
 	//psz[completelen - 14] = '\0';
 	//strcat(psz,_TEXT("tips.txt"));
-   fp=fopen(str1,_TEXT("rb"));
+   fp= _tfopen(str1,_TEXT("rb"));
    int i;
    if(fp!=NULL){
 	  char *buf;

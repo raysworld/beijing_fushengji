@@ -39,27 +39,27 @@ CTipDlg::CTipDlg(CWnd* pParent /*=NULL*/)
 	m_nHelpID = 0;
 
 	// look in the application directory for the tip file
-  char drive[_MAX_DRIVE];
-  char dir[_MAX_DIR];
-  char fname[_MAX_FNAME];
-  char ext[_MAX_EXT];
-	const char *path = _pgmptr ;
-  _splitpath(path, drive, dir, fname, ext );
+	char drive[_MAX_DRIVE];
+	char dir[_MAX_DIR];
+	char fname[_MAX_FNAME];
+	char ext[_MAX_EXT];
+	const char* path = _pgmptr;
+	_splitpath(path, drive, dir, fname, ext);
 
-   CString sPath;
-	 sPath.Format("%s%s%s", drive, dir, "Tips.txt");
-	 TRACE("sPath is %s\n", sPath);
+	CString sPath;
+	sPath.Format(_TEXT("%s%s%s"), drive, dir, _TEXT("Tips.txt"));
+	TRACE("sPath is %s\n", sPath);
 
 
 
 	// Now try to open the tips file
-	m_pStream = fopen(sPath, "r");
-	if (m_pStream == NULL) 
+	m_pStream = _tfopen(sPath, _TEXT("r"));
+	if (m_pStream == NULL)
 	{
 		m_strHeader = "Oops!";
 		m_strTip.LoadString(CG_IDS_FILE_ABSENT);
 		return;
-	} 
+	}
 
 	// If the timestamp in the INI file is different from the timestamp of
 	// the tips file, then we know that the tips file has been modified
@@ -69,19 +69,19 @@ CTipDlg::CTipDlg(CWnd* pParent /*=NULL*/)
 	_fstat(_fileno(m_pStream), &buf);
 	CString strCurrentTime = ctime(&buf.st_ctime);
 	strCurrentTime.TrimRight();
-	CString strStoredTime = 
+	CString strStoredTime =
 		pApp->GetProfileString(szSection, szTimeStamp, NULL);
-	if (strCurrentTime != strStoredTime) 
+	if (strCurrentTime != strStoredTime)
 	{
 		iFilePos = 0;
 		pApp->WriteProfileString(szSection, szTimeStamp, strCurrentTime);
 	}
 
-	if (fseek(m_pStream, iFilePos, SEEK_SET) != 0) 
+	if (fseek(m_pStream, iFilePos, SEEK_SET) != 0)
 	{
 		AfxMessageBox(CG_IDP_FILE_CORRUPT);
 	}
-	else 
+	else
 	{
 		GetNextTipString();
 	}
@@ -93,16 +93,16 @@ CTipDlg::~CTipDlg()
 	// or clicked on the close button. If the user had pressed the escape key,
 	// it is still required to update the filepos in the ini file with the 
 	// latest position so that we don't repeat the tips! 
-    
+
 	// But make sure the tips file existed in the first place....
-	if (m_pStream != NULL) 
+	if (m_pStream != NULL)
 	{
 		CWinApp* pApp = AfxGetApp();
 		pApp->WriteProfileInt(szSection, szIntFilePos, ftell(m_pStream));
 		fclose(m_pStream);
 	}
 }
-        
+
 void CTipDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -152,21 +152,21 @@ void CTipDlg::GetNextTipString()
 	// This routine identifies the next string that needs to be
 	// read from the tips file
 	BOOL bStop = FALSE;
-	while (!bStop) 
+	while (!bStop)
 	{
 		// reads up until the next newline character
-		if (_fgetts(lpsz, MAX_BUFLEN, m_pStream) == NULL) 
+		if (_fgetts(lpsz, MAX_BUFLEN, m_pStream) == NULL)
 		{
 			// We have either reached EOF or enocuntered some problem
 			// In both cases reset the pointer to the beginning of the file
 			// This behavior is same as VC++ Tips file
-			if (fseek(m_pStream, 0, SEEK_SET) != 0) 
+			if (fseek(m_pStream, 0, SEEK_SET) != 0)
 				AfxMessageBox(CG_IDP_FILE_CORRUPT);
-		} 
-		else 
+		}
+		else
 		{
-			if (*lpsz != ' ' && *lpsz != '\t' && 
-				*lpsz != '\n' && *lpsz != ';') 
+			if (*lpsz != ' ' && *lpsz != '\t' &&
+				*lpsz != '\n' && *lpsz != ';')
 			{
 				// There should be no space at the beginning of the tip
 				// This behavior is same as VC++ Tips file
@@ -224,7 +224,7 @@ void CTipDlg::GetNextTipString()
 	sTemp = sTemp.Right(sTemp2.GetLength() - nIndex - 1);
 	TRACE("Footer is [%s]\n", m_strFooter);
 
-	m_nHelpID = atoi(sTemp);
+	m_nHelpID = _tstoi(sTemp);
 	TRACE("Help ID is %d\n", m_nHelpID);
 }
 
@@ -248,8 +248,8 @@ HBRUSH CTipDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 void CTipDlg::OnOK()
 {
 	CDialog::OnOK();
-	
-    // Update the startup information stored in the INI file
+
+	// Update the startup information stored in the INI file
 	CWinApp* pApp = AfxGetApp();
 	pApp->WriteProfileInt(szSection, szIntStartup, !m_bStartup);
 }
@@ -269,7 +269,7 @@ BOOL CTipDlg::OnInitDialog()
 
 	// set the font for the Header
 	CFont Font;
-	Font.CreatePointFont(12, "Arial");
+	Font.CreatePointFont(12, _TEXT("Arial"));
 	GetDlgItem(ST_HEADER)->SetFont(&Font);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -303,7 +303,7 @@ void CTipDlg::OnPaint()
 	brush.Detach();
 
 	// now change the brush to the button shadow color
-	brush.CreateSolidBrush( ::GetSysColor(COLOR_BTNSHADOW)) ;
+	brush.CreateSolidBrush(::GetSysColor(COLOR_BTNSHADOW));
 
 
 	// Get the position of the lightbulb
@@ -315,7 +315,7 @@ void CTipDlg::OnPaint()
 	// Load bitmap and get dimensions of the bitmap
 	CBitmap bmp;
 	bmp.LoadBitmap(IDB_LIGHTBULB);
-	BITMAP bmpInfo;	
+	BITMAP bmpInfo;
 	bmp.GetBitmap(&bmpInfo);
 	rcBulb.bottom = bmpInfo.bmHeight + rcBulb.top;
 	rcBulb.right = bmpInfo.bmWidth + rcBulb.left;
@@ -332,9 +332,9 @@ void CTipDlg::OnPaint()
 
 	dcTmp.CreateCompatibleDC(&dc);
 	dcTmp.SelectObject(&bmp);
-	dcTmp.SelectObject(&brush) ;
-	dcTmp.ExtFloodFill(0,0, 0x00ffffff, FLOODFILLSURFACE) ;
-	dc.BitBlt(rcBulb.left, rcBulb.top, rcBulb.Width(), rcBulb.Height(), 
+	dcTmp.SelectObject(&brush);
+	dcTmp.ExtFloodFill(0, 0, 0x00ffffff, FLOODFILLSURFACE);
+	dc.BitBlt(rcBulb.left, rcBulb.top, rcBulb.Width(), rcBulb.Height(),
 		&dcTmp, 0, 0, SRCCOPY);
 
 
