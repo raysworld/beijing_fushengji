@@ -54,7 +54,7 @@ BOOL CStoryDlg::OnInitDialog()
 	// TODO: Add extra initialization here
 	if(Act==1)
 	{
-			GetDlgItem(IDOK)->SetWindowText("������Ϸ");
+			GetDlgItem(IDOK)->SetWindowText("继续游戏");
 		GetDlgItem(IDOK)->EnableWindow(TRUE);
 	}
 
@@ -65,7 +65,7 @@ BOOL CStoryDlg::OnInitDialog()
 void CStoryDlg::ProcessHelpFile()
 {
 
-   GetDlgItem(IDC_INIT_MSG)->SetWindowText("��ʼ��������Ϣ....");
+   GetDlgItem(IDC_INIT_MSG)->SetWindowText("初始化帮助信息....");
 	CString str=AfxGetApp()->m_pszHelpFilePath;
    int n=str.ReverseFind('\\');
    CString str1=str.Left(n);
@@ -94,21 +94,21 @@ void CStoryDlg::ProcessHelpFile()
 	fclose(fp);
 	fclose(fp1);
 	}
-  GetDlgItem(IDC_INIT_MSG)->SetWindowText("��Ϸ��ʼ�����,׼�����뱱��...");
+  GetDlgItem(IDC_INIT_MSG)->SetWindowText("游戏初始化完毕,准备进入北京...");
 }
 
 void CStoryDlg::InitUser()
 {
 	int i,j,k;
 	CString msg;
-	GetDlgItem(IDC_INIT_MSG)->SetWindowText("��ʼ��������Ϣ....");
+	GetDlgItem(IDC_INIT_MSG)->SetWindowText("初始化黑市信息....");
 	for(i=0;i<10;i++)
 		for(j=0;j<10;j++)
 			for(k=0;k<1000;k++){
 				 //msg.Format("%d",k);
 	//GetDlgItem(IDC_INIT_MSG)->SetWindowText(msg);
 			}
-	GetDlgItem(IDC_INIT_MSG)->SetWindowText("��ʼ������·��Ϣ....");
+	GetDlgItem(IDC_INIT_MSG)->SetWindowText("初始化二环路信息....");
     AfxMessageBox("ok");
 }
 
@@ -116,20 +116,20 @@ void CStoryDlg::OnTimer(UINT nIDEvent)
 {
 	// TODO: Add your message handler code here and/or call default
     CString Msg[5]={
-		   	"��ʼ���ڿ���Ϣ....",
-		     "��ʼ������·��Ϣ.....",
-			"��ʼ��������Ʒ......",
-			"��ʼ������¼�......",
-			"���ر���ʵʱ����...."
+		   	"初始化黑客信息....",
+		     "初始化二环路信息.....",
+			"初始化黑市物品......",
+			"初始化随机事件......",
+			"加载北京实时新闻...."
 		
 			
 	};
 	CString Rest[5]={
-	  	    "����ˮ",
-			"�Խ�ͷ������",
-			"С˯һ��",
-			"ϴ��",
-			"��Ʊ"
+	  	    "喝汽水",
+			"吃街头烤红薯",
+			"小睡一觉",
+			"洗脸",
+			"买车票"
 	};
 	static int j=0;
 

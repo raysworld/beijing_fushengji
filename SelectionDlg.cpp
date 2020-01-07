@@ -120,24 +120,24 @@ typedef struct MessageType {
 
 
 Message gameMessages [GAME_MESSAGE_COUNT] = {
-	{170, "×¨¼ÒÌáÒéÌá¸ß´óÑ§Éú¡°¶¯ÊÖËØÖÊ¡±£¬½ø¿ÚÍæ¾ßÆÄÊÜ»¶Ó­!", 5, 2, 0, 0},
-	{139, "ÓĞÈË×ÔºÀµØËµ£ºÉú²¡²»ÓÃ´òÕë³ÔÒ©£¬ºÈ¼Ù°×¾Æ£¨¾ç¶¾£©¾Í¿ÉÒÔ!", 3, 3, 0, 0},
-	{100, "Ò½ÔºµÄÃØÃÜ±¨¸æ£º¡°¡¶ÉÏº£Ğ¡±¦±´¡·¹¦Ğ§Éõ¹ıÎ°¸ç¡±!", 4, 5, 0, 0},
-	{41, "ÎÄÃ¤Ëµ£º¡°2000ÄêÅµ±´¶ûÎÄÑ§½±£¿ÅŞ£¡²»ÈçµÁ°æVCD¸ÛÌ¨Æ¬¡£¡±", 2, 4, 0, 0},
-	{37, "¡¶±±¾©¾­¼ÃĞ¡±¨¡·ÉçÂÛ£º¡°×ßË½Æû³µ´óÁ¦ÍÆ½øÆû³µÏû·Ñ!¡±", 1, 3, 0, 0},
-	{23, "¡¶±±¾©ÕæÀí±¨¡·ÉçÂÛ£º¡°Ìá³«°®ÃÀ£¬Âäµ½Êµ´¦¡±£¬Î±ÁÓ»¯×±Æ·´óÊÜ»¶Ó­!", 7, 4, 0, 0},
-	{37, "8858.comµç×ÓÊéµêÒ²²»¸ÒÂô¡¶ÉÏº£Ğ¡±¦±´¡·£¬ºÚÊĞÒ»²á¿ÉÂôÌì¼Û!", 4, 8, 0, 0},
-	{15, "Ğ»²»·èÔÚÍí»áÉÏËµ£º¡°ÎÒ¿á!ÎÒÊ¹ÓÃÎ±ÁÓ»¯×±Æ·!¡±£¬Î±ÁÓ»¯×±Æ·¹©²»Ó¦Çó!", 7, 7, 0, 0},
-	{40, "±±¾©ÓĞÈË¿ñÒûÉ½Î÷¼Ù¾Æ£¬¿ÉÒÔÂô³öÌì¼Û!", 3, 7, 0, 0},
-	{29, "±±¾©µÄ´óÑ§ÉúÃÇ¿ªÊ¼ÕÒ¹¤×÷£¬Ë®»õÊÖ»ú´óÊÜ»¶Ó­£¡!", 6, 7, 0, 0},
-	{35, "±±¾©µÄ¸»ÈË·è¿ñµØ¹ºÂò×ßË½Æû³µ£¡¼Û¸ñ¿ñÉı!", 1, 8, 0, 0},
-	{17, "ÊĞ³¡ÉÏ³ä³â×ÅÀ´×Ô¸£½¨µÄ×ßË½ÏãÑÌ!", 0, 0, 8, 0},
-	{24, "±±¾©µÄº¢×ÓÃÇ¶¼Ã¦ÓÚÉÏÍøÑ§Ï°£¬½ø¿ÚÍæ¾ßÃ»ÈËÔ¸ÒâÂò¡£", 5, 0, 5, 0},
-	{18, "µÁ°æÒµÊ®·ÖĞËÍú£¬¡°ÖĞ¹ú¹è¹È¡±¡ª¡ªÖĞ¹Ø´åÈ«ÊÇÂôµÁ°æVCDµÄ´å¹Ã!", 2, 0, 8, 0},
-	{160, "ÏÃÃÅµÄÀÏÍ¬Ñ§×ÊÖú°³Á½²¿×ßË½Æû³µ£¡·¢ÁË£¡£¡", 1, 0, 0, 2},
-	{45, "¹¤ÉÌ¾ÖÉ¨µ´ºó£¬°³ÔÚºÚ°µ½ÇÂäÀï·¢ÏÖÁËÀÏÏç¶ªÊ§µÄ½ø¿ÚÏãÑÌ¡£", 0, 0, 0, 6},
-	{35, "°³ÀÏÏç»Ø¼ÒÇ°°ÑÒ»Ğ©É½Î÷¼Ù°×¾Æ£¨¾ç¶¾£©¸ø°³!", 3, 0, 0, 4},
-	{140,"Ã½Ìå±¨µÀ£ºÓÖÓĞÈÕ±¾³ö¿Úµ½ÖĞ¹úµÄ²úÆ·³öÊÂÁË! ³öÊÂºóÈÕ±¾ÈËËÀ²»ÈÏÕÊ,¾Ü¾øÅâ³¥¡£´å³¤µÃÖª´ËÏûÏ¢£¬ÍĞÈË°ÑËûÓÃµÄË®»õÊÖ»ú£¨ÎŞÈÎºÎ³§ÉÌ±êÊ¶£©Ó²Âô¸øÄú£¬ÊÕÄú2500Ôª¡£",6,0,0,1}
+	{170, "ä¸“å®¶æè®®æé«˜å¤§å­¦ç”Ÿâ€œåŠ¨æ‰‹ç´ è´¨â€ï¼Œè¿›å£ç©å…·é¢‡å—æ¬¢è¿!", 5, 2, 0, 0},
+	{139, "æœ‰äººè‡ªè±ªåœ°è¯´ï¼šç”Ÿç—…ä¸ç”¨æ‰“é’ˆåƒè¯ï¼Œå–å‡ç™½é…’ï¼ˆå‰§æ¯’ï¼‰å°±å¯ä»¥!", 3, 3, 0, 0},
+	{100, "åŒ»é™¢çš„ç§˜å¯†æŠ¥å‘Šï¼šâ€œã€Šä¸Šæµ·å°å®è´ã€‹åŠŸæ•ˆç”šè¿‡ä¼Ÿå“¥â€!", 4, 5, 0, 0},
+	{41, "æ–‡ç›²è¯´ï¼šâ€œ2000å¹´è¯ºè´å°”æ–‡å­¦å¥–ï¼Ÿå‘¸ï¼ä¸å¦‚ç›—ç‰ˆVCDæ¸¯å°ç‰‡ã€‚â€", 2, 4, 0, 0},
+	{37, "ã€ŠåŒ—äº¬ç»æµå°æŠ¥ã€‹ç¤¾è®ºï¼šâ€œèµ°ç§æ±½è½¦å¤§åŠ›æ¨è¿›æ±½è½¦æ¶ˆè´¹!â€", 1, 3, 0, 0},
+	{23, "ã€ŠåŒ—äº¬çœŸç†æŠ¥ã€‹ç¤¾è®ºï¼šâ€œæå€¡çˆ±ç¾ï¼Œè½åˆ°å®å¤„â€ï¼Œä¼ªåŠ£åŒ–å¦†å“å¤§å—æ¬¢è¿!", 7, 4, 0, 0},
+	{37, "8858.comç”µå­ä¹¦åº—ä¹Ÿä¸æ•¢å–ã€Šä¸Šæµ·å°å®è´ã€‹ï¼Œé»‘å¸‚ä¸€å†Œå¯å–å¤©ä»·!", 4, 8, 0, 0},
+	{15, "è°¢ä¸ç–¯åœ¨æ™šä¼šä¸Šè¯´ï¼šâ€œæˆ‘é…·!æˆ‘ä½¿ç”¨ä¼ªåŠ£åŒ–å¦†å“!â€ï¼Œä¼ªåŠ£åŒ–å¦†å“ä¾›ä¸åº”æ±‚!", 7, 7, 0, 0},
+	{40, "åŒ—äº¬æœ‰äººç‹‚é¥®å±±è¥¿å‡é…’ï¼Œå¯ä»¥å–å‡ºå¤©ä»·!", 3, 7, 0, 0},
+	{29, "åŒ—äº¬çš„å¤§å­¦ç”Ÿä»¬å¼€å§‹æ‰¾å·¥ä½œï¼Œæ°´è´§æ‰‹æœºå¤§å—æ¬¢è¿ï¼!", 6, 7, 0, 0},
+	{35, "åŒ—äº¬çš„å¯Œäººç–¯ç‹‚åœ°è´­ä¹°èµ°ç§æ±½è½¦ï¼ä»·æ ¼ç‹‚å‡!", 1, 8, 0, 0},
+	{17, "å¸‚åœºä¸Šå……æ–¥ç€æ¥è‡ªç¦å»ºçš„èµ°ç§é¦™çƒŸ!", 0, 0, 8, 0},
+	{24, "åŒ—äº¬çš„å­©å­ä»¬éƒ½å¿™äºä¸Šç½‘å­¦ä¹ ï¼Œè¿›å£ç©å…·æ²¡äººæ„¿æ„ä¹°ã€‚", 5, 0, 5, 0},
+	{18, "ç›—ç‰ˆä¸šååˆ†å…´æ—ºï¼Œâ€œä¸­å›½ç¡…è°·â€â€”â€”ä¸­å…³æ‘å…¨æ˜¯å–ç›—ç‰ˆVCDçš„æ‘å§‘!", 2, 0, 8, 0},
+	{160, "å¦é—¨çš„è€åŒå­¦èµ„åŠ©ä¿ºä¸¤éƒ¨èµ°ç§æ±½è½¦ï¼å‘äº†ï¼ï¼", 1, 0, 0, 2},
+	{45, "å·¥å•†å±€æ‰«è¡åï¼Œä¿ºåœ¨é»‘æš—è§’è½é‡Œå‘ç°äº†è€ä¹¡ä¸¢å¤±çš„è¿›å£é¦™çƒŸã€‚", 0, 0, 0, 6},
+	{35, "ä¿ºè€ä¹¡å›å®¶å‰æŠŠä¸€äº›å±±è¥¿å‡ç™½é…’ï¼ˆå‰§æ¯’ï¼‰ç»™ä¿º!", 3, 0, 0, 4},
+	{140,"åª’ä½“æŠ¥é“ï¼šåˆæœ‰æ—¥æœ¬å‡ºå£åˆ°ä¸­å›½çš„äº§å“å‡ºäº‹äº†! å‡ºäº‹åæ—¥æœ¬äººæ­»ä¸è®¤å¸,æ‹’ç»èµ”å¿ã€‚æ‘é•¿å¾—çŸ¥æ­¤æ¶ˆæ¯ï¼Œæ‰˜äººæŠŠä»–ç”¨çš„æ°´è´§æ‰‹æœºï¼ˆæ— ä»»ä½•å‚å•†æ ‡è¯†ï¼‰ç¡¬å–ç»™æ‚¨ï¼Œæ”¶æ‚¨2500å…ƒã€‚",6,0,0,1}
 };
 
 // bad events user may encounter which do harm to user's health
@@ -152,18 +152,18 @@ typedef struct EventType {
 #define EVENT_CNT    12    // total such events 
 
 BadEvent random_event [EVENT_CNT] = {
-	{117, "´ó½ÖÉÏÁ½¸öÁ÷Ã¥´òÁË°³!", 3,"kill.wav"},
-	{157, "°³ÔÚ¹ı½ÖµØµÀ±»ÈË´òÁËÃÉ¹÷! ", 20,"death.wav"},
-	{21, "¹¤ÉÌ¾ÖµÄ×·°³³¬¹ıÈı¸öºúÍ¬¡£ ",1,"dog.wav"},
-	{100, "±±¾©Óµ¼·µÄ½»Í¨ÈÃ°³ĞÄ½¹! ",1,"harley.wav"},
-	{35, "¿ªĞ¡°ÍµÄ´ò°³Ò»¶ú¹â!",1,"hit.wav"},
-	{313, "Ò»ÈºÃñ¹¤´òÁË°³!", 10,"flee.wav"},
-	{120, "¸½½üºúÍ¬µÄÒ»¸öĞ¡ÇàÄêÔÒ°³Ò»×©Í·!", 5,"death.wav"},
-	{29, "¸½½üĞ´×ÖÂ¥Ò»¸ö¼Ù±£°²ÓÃµç¹÷µç»÷°³!",3,"el.wav"},
-	{43, "±±¾©³ôºÚµÄĞ¡ºÓÑ¬×ÅÎÒÁË! ",1,"vomit.wav"},
-	{45, "ÊØ×ÔĞĞ³µµÄÍõ´óÉô³°Ğ¦°³Ã»±±¾©»§¿Ú!",1,"level.wav"},
-	{48, "±±¾©¸ßÎÂ40¶È!°³ÈÈ...",1,"lan.wav"},
-	{33, "Éê°ÂÌíÁËĞÂ·ç¾°£¬±±¾©ÓÖÀ´É³³¾±©!",1,"breath.wav"}
+	{117, "å¤§è¡—ä¸Šä¸¤ä¸ªæµæ°“æ‰“äº†ä¿º!", 3,"kill.wav"},
+	{157, "ä¿ºåœ¨è¿‡è¡—åœ°é“è¢«äººæ‰“äº†è’™æ£! ", 20,"death.wav"},
+	{21, "å·¥å•†å±€çš„è¿½ä¿ºè¶…è¿‡ä¸‰ä¸ªèƒ¡åŒã€‚ ",1,"dog.wav"},
+	{100, "åŒ—äº¬æ‹¥æŒ¤çš„äº¤é€šè®©ä¿ºå¿ƒç„¦! ",1,"harley.wav"},
+	{35, "å¼€å°å·´çš„æ‰“ä¿ºä¸€è€³å…‰!",1,"hit.wav"},
+	{313, "ä¸€ç¾¤æ°‘å·¥æ‰“äº†ä¿º!", 10,"flee.wav"},
+	{120, "é™„è¿‘èƒ¡åŒçš„ä¸€ä¸ªå°é’å¹´ç ¸ä¿ºä¸€ç –å¤´!", 5,"death.wav"},
+	{29, "é™„è¿‘å†™å­—æ¥¼ä¸€ä¸ªå‡ä¿å®‰ç”¨ç”µæ£ç”µå‡»ä¿º!",3,"el.wav"},
+	{43, "åŒ—äº¬è‡­é»‘çš„å°æ²³ç†ç€æˆ‘äº†! ",1,"vomit.wav"},
+	{45, "å®ˆè‡ªè¡Œè½¦çš„ç‹å¤§å©¶å˜²ç¬‘ä¿ºæ²¡åŒ—äº¬æˆ·å£!",1,"level.wav"},
+	{48, "åŒ—äº¬é«˜æ¸©40åº¦!ä¿ºçƒ­...",1,"lan.wav"},
+	{33, "ç”³å¥¥æ·»äº†æ–°é£æ™¯ï¼ŒåŒ—äº¬åˆæ¥æ²™å°˜æš´!",1,"breath.wav"}
 };
 
 /*
@@ -179,13 +179,13 @@ typedef struct StealType {
 
 StealEvent random_steal_event [STEAL_EVENT_CNT] = {
 
-	{60, "°³Á¯ÃõµØÌú¿Ú°çÑİ³ÉÆòØ¤µÄÀÏÌ«Ì«¡£", 10},
-	{125, "Ò»¸öºº×ÓÔÚ½ÖÍ·À¹×¡°³£º¡°¸çÃÇ£¬¸øµãÇ®ÓÃ!¡±¡£",10},
-	{100, "Ò»¸ö´ó¸ö×ÓÅöÁË°³Ò»ÏÂ£¬Ëµ£º¡°±ğ¼·ÁË!¡±¡£",40},
-	{65, "Èı¸ö´øºìĞäÕÂµÄÀÏÌ«Ì«¾¾×¡°³£º¡°ÄãÊÇÍâµØÈË?·£¿î!¡±",20},
-	{35, "Á½¸öÃÍÄĞ¾¾×¡°³£º¡°½»³¤»°¸½¼Ó·Ñ¡¢ÉÏÍø·Ñ¡£¡±", 15},
-	{27, "¸±Ö÷ÈÎËµ£º¡°°ì¾­ÉÌÖ¤?ÍíÉÏ²»ÒªÈ¥ÎÒ¼Ò¸øÎÒËÍÇ®Å¶¡£¡±", 10},
-	{40, "±±¾©¿ÕÆøÎÛÈ¾µÃÀ÷º¦,°³È¥Ñõ°ÉÎüÑõ...", 5}
+	{60, "ä¿ºæ€œæ‚¯åœ°é“å£æ‰®æ¼”æˆä¹ä¸çš„è€å¤ªå¤ªã€‚", 10},
+	{125, "ä¸€ä¸ªæ±‰å­åœ¨è¡—å¤´æ‹¦ä½ä¿ºï¼šâ€œå“¥ä»¬ï¼Œç»™ç‚¹é’±ç”¨!â€ã€‚",10},
+	{100, "ä¸€ä¸ªå¤§ä¸ªå­ç¢°äº†ä¿ºä¸€ä¸‹ï¼Œè¯´ï¼šâ€œåˆ«æŒ¤äº†!â€ã€‚",40},
+	{65, "ä¸‰ä¸ªå¸¦çº¢è¢–ç« çš„è€å¤ªå¤ªæªä½ä¿ºï¼šâ€œä½ æ˜¯å¤–åœ°äºº?ç½šæ¬¾!â€",20},
+	{35, "ä¸¤ä¸ªçŒ›ç”·æªä½ä¿ºï¼šâ€œäº¤é•¿è¯é™„åŠ è´¹ã€ä¸Šç½‘è´¹ã€‚â€", 15},
+	{27, "å‰¯ä¸»ä»»è¯´ï¼šâ€œåŠç»å•†è¯?æ™šä¸Šä¸è¦å»æˆ‘å®¶ç»™æˆ‘é€é’±å“¦ã€‚â€", 10},
+	{40, "åŒ—äº¬ç©ºæ°”æ±¡æŸ“å¾—å‰å®³,ä¿ºå»æ°§å§å¸æ°§...", 5}
 };
 
 // about dialog
@@ -227,7 +227,7 @@ protected:
 CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
 {
 	//{{AFX_DATA_INIT(CAboutDlg)
-	CString cs="×÷Õß£º¹ùÏéê»£¬ÄĞ£¬1970Äê4ÔÂÉú£¬1998Äê±ÏÒµÓÚ±±¾©ÓÊµç´óÑ§£¬»ñ²©Ê¿Ñ§Î»£¬×¨Òµ£ºÈË¹¤ÖÇÄÜÓë×ÔÈ»ÓïÑÔ´¦Àí¡£ÈÈ°®ÓÎÏ·µ½ÁË×Ô¼º¿ª·¢µÄµØ²½¡£";
+	CString cs="ä½œè€…ï¼šéƒ­ç¥¥æ˜Šï¼Œç”·ï¼Œ1970å¹´4æœˆç”Ÿï¼Œ1998å¹´æ¯•ä¸šäºåŒ—äº¬é‚®ç”µå¤§å­¦ï¼Œè·åšå£«å­¦ä½ï¼Œä¸“ä¸šï¼šäººå·¥æ™ºèƒ½ä¸è‡ªç„¶è¯­è¨€å¤„ç†ã€‚çƒ­çˆ±æ¸¸æˆåˆ°äº†è‡ªå·±å¼€å‘çš„åœ°æ­¥ã€‚";
 	CString cs1="";
 	//}}AFX_DATA_INIT
 }
@@ -284,8 +284,8 @@ void CAboutDlg::OnRButtonDown(UINT nFlags, CPoint point)
 {
 	// TODO: Add your message handler code here and/or call default
 	static int i=0;
-	CString cs1="×÷Õß£º¹ùÏéê»£¬ÄĞ£¬1970Äê4ÔÂÉú£¬1998Äê±ÏÒµÓÚ±±¾©ÓÊµç´óÑ§£¬»ñ²©Ê¿Ñ§Î»£¬×¨Òµ£ºÈË¹¤ÖÇÄÜÓë×ÔÈ»ÓïÑÔ´¦Àí¡£Ä¿Ç°´ÓÊÂ×ÔÈ»ÓïÑÔ´¦ÀíÑĞ¾¿£¬¿ª·¢Èí¼ş¡£ÈÈ°®ÓÎÏ·µ½ÁË×Ô¼º¿ª·¢µÄµØ²½¡£ÔÚ±±¾©¸¡Éú³¬¹ı10Äê¡£";
-    CString cs2="ÎÒ°®×ÔÈ»£¬ÒÕÊõ¡¢ÎÄÑ§¡£±à³ÌĞòÖ÷ÒªÊ¹ÓÃC/C++,µ«ÊÇ¶Ô80x86»ã±àÓïÑÔÒ²·Ç³£ÊìÏ¤£¬Ôø¾­¸øÅ®ÅóÓÑ£¨ÏÖÔÚÊÇÎÒº¢×ÓµÄÂè£©±à¹ıÒ»¸ö¼ÆËã»ú²¡¶¾¡£ÎÒ»¹¾«Í¨LISPºÍPrologÓïÑÔ£¬¶ÔĞÅÏ¢¼ìË÷¼¼ÊõºÍ¸ÅÄî¼ìË÷¼¼ÊõÓĞºÜÉîÈëµÄÑĞ¾¿¡£";
+	CString cs1="ä½œè€…ï¼šéƒ­ç¥¥æ˜Šï¼Œç”·ï¼Œ1970å¹´4æœˆç”Ÿï¼Œ1998å¹´æ¯•ä¸šäºåŒ—äº¬é‚®ç”µå¤§å­¦ï¼Œè·åšå£«å­¦ä½ï¼Œä¸“ä¸šï¼šäººå·¥æ™ºèƒ½ä¸è‡ªç„¶è¯­è¨€å¤„ç†ã€‚ç›®å‰ä»äº‹è‡ªç„¶è¯­è¨€å¤„ç†ç ”ç©¶ï¼Œå¼€å‘è½¯ä»¶ã€‚çƒ­çˆ±æ¸¸æˆåˆ°äº†è‡ªå·±å¼€å‘çš„åœ°æ­¥ã€‚åœ¨åŒ—äº¬æµ®ç”Ÿè¶…è¿‡10å¹´ã€‚";
+    CString cs2="æˆ‘çˆ±è‡ªç„¶ï¼Œè‰ºæœ¯ã€æ–‡å­¦ã€‚ç¼–ç¨‹åºä¸»è¦ä½¿ç”¨C/C++,ä½†æ˜¯å¯¹80x86æ±‡ç¼–è¯­è¨€ä¹Ÿéå¸¸ç†Ÿæ‚‰ï¼Œæ›¾ç»ç»™å¥³æœ‹å‹ï¼ˆç°åœ¨æ˜¯æˆ‘å­©å­çš„å¦ˆï¼‰ç¼–è¿‡ä¸€ä¸ªè®¡ç®—æœºç—…æ¯’ã€‚æˆ‘è¿˜ç²¾é€šLISPå’ŒPrologè¯­è¨€ï¼Œå¯¹ä¿¡æ¯æ£€ç´¢æŠ€æœ¯å’Œæ¦‚å¿µæ£€ç´¢æŠ€æœ¯æœ‰å¾ˆæ·±å…¥çš„ç ”ç©¶ã€‚";
 	i+=1;
 	if(i>5)
 	{
@@ -349,14 +349,14 @@ CSelectionDlg::CSelectionDlg(CWnd* pParent /*=NULL*/)
 		m_chDrugName[i]=(char *)malloc(100);
 	
 	// init the goods' name	
-	strcpy(m_chDrugName[0],"½ø¿ÚÏãÑÌ");	
-	strcpy(m_chDrugName[1],"×ßË½Æû³µ");
-	strcpy(m_chDrugName[2],"µÁ°æVCD¡¢ÓÎÏ·");	
-	strcpy(m_chDrugName[3],"¼Ù°×¾Æ£¨¾ç¶¾£¡£©");
-	strcpy(m_chDrugName[4],"¡¶ÉÏº£Ğ¡±¦±´¡·£¨½ûÊé£©");	
-	strcpy(m_chDrugName[5],"½ø¿ÚÍæ¾ß");
-	strcpy(m_chDrugName[7],"Î±ÁÓ»¯×±Æ·");	
-	strcpy(m_chDrugName[6],"Ë®»õÊÖ»ú");
+	strcpy(m_chDrugName[0],"è¿›å£é¦™çƒŸ");	
+	strcpy(m_chDrugName[1],"èµ°ç§æ±½è½¦");
+	strcpy(m_chDrugName[2],"ç›—ç‰ˆVCDã€æ¸¸æˆ");	
+	strcpy(m_chDrugName[3],"å‡ç™½é…’ï¼ˆå‰§æ¯’ï¼ï¼‰");
+	strcpy(m_chDrugName[4],"ã€Šä¸Šæµ·å°å®è´ã€‹ï¼ˆç¦ä¹¦ï¼‰");	
+	strcpy(m_chDrugName[5],"è¿›å£ç©å…·");
+	strcpy(m_chDrugName[7],"ä¼ªåŠ£åŒ–å¦†å“");	
+	strcpy(m_chDrugName[6],"æ°´è´§æ‰‹æœº");
 	strcpy(m_chDrugName[8],"");
 
    /*------------------- end of init goods -----------------------------------------*/
@@ -482,13 +482,13 @@ BOOL CSelectionDlg::OnInitDialog()
 	}
 
 	// create black market column
-	m_list1.InsertColumn(0, "ÉÌÆ·", LVCFMT_LEFT, 68);
-	m_list1.InsertColumn(1, "ºÚÊĞ¼Û¸ñ", LVCFMT_LEFT, 67);
+	m_list1.InsertColumn(0, "å•†å“", LVCFMT_LEFT, 68);
+	m_list1.InsertColumn(1, "é»‘å¸‚ä»·æ ¼", LVCFMT_LEFT, 67);
 	m_list1.InsertColumn(2, "", LVCFMT_LEFT, 27);
     // create house column
-	m_list2.InsertColumn(0, "ÉÌÆ·", LVCFMT_LEFT, 68);
-	m_list2.InsertColumn(1, "Âò½ø¼Û¸ñ", LVCFMT_LEFT, 67);
-	m_list2.InsertColumn(2, "ÊıÁ¿", LVCFMT_LEFT, 57);
+	m_list2.InsertColumn(0, "å•†å“", LVCFMT_LEFT, 68);
+	m_list2.InsertColumn(1, "ä¹°è¿›ä»·æ ¼", LVCFMT_LEFT, 67);
+	m_list2.InsertColumn(2, "æ•°é‡", LVCFMT_LEFT, 57);
 
 	// add some items
 	for (int i = 0; i < 1; i++)
@@ -586,7 +586,7 @@ BOOL CSelectionDlg::OnInitDialog()
     RefreshDisplay();
 	CString str;
 	// display days user stay in Beijing
-	str.Format("±±¾©¸¡Éú(%d/40Ìì)",40-m_nTimeLeft);
+	str.Format("åŒ—äº¬æµ®ç”Ÿ(%d/40å¤©)",40-m_nTimeLeft);
     // show this on the dialog title
 	SetWindowText(str);
 	GenerateRandomHelpFile();
@@ -665,7 +665,7 @@ void CSelectionDlg::OnAdd()
 	}
 	if(price==0)  //user did not select any drugs
 	{
-       	CRijiDlg dlg(NULL,"ÎÒ»¹Ã»ÓĞÑ¡¶¨ÂòÊ²Ã´ÎïÆ·ÄØ¡£");
+       	CRijiDlg dlg(NULL,"æˆ‘è¿˜æ²¡æœ‰é€‰å®šä¹°ä»€ä¹ˆç‰©å“å‘¢ã€‚");
         dlg.DoModal();
        	RefreshDisplay();
 		return ;
@@ -673,12 +673,12 @@ void CSelectionDlg::OnAdd()
 	// user do not have enough money to buy even one selected goods
 	if(MyCash< price){
 		if(MyBank>0){
-	    CRijiDlg dlg(NULL,"°³´øµÄÏÖ½ğ²»¹»£¬È¥ÒøĞĞÌáµãÇ®°É¡£");
+	    CRijiDlg dlg(NULL,"ä¿ºå¸¦çš„ç°é‡‘ä¸å¤Ÿï¼Œå»é“¶è¡Œæç‚¹é’±å§ã€‚");
         dlg.DoModal();
 		}
 		else
 		{
-        CRijiDlg dlg(NULL,"°³µÄÏÖ½ğ²»¹»£¬ÒøĞĞÓÖÃ»ÓĞ´æ¿î£¬Õ¦°ìÁ¨?");
+        CRijiDlg dlg(NULL,"ä¿ºçš„ç°é‡‘ä¸å¤Ÿï¼Œé“¶è¡Œåˆæ²¡æœ‰å­˜æ¬¾ï¼Œå’‹åŠå“©?");
         dlg.DoModal();
 		}
 
@@ -814,7 +814,7 @@ void CSelectionDlg::MoveListItems(CListCtrl & pFromList, CListCtrl & pToList)
 	    // no more room left for hold the goods
 		else{
          CString msg;
-		 msg.Format("ºÃ¿ÉÏ§!°³×âµÄ·¿×ÓÌ«Ğ¡£¬Ö»ÄÜ·Å%d¸öÎïÆ·¡£×â¸ü´óµÄ·¿×Ó?",myCoat);
+		 msg.Format("å¥½å¯æƒœ!ä¿ºç§Ÿçš„æˆ¿å­å¤ªå°ï¼Œåªèƒ½æ”¾%dä¸ªç‰©å“ã€‚ç§Ÿæ›´å¤§çš„æˆ¿å­?",myCoat);
 		 CRijiDlg dlg(NULL,msg);
          dlg.DoModal();
          RefreshDisplay();
@@ -858,9 +858,9 @@ void CSelectionDlg::MoveListItems(CListCtrl & pFromList, CListCtrl & pToList)
 			CSellDlg dlg;
 			dlg.m_nMaxCount=atoi(count);
 			dlg.max=atoi(count);
-			dlg.m_strSellMsg.Format("ÄúÓĞ%d¸ö",atoi(count));
+			dlg.m_strSellMsg.Format("æ‚¨æœ‰%dä¸ª",atoi(count));
             dlg.m_strSellMsg+=drug_name;
-            dlg.m_strSellMsg+="£¬ÏëÂô³ö¶àÉÙ£¿";
+            dlg.m_strSellMsg+="ï¼Œæƒ³å–å‡ºå¤šå°‘ï¼Ÿ";
 			if(dlg.DoModal()==IDOK){
               if(m_bCloseSound==FALSE)
 			  PlaySound("sound\\money.wav",NULL,SND_ASYNC );
@@ -880,14 +880,14 @@ void CSelectionDlg::MoveListItems(CListCtrl & pFromList, CListCtrl & pToList)
                  m_list2.SetItemText(nItem,2,drug_left);
 			 }
 			 // some drug would decrease user's fame
-             if(drug_name=="¡¶ÉÏº£Ğ¡±¦±´¡·£¨½ûÊé£©" )
+             if(drug_name=="ã€Šä¸Šæµ·å°å®è´ã€‹ï¼ˆç¦ä¹¦ï¼‰" )
 			 {
 				 	CString fame;
 					fame="";
-					fame+="ÂòÂô";
+					fame+="ä¹°å–";
 					fame+=drug_name;
 					fame+=",";
-					fame+="ÎÛÈ¾Éç»á,°³µÄÃûÉù±ä»µÁË°¡!";
+					fame+="æ±¡æŸ“ç¤¾ä¼š,ä¿ºçš„åå£°å˜åäº†å•Š!";
 					// if it is the first time for a user to sell such goods,
 					// display some message to inform fame being bad
 					if(bad_fame1==0){	
@@ -907,14 +907,14 @@ void CSelectionDlg::MoveListItems(CListCtrl & pFromList, CListCtrl & pToList)
 
 			}
 			 // ok, same as above
-			 else if(drug_name=="¼Ù°×¾Æ£¨¾ç¶¾£¡£©" )
+			 else if(drug_name=="å‡ç™½é…’ï¼ˆå‰§æ¯’ï¼ï¼‰" )
 			 {
 				 	CString fame;
 					fame="";
-					fame+="ÂòÂô";
+					fame+="ä¹°å–";
 					fame+=drug_name;
 					fame+=",";
-					fame+="Î£º¦Éç»á£¬°³µÄÃûÉùÏÂ½µÁË.";
+					fame+="å±å®³ç¤¾ä¼šï¼Œä¿ºçš„åå£°ä¸‹é™äº†.";
 					if(bad_fame2==0){	
 				    CRijiDlg dlg(NULL,fame);
                     dlg.DoModal();
@@ -940,9 +940,9 @@ void CSelectionDlg::MoveListItems(CListCtrl & pFromList, CListCtrl & pToList)
 		
 		else{  // no one is selling the selected goods in the black market
         CString cnt;
-        cnt="Å¶£¿·Â·ğÃ»ÓĞÈËÔÚÕâÀï×ö";
+        cnt="å“¦ï¼Ÿä»¿ä½›æ²¡æœ‰äººåœ¨è¿™é‡Œåš";
 		cnt+=drug_name;
-		cnt+="ÉúÒâ¡£";
+		cnt+="ç”Ÿæ„ã€‚";
 		CRijiDlg dlg(NULL,cnt);
         dlg.DoModal();
        	RefreshDisplay();
@@ -1247,7 +1247,7 @@ void CSelectionDlg:: DoRandomStuff(void)
 			  if(addcount==0)
 			  {
 					 CString msg;
-					 msg.Format("¿ÉÏ§!°³×âµÄ·¿×ÓÌ«Ğ¡£¬Ö»ÄÜ·Å%d¸öÎïÆ·¡£",myCoat);
+					 msg.Format("å¯æƒœ!ä¿ºç§Ÿçš„æˆ¿å­å¤ªå°ï¼Œåªèƒ½æ”¾%dä¸ªç‰©å“ã€‚",myCoat);
 				     CRijiDlg dlg(NULL,msg);
                      dlg.DoModal();
 			  	     return ;
@@ -1467,7 +1467,7 @@ void CSelectionDlg::HandleNormalEvents()
 	OnSteal();
 	// debt is too large, to be pulished.
 	if(MyDebt>100000){
-	 CRijiDlg dlg(NULL,"°³Ç·Ç®Ì«¶à£¬´å³¤½ĞÒ»ÈºÀÏÏç×áÁË°³Ò»¶Ù!");
+	 CRijiDlg dlg(NULL,"ä¿ºæ¬ é’±å¤ªå¤šï¼Œæ‘é•¿å«ä¸€ç¾¤è€ä¹¡æäº†ä¿ºä¸€é¡¿!");
          dlg.DoModal();
 		m_nMyHealth-=30;
 		str.Format("%d",m_nMyHealth);
@@ -1478,26 +1478,26 @@ void CSelectionDlg::HandleNormalEvents()
     }
     // one day passed
 	m_nTimeLeft--;
-    str.Format("±±¾©¸¡Éú(%d/40Ìì)",40-m_nTimeLeft);
+    str.Format("åŒ—äº¬æµ®ç”Ÿ(%d/40å¤©)",40-m_nTimeLeft);
     // show this on the dialog title
 	SetWindowText(str);
 	// only one day left. Ask user to sell all goods
 	if(m_nTimeLeft==1)
 	{
 
-     CRijiDlg dlg(NULL,"°³Ã÷Ìì»Ø¼ÒÏç£¬¿ì°ÑÈ«²¿»õÎïÂôµô¡£");
+     CRijiDlg dlg(NULL,"ä¿ºæ˜å¤©å›å®¶ä¹¡ï¼Œå¿«æŠŠå…¨éƒ¨è´§ç‰©å–æ‰ã€‚");
          dlg.DoModal();
 	}
 	// no day left. Should end the game
 	if(m_nTimeLeft==0)
 	{
-     CRijiDlg dlg(NULL,"°³ÒÑ¾­ÔÚ±±¾©40ÌìÁË£¬¸Ã»ØÈ¥½á»éÈ¥ÁË¡£");
+     CRijiDlg dlg(NULL,"ä¿ºå·²ç»åœ¨åŒ—äº¬40å¤©äº†ï¼Œè¯¥å›å»ç»“å©šå»äº†ã€‚");
          dlg.DoModal();
      // force to sell all the things user left in case user foret to 
      // sell something or he left something on purpose to test this game.
      // step1 : to see if user have someting not sold
 	  int things_left=0;
-	  CString goods_left="ÏµÍ³ÌæÎÒÂôÁËÊ£Óà»õÎï: ";
+	  CString goods_left="ç³»ç»Ÿæ›¿æˆ‘å–äº†å‰©ä½™è´§ç‰©: ";
 	  for (i = 0; i < m_list2.GetItemCount(); i++)
 		{
 			goods_left+=m_list2.GetItemText(i,0);
@@ -1508,7 +1508,7 @@ void CSelectionDlg::HandleNormalEvents()
 		}
 	  if(things_left!=0)  // so, there's some goods found un-sold.
 	  {
-		 goods_left+="¡£";
+		 goods_left+="ã€‚";
          CRijiDlg dlg(NULL,goods_left);
          dlg.DoModal();
 		 int j=0;
@@ -1554,23 +1554,23 @@ void CSelectionDlg::DoRandomEvent()
 	CString snd;
 	// where the user is found out to pass out.
 	CString loc[21]={
-		"½¨¹úÃÅ",
-			"±±¾©Õ¾", "Î÷Ö±ÃÅ",
-			"³çÎÄÃÅ","¶«Ö±ÃÅ",
-			"¸´ĞËÃÅ", "»ıË®Ì¶","³¤´»½Ö","¹«Ö÷·Ø","Æ»¹ûÔ°",
-	    "ÓÀ°²Àï",
-			"·½ ×¯", "º£µí´ó½Ö",
-			"ÓÀ¶¨ÃÅ","ÈıÔª¶«ÇÅ",
-			"ÎÄ½ò½Ö", "±±³½Î÷Â·","²Ë»§Óª","´äÎ¢Â·","°Ë½ÇµØÌú",			
+		"å»ºå›½é—¨",
+			"åŒ—äº¬ç«™", "è¥¿ç›´é—¨",
+			"å´‡æ–‡é—¨","ä¸œç›´é—¨",
+			"å¤å…´é—¨", "ç§¯æ°´æ½­","é•¿æ¤¿è¡—","å…¬ä¸»åŸ","è‹¹æœå›­",
+	    "æ°¸å®‰é‡Œ",
+			"æ–¹ åº„", "æµ·æ·€å¤§è¡—",
+			"æ°¸å®šé—¨","ä¸‰å…ƒä¸œæ¡¥",
+			"æ–‡æ´¥è¡—", "åŒ—è¾°è¥¿è·¯","èœæˆ·è¥","ç¿ å¾®è·¯","å…«è§’åœ°é“",			
 			""
 	};
 	// detailed location
 	CString coffee[30]={
-		    "·¢ÀÈÀï","ÔçµãÌ¯ÉÏ","±¨Ì¯ÉÏ","¿¾ÑòÈâÌ¯ÉÏ","¹«¹²Æû³µÀï","ÈËÁ¦³µÉÏ","Å®²ŞËùÀï",
-			"ÄĞ²ŞËùÀï","µç»°Í¤Àï","ÈıÅãÅ®»³Àï","³ö×â³µÀï","Ğ¡°ÍÀï","ÃÀÈİÔºÀï",
-			"Ğ¡ÉÌÍ¤Àï","Ğ¡ÉÌ³¡ÃÅ¿Ú","Ãñ¹¤½ÅÏÂ","ÎŞÕÕÓÎÉÌÌ¯Àï","²İµØÉÏ","µçÏß¸Ë¶¥¶Ë",
-			"Ğ¡·¹¹İÀï","ÂíÂ·±ß","ÈËĞĞµÀÉÏ","½ÖĞÄ¹«Ô°Àï","¹ã¸æÅÆÏÂ","¹«¹²Æû³µÕ¾Àï",
-			"³¤Í¾Æû³µÕ¾Àï","ÂôµÁ°æÓÎÏ·µÄÅÔ±ß","ÍøÂç¹«Ë¾Ê¬ÌåÅÔ±ß","ĞĞÆ­µÄÖª±¾¼ÒÅÔ±ß",""
+		    "å‘å»Šé‡Œ","æ—©ç‚¹æ‘Šä¸Š","æŠ¥æ‘Šä¸Š","çƒ¤ç¾Šè‚‰æ‘Šä¸Š","å…¬å…±æ±½è½¦é‡Œ","äººåŠ›è½¦ä¸Š","å¥³å•æ‰€é‡Œ",
+			"ç”·å•æ‰€é‡Œ","ç”µè¯äº­é‡Œ","ä¸‰é™ªå¥³æ€€é‡Œ","å‡ºç§Ÿè½¦é‡Œ","å°å·´é‡Œ","ç¾å®¹é™¢é‡Œ",
+			"å°å•†äº­é‡Œ","å°å•†åœºé—¨å£","æ°‘å·¥è„šä¸‹","æ— ç…§æ¸¸å•†æ‘Šé‡Œ","è‰åœ°ä¸Š","ç”µçº¿æ†é¡¶ç«¯",
+			"å°é¥­é¦†é‡Œ","é©¬è·¯è¾¹","äººè¡Œé“ä¸Š","è¡—å¿ƒå…¬å›­é‡Œ","å¹¿å‘Šç‰Œä¸‹","å…¬å…±æ±½è½¦ç«™é‡Œ",
+			"é•¿é€”æ±½è½¦ç«™é‡Œ","å–ç›—ç‰ˆæ¸¸æˆçš„æ—è¾¹","ç½‘ç»œå…¬å¸å°¸ä½“æ—è¾¹","è¡Œéª—çš„çŸ¥æœ¬å®¶æ—è¾¹",""
 	};
 	// the health events.
     for (i = 0; i < EVENT_CNT; i++)
@@ -1578,7 +1578,7 @@ void CSelectionDlg::DoRandomEvent()
 		if (!(RandomNum(1000) % random_event [i].freq))
 		{
            str.Format("%s",random_event [i].msg);
-		   str1.Format("°³µÄ½¡¿µ¼õÉÙÁË%dµã¡£",random_event [i].hunt);
+		   str1.Format("ä¿ºçš„å¥åº·å‡å°‘äº†%dç‚¹ã€‚",random_event [i].hunt);
 		   str+=str1;
 		   snd="sound\\";
 		   snd+=random_event [i].sound;
@@ -1602,14 +1602,14 @@ void CSelectionDlg::DoRandomEvent()
 	if(m_nMyHealth<85 && m_nTimeLeft>3 ){
           CString msg1,msg2,msg3;
 		  int delay_day=1+RandomNum(2);
-          msg1.Format("ºÃĞÄµÄÊĞÃñ°ÑÎÒÌ§µ½Ò½Ôº£¬Ò½ÉúÈÃÎÒÖÎÁÆ%dÌì¡£",delay_day);
-		  msg2="ÓÉÓÚ²»×¢ÒâÉíÌå,ÎÒ±»ÈË·¢ÏÖ»èÃÔÔÚ";
+          msg1.Format("å¥½å¿ƒçš„å¸‚æ°‘æŠŠæˆ‘æŠ¬åˆ°åŒ»é™¢ï¼ŒåŒ»ç”Ÿè®©æˆ‘æ²»ç–—%då¤©ã€‚",delay_day);
+		  msg2="ç”±äºä¸æ³¨æ„èº«ä½“,æˆ‘è¢«äººå‘ç°æ˜è¿·åœ¨";
 		  msg2+=loc[10*(m_City-1)+m_MyCurrentLoc-1];
-		  msg2+="¸½½üµÄ";
+		  msg2+="é™„è¿‘çš„";
 		  msg2+=coffee[RandomNum(29)];
-		  msg2+="¡£";
+		  msg2+="ã€‚";
 	      int load=delay_day*(1000+RandomNum(8500));
-		  msg3.Format("´å³¤ÈÃÈËÎªÎÒµæ¸¶ÁË×¡Ôº·ÑÓÃ%dÔª¡£",load);
+		  msg3.Format("æ‘é•¿è®©äººä¸ºæˆ‘å«ä»˜äº†ä½é™¢è´¹ç”¨%då…ƒã€‚",load);
     
           CRijiDlg dlg(NULL,msg1,msg2,msg3);
           dlg.DoModal();
@@ -1622,14 +1622,14 @@ void CSelectionDlg::DoRandomEvent()
 	}
 	if(m_nMyHealth<20 && m_nMyHealth >0){
 
-  CRijiDlg dlg(NULL,"°³µÄ½¡¿µ..½¡¿µÎ£»ú..¿ìÈ¥Ò½..");
+  CRijiDlg dlg(NULL,"ä¿ºçš„å¥åº·..å¥åº·å±æœº..å¿«å»åŒ»..");
          dlg.DoModal();
          return ;
 	}
 	if(m_nMyHealth<0){  // Opps! user dead.
 		if(m_bCloseSound==FALSE)
 	 PlaySound("sound\\death.wav",NULL,SND_ASYNC );
- CRijiDlg dlg(NULL,"°³µ¹ÔÚ½ÖÍ·,Éí±ßÈÕ¼Ç±¾ÉÏĞ´×Å£º\"±±¾©£¬ÎÒ½«ÔÙÀ´!\"");
+ CRijiDlg dlg(NULL,"ä¿ºå€’åœ¨è¡—å¤´,èº«è¾¹æ—¥è®°æœ¬ä¸Šå†™ç€ï¼š\"åŒ—äº¬ï¼Œæˆ‘å°†å†æ¥!\"");
          dlg.DoModal();
 		OnCancel();
 	 }
@@ -1666,7 +1666,7 @@ void CSelectionDlg::OnHospital()
     // user need medical care
 	if(m_nMyHealth<100){
 	CString str;
-	str.Format("´ó·ò¸ßĞËµØÅÄ×ÅÊÖ£º¡°ÄúµÄ½¡¿µµãÊıÊÇ%d£¬ĞèÒªÖÎÁÆµÄµãÊıÊÇ%d¡£",
+	str.Format("å¤§å¤«é«˜å…´åœ°æ‹ç€æ‰‹ï¼šâ€œæ‚¨çš„å¥åº·ç‚¹æ•°æ˜¯%dï¼Œéœ€è¦æ²»ç–—çš„ç‚¹æ•°æ˜¯%dã€‚",
 		m_nMyHealth,100-m_nMyHealth);
 	CHispital dlg(NULL,this);
 	dlg.m_strMsg=str;
@@ -1674,7 +1674,7 @@ void CSelectionDlg::OnHospital()
 	{
 		if(dlg.m_nCurSel*3500 >MyCash){
 
-		CRijiDlg dlg(NULL,"Ò½ÉúËµ£¬¡°Ç®²»¹»°¥! ¾Ü¾øÖÎÁÆ¡£¡±");
+		CRijiDlg dlg(NULL,"åŒ»ç”Ÿè¯´ï¼Œâ€œé’±ä¸å¤Ÿå“! æ‹’ç»æ²»ç–—ã€‚â€");
          dlg.DoModal();
 		}
 		else  //ok
@@ -1693,7 +1693,7 @@ void CSelectionDlg::OnHospital()
    }
     // user is ok, need not mediacl care at all. He must be mad.
 	else{
-	CRijiDlg dlg(NULL,"Ğ¡»¤Ê¿Ğ¦ßäßäµØÍû×Å°³£º\"´ó¸ç£¡Éñ¾­¿ÆÕâ±ß¹ÒºÅ.\"");
+	CRijiDlg dlg(NULL,"å°æŠ¤å£«ç¬‘å’ªå’ªåœ°æœ›ç€ä¿ºï¼š\"å¤§å“¥ï¼ç¥ç»ç§‘è¿™è¾¹æŒ‚å·.\"");
     dlg.DoModal();
 }
 	RefreshDisplay();
@@ -1710,28 +1710,28 @@ void CSelectionDlg::OnPostoffice()
 		// too poor
 		if(MyCash+MyBank<1000){
 
-		CRijiDlg dlg(NULL,"´å³¤ºÙºÙĞ¦µÀ£º¡°ÄãÃ»Ç®,ÓĞÉñ¾­²¡!¡±");
+		CRijiDlg dlg(NULL,"æ‘é•¿å˜¿å˜¿ç¬‘é“ï¼šâ€œä½ æ²¡é’±,æœ‰ç¥ç»ç—…!â€");
     dlg.DoModal();
 	}
 	//  richer
 		else if(MyCash+MyBank<100000 && MyCash+MyBank>1000){
-		CRijiDlg dlg(NULL,"´å³¤³¯°³µãÍ·£º\"ĞÖµÜ,ÄúÏëÖ§Ô®¼ÒÏç1000ÔªÂğ£¿\"");
+		CRijiDlg dlg(NULL,"æ‘é•¿æœä¿ºç‚¹å¤´ï¼š\"å…„å¼Ÿ,æ‚¨æƒ³æ”¯æ´å®¶ä¹¡1000å…ƒå—ï¼Ÿ\"");
     dlg.DoModal();
 	}
 	    //very rich
 		else if(MyCash+MyBank<10000000 && MyCash+MyBank>100000){
-		CRijiDlg dlg(NULL,"´å³¤ÔÚµç»°ÖĞ³¯°³¾Ï¹ª:\"¸»ºÀ!ÎÒÏë°ÑÎÒÅ®¶ù¼Ş¸øÄú.\"...");
+		CRijiDlg dlg(NULL,"æ‘é•¿åœ¨ç”µè¯ä¸­æœä¿ºé èº¬:\"å¯Œè±ª!æˆ‘æƒ³æŠŠæˆ‘å¥³å„¿å«ç»™æ‚¨.\"...");
     dlg.DoModal();
 	}
 	//so rich that I admire you
 		else if(MyCash+MyBank>10000000){
-	CRijiDlg dlg(NULL,"´å³¤ÔÚµç»°ÖĞ³¯°³ÏÂ¹ò£¬Ëµ£º\"Äú¼òÖ±ÊÇÎÒÇ×µù£¡\"");
+	CRijiDlg dlg(NULL,"æ‘é•¿åœ¨ç”µè¯ä¸­æœä¿ºä¸‹è·ªï¼Œè¯´ï¼š\"æ‚¨ç®€ç›´æ˜¯æˆ‘äº²çˆ¹ï¼\"");
     dlg.DoModal();
    }
     // may this happen? I think never.
     else
     {
-    	CRijiDlg dlg(NULL,"´å³¤Ëµ£º\"ÄúÊÇÅ©´åÄêÇáÈËµÄµä·¶£¡\"");
+    	CRijiDlg dlg(NULL,"æ‘é•¿è¯´ï¼š\"æ‚¨æ˜¯å†œæ‘å¹´è½»äººçš„å…¸èŒƒï¼\"");
         dlg.DoModal();
     	}
 
@@ -1741,12 +1741,12 @@ void CSelectionDlg::OnPostoffice()
 	// has debt
 	CReplayLoad  dlg(NULL,this);
 	CString str;
-	str.Format("´å³¤ÔÚµç»°ÖĞËµ£º\"ÌúÅ££¬ÄãÇ·°³%dÔª£¬¿ì»¹!\"",MyDebt);
+	str.Format("æ‘é•¿åœ¨ç”µè¯ä¸­è¯´ï¼š\"é“ç‰›ï¼Œä½ æ¬ ä¿º%då…ƒï¼Œå¿«è¿˜!\"",MyDebt);
 	dlg.m_strMsg=str;
 	if(dlg.DoModal()==IDOK){
 		// do not have enough money to pay
 		if(dlg.m_nMaxMoney>MyCash){
-			CRijiDlg dlg(NULL,"´å³¤ÀÏÆÅ¿ñÍÌ¡°Ñ©ÖĞØ¤¡±²¹¸ÆÆ¬£¬ÀäĞ¦µÀ£º¡°Äã»¹µÃÆğÂğ?¡±");
+			CRijiDlg dlg(NULL,"æ‘é•¿è€å©†ç‹‚åâ€œé›ªä¸­ä¸â€è¡¥é’™ç‰‡ï¼Œå†·ç¬‘é“ï¼šâ€œä½ è¿˜å¾—èµ·å—?â€");
     dlg.DoModal();
     	RefreshDisplay();
 			return ;
@@ -1789,7 +1789,7 @@ void CSelectionDlg::OnSteal()
            str.Format("%s",random_steal_event [i].msg);
            // cash decrease
 		   if(i!=4 && i!=5){
-		   str1.Format("°³µÄÒø×Ó¼õÉÙÁË%d%%¡£",random_steal_event [i].ratoi);
+		   str1.Format("ä¿ºçš„é“¶å­å‡å°‘äº†%d%%ã€‚",random_steal_event [i].ratoi);
 		   str+=str1;
 		   CRijiDlg dlg(NULL,str);
            dlg.DoModal();
@@ -1798,9 +1798,9 @@ void CSelectionDlg::OnSteal()
 		// banking savings decrease
 		   else if(MyBank>0)// i==4, telcome
 		   {
-           str1.Format("°³µÄ´æ¿î¼õÉÙÁË%d%%¡£",random_steal_event [i].ratoi);
+           str1.Format("ä¿ºçš„å­˜æ¬¾å‡å°‘äº†%d%%ã€‚",random_steal_event [i].ratoi);
 		   str+=str1;
-		   str+="£¬°¥Ñ½!";
+		   str+="ï¼Œå“å‘€!";
 		   //AfxMessageBox(str);
 		   CRijiDlg dlg(NULL,str);
            dlg.DoModal();
@@ -1821,13 +1821,13 @@ void CSelectionDlg::OnSteal()
 			num=(long)(MyBank/(2+RandomNum(20)));   // 2 instead of 1, so not all the money
 			                           // can be token by hacker.
 			if(RandomNum(20)%3!=0){
-            str.Format("ºÚ¿ÍÈëÇÖÒøĞĞÍøÂç£¬·è¿ñĞŞ¸ÄÊı¾İ¿â£¬ÎÒµÄ´æ¿î¼õÉÙÁË%Ld",num);
+            str.Format("é»‘å®¢å…¥ä¾µé“¶è¡Œç½‘ç»œï¼Œç–¯ç‹‚ä¿®æ”¹æ•°æ®åº“ï¼Œæˆ‘çš„å­˜æ¬¾å‡å°‘äº†%Ld",num);
 			CRijiDlg dlg(NULL,str);
             dlg.DoModal();
             MyBank-=num; 	
             }
 			else{
-             str.Format("ºÚ¿ÍÈëÇÖÒøĞĞÍøÂç£¬·è¿ñĞŞ¸ÄÊı¾İ¿â£¬ÎÒµÄ´æ¿îÔö¼ÓÁË%Ld",num);
+             str.Format("é»‘å®¢å…¥ä¾µé“¶è¡Œç½‘ç»œï¼Œç–¯ç‹‚ä¿®æ”¹æ•°æ®åº“ï¼Œæˆ‘çš„å­˜æ¬¾å¢åŠ äº†%Ld",num);
 			CRijiDlg dlg(NULL,str);
             dlg.DoModal();
             MyBank+=num;
@@ -1837,7 +1837,7 @@ void CSelectionDlg::OnSteal()
         else		
 		{
 			num=(long)(MyBank/(1+RandomNum(15)));
-			str.Format("ºÚ¿ÍÈëÇÖÒøĞĞÍøÂç£¬·è¿ñĞŞ¸ÄÊı¾İ¿â£¬ÎÒµÄ´æ¿îÔö¼ÓÁË%Ld",num);
+			str.Format("é»‘å®¢å…¥ä¾µé“¶è¡Œç½‘ç»œï¼Œç–¯ç‹‚ä¿®æ”¹æ•°æ®åº“ï¼Œæˆ‘çš„å­˜æ¬¾å¢åŠ äº†%Ld",num);
 			CRijiDlg dlg(NULL,str);
             dlg.DoModal();
             MyBank+=num; 
@@ -1847,7 +1847,7 @@ void CSelectionDlg::OnSteal()
 	
 	if(MyCash<0){
 		MyCash=0;
-		 CRijiDlg dlg(NULL,"°³²»ºÃ°ìÁË¡£");
+		 CRijiDlg dlg(NULL,"ä¿ºä¸å¥½åŠäº†ã€‚");
     dlg.DoModal();
 	 }
      
@@ -1915,14 +1915,14 @@ void CSelectionDlg::OnExit()
 	  else  // not enter top 10
 	  {
  
-		 str.Format("ÄúÕõµÄÇ®%ldÔªÈËÃñ±ÒÌ«ÉÙ£¬Ã»ÄÜ½øÈë¸»ÈËÇ°10Ãû£¬ÏÂ´ÎÅ¬Á¦Å¶!",m_nScore);
+		 str.Format("æ‚¨æŒ£çš„é’±%ldå…ƒäººæ°‘å¸å¤ªå°‘ï¼Œæ²¡èƒ½è¿›å…¥å¯Œäººå‰10åï¼Œä¸‹æ¬¡åŠªåŠ›å“¦!",m_nScore);
 		 CNewsDlg dlg(NULL,str);
          dlg.DoModal();
 	  }
       playerdlg.DoModal();
 	  if(m_nScore >10000000)     // score very high, suggest report it
       {
-         str.Format("ÄúÕõµÄÇ®%ldÔªÈËÃñ±ÒºÜ¸ß£¬½¨ÒéÄú·¢¸ø×÷Õß½øĞĞ¸ßÊÖÅÅĞĞ¡£",m_nScore);
+         str.Format("æ‚¨æŒ£çš„é’±%ldå…ƒäººæ°‘å¸å¾ˆé«˜ï¼Œå»ºè®®æ‚¨å‘ç»™ä½œè€…è¿›è¡Œé«˜æ‰‹æ’è¡Œã€‚",m_nScore);
 		 CNewsDlg dlg(NULL,str);
          dlg.DoModal();
 	  }
@@ -1930,11 +1930,11 @@ void CSelectionDlg::OnExit()
 	else   // user's score is not bigger than zero
 	{
 	
-		CString name="ÎŞÃûÊÏ";
+		CString name="æ— åæ°";
 		CString str;
-		str+="¡¶±±¾©ÓÎÏ·±¨¡·±¨µÀ: Íæ¼Ò¡°";
+		str+="ã€ŠåŒ—äº¬æ¸¸æˆæŠ¥ã€‹æŠ¥é“: ç©å®¶â€œ";
 		str+=name;
-		str+="¡±ÔÚ±±¾©Ã»Õõ×ÅÇ®£¬±»Ç²ËÍ»Ø¼Ò¡£";
+		str+="â€åœ¨åŒ—äº¬æ²¡æŒ£ç€é’±ï¼Œè¢«é£é€å›å®¶ã€‚";
 		CNewsDlg dlg(NULL,str);
         dlg.DoModal();
  	    remove(m_strHelpFile);
@@ -1942,7 +1942,7 @@ void CSelectionDlg::OnExit()
 		return ;
 	}
 	// if user's score is bigger than zero, ask if he wants to try the game again
-	if(AfxMessageBox("àË, ÔÙÍæÒ»°ÑÂğ?",MB_YESNO | MB_ICONQUESTION)==IDYES){
+	if(AfxMessageBox("å—¨, å†ç©ä¸€æŠŠå—?",MB_YESNO | MB_ICONQUESTION)==IDYES){
     m_nTimeLeft=40;  // well, user have 40 days, re-start
 	OnNewGame();
 	}
@@ -1986,12 +1986,12 @@ void CSelectionDlg::OnWangba()
 	// user is allowed enter wangba 4 times only, avoid wangba abuse
 	if(m_nVisitWangba > 2)
 	{
-    CRijiDlg dlg(NULL,"´å³¤·Å³ö»°À´£ºÄã±ğ×ÜÊÇÔÚÍø°ÉÀï¹í»ì£¬¿ìÈ¥×öÕı¾­ÂòÂô! ");
+    CRijiDlg dlg(NULL,"æ‘é•¿æ”¾å‡ºè¯æ¥ï¼šä½ åˆ«æ€»æ˜¯åœ¨ç½‘å§é‡Œé¬¼æ··ï¼Œå¿«å»åšæ­£ç»ä¹°å–! ");
     dlg.DoModal();
 	return ;
 	}
 	if(MyCash<15){
-    CRijiDlg dlg(NULL,"½øÍø°ÉÖÁÉÙÉíÉÏÒª´ø15Ôª£¬ºÇºÇ£¬È¡Ç®ÔÙÀ´¡£");
+    CRijiDlg dlg(NULL,"è¿›ç½‘å§è‡³å°‘èº«ä¸Šè¦å¸¦15å…ƒï¼Œå‘µå‘µï¼Œå–é’±å†æ¥ã€‚");
     dlg.DoModal();
 	}
 	else {
@@ -2001,7 +2001,7 @@ void CSelectionDlg::OnWangba()
 	int i=RandomNum(10);  //give user some money( not bigger than 10)
 	MyCash+=1+i;
 	CString s;
-	s.Format("¸ĞĞ»µçĞÅ¸Ä¸ï£¬¿ÉÒÔÃâ·ÑÉÏÍø! »¹ÕõÁËÃÀ¹úÍøÂç¹ã¸æ·Ñ%dÔª£¬ºÙºÙ!",i+1);
+	s.Format("æ„Ÿè°¢ç”µä¿¡æ”¹é©ï¼Œå¯ä»¥å…è´¹ä¸Šç½‘! è¿˜æŒ£äº†ç¾å›½ç½‘ç»œå¹¿å‘Šè´¹%då…ƒï¼Œå˜¿å˜¿!",i+1);
     CRijiDlg dlg1(NULL,s);
     dlg1.DoModal();
 	RefreshDisplay();
@@ -2041,7 +2041,7 @@ void CSelectionDlg::OnIntro()
 		m_strHelpFile, NULL, NULL, SW_SHOW);
     if ((int) hRun <= 32)
 	{
-		MessageBox("ÕÒ²»µ½°ïÖúÎÄ¼ş","´íÎó",MB_ICONERROR);
+		MessageBox("æ‰¾ä¸åˆ°å¸®åŠ©æ–‡ä»¶","é”™è¯¯",MB_ICONERROR);
 	}
 	
 #endif	
@@ -2065,14 +2065,14 @@ void CSelectionDlg::OnHouseAgency()
 	// TODO: Add your control notification handler code here
 	//your house is too large
 	if(myCoat==140){
-	    CRijiDlg dlg1(NULL,"ÖĞ½éËµ£¬ÄúµÄ·¿×Ó±È¾Ö³¤µÄ»¹´ó!»¹×â·¿?");
+	    CRijiDlg dlg1(NULL,"ä¸­ä»‹è¯´ï¼Œæ‚¨çš„æˆ¿å­æ¯”å±€é•¿çš„è¿˜å¤§!è¿˜ç§Ÿæˆ¿?");
         dlg1.DoModal();
 		return ;
 	}
 	// no enough money to rent house
 	if(MyCash<30000)
 	{
-		CRijiDlg dlg1(NULL,"ÖĞ½éËµ£¬ÄúÃ»ÓĞÈıÍòÏÖ½ğ¾ÍÏë×â·¿? Ò»±ßÁ¹¿ìÈ¥!");
+		CRijiDlg dlg1(NULL,"ä¸­ä»‹è¯´ï¼Œæ‚¨æ²¡æœ‰ä¸‰ä¸‡ç°é‡‘å°±æƒ³ç§Ÿæˆ¿? ä¸€è¾¹å‡‰å¿«å»!");
         dlg1.DoModal();
 		return ;
 	}
@@ -2092,14 +2092,14 @@ void CSelectionDlg::OnHouseAgency()
 	myCoat+=10;
 	RefreshDisplay();
 	CString str;
-	str.Format("ÎÒµÄ·¿×Ó¿ÉÒÔ·Å%d¸öÎïÆ·ÁË!¿ÉÊÇ£¬ºÃÏóÖĞ½é¹«Ë¾Æ­ÁËÎÒÒ»Ğ©Ç®...",myCoat);
+	str.Format("æˆ‘çš„æˆ¿å­å¯ä»¥æ”¾%dä¸ªç‰©å“äº†!å¯æ˜¯ï¼Œå¥½è±¡ä¸­ä»‹å…¬å¸éª—äº†æˆ‘ä¸€äº›é’±...",myCoat);
     CRijiDlg dlg1(NULL,str);
     dlg1.DoModal();
 	}
 	// user gets up
 	else
 	{
-     CRijiDlg dlg1(NULL,"ºÇ! Ğ¡ĞÄÎªÃî! ´«ÎÅ±±¾©ÓĞµÄ×â·¿ÖĞ½é¹«Ë¾ºÜÄÜÆ­ÈË....");
+     CRijiDlg dlg1(NULL,"å‘µ! å°å¿ƒä¸ºå¦™! ä¼ é—»åŒ—äº¬æœ‰çš„ç§Ÿæˆ¿ä¸­ä»‹å…¬å¸å¾ˆèƒ½éª—äºº....");
      dlg1.DoModal();
 	}
 }
@@ -2112,7 +2112,7 @@ void CSelectionDlg::OnNewGame()
 {   
 	if((40-m_nTimeLeft)>=3)
 	{   // confirm
-		if(AfxMessageBox("ÄúÕıÔÚÍæÒ»¸öÓÎÏ·£¬Òª·ÅÆúËü²¢¿ªÊ¼ĞÂµÄÂğ?",MB_YESNO   )==IDNO)
+		if(AfxMessageBox("æ‚¨æ­£åœ¨ç©ä¸€ä¸ªæ¸¸æˆï¼Œè¦æ”¾å¼ƒå®ƒå¹¶å¼€å§‹æ–°çš„å—?",MB_YESNO   )==IDNO)
 			return ;
 	}
 	// TODO: Add your command handler code here
@@ -2138,14 +2138,14 @@ void CSelectionDlg::OnNewGame()
 	}
     for(i=0;i<9;i++)
 		m_chDrugName[i]=(char *)malloc(100);
-	strcpy(m_chDrugName[0],"½ø¿ÚÏãÑÌ");	
-	strcpy(m_chDrugName[1],"×ßË½Æû³µ");
-	strcpy(m_chDrugName[2],"µÁ°æVCD¡¢ÓÎÏ·");	
-	strcpy(m_chDrugName[3],"¼Ù°×¾Æ£¨¾ç¶¾£¡£©");
-	strcpy(m_chDrugName[4],"¡¶ÉÏº£Ğ¡±¦±´¡·£¨½ûÊé£©");	
-	strcpy(m_chDrugName[5],"½ø¿ÚÍæ¾ß");
-	strcpy(m_chDrugName[7],"Î±ÁÓ»¯×±Æ·");	
-	strcpy(m_chDrugName[6],"Ë®»õÊÖ»ú");
+	strcpy(m_chDrugName[0],"è¿›å£é¦™çƒŸ");	
+	strcpy(m_chDrugName[1],"èµ°ç§æ±½è½¦");
+	strcpy(m_chDrugName[2],"ç›—ç‰ˆVCDã€æ¸¸æˆ");	
+	strcpy(m_chDrugName[3],"å‡ç™½é…’ï¼ˆå‰§æ¯’ï¼ï¼‰");
+	strcpy(m_chDrugName[4],"ã€Šä¸Šæµ·å°å®è´ã€‹ï¼ˆç¦ä¹¦ï¼‰");	
+	strcpy(m_chDrugName[5],"è¿›å£ç©å…·");
+	strcpy(m_chDrugName[7],"ä¼ªåŠ£åŒ–å¦†å“");	
+	strcpy(m_chDrugName[6],"æ°´è´§æ‰‹æœº");
 	strcpy(m_chDrugName[8],"");
 	
     
@@ -2171,7 +2171,7 @@ void CSelectionDlg::OnNewGame()
     m_list2.SetColumnWidth(0,100);
 
     CString str;
-	str.Format("±±¾©¸¡Éú(%d/40Ìì)",40-m_nTimeLeft);
+	str.Format("åŒ—äº¬æµ®ç”Ÿ(%d/40å¤©)",40-m_nTimeLeft);
     // show this on the dialog title
 	SetWindowText(str);
 	
@@ -2322,34 +2322,34 @@ void CSelectionDlg::OnGoShanghai()
    {
    case BEIJING:   //user is in Beijing, so he wants to go to shanghai
 	   m_City=SHANGHAI;
-      GetDlgItem(IDC_LOC)->SetWindowText("±±¾©ÊĞµØÃæÊ¾ÒâÍ¼");
-       GetDlgItem(IDC_LOC_XIZHIMEN)->SetWindowText("º£µí´ó½Ö");
-       GetDlgItem(IDC_LOC_FUXINGMEN)->SetWindowText("¸®ÓÒ½Ö");
-       GetDlgItem(IDC_LOC_JISHUITAN)->SetWindowText("ÑÇÔË´å");
-       GetDlgItem(IDC_LOC_DONGZHIMEN)->SetWindowText("ÈıÔªÎ÷ÇÅ");
-       GetDlgItem(IDC_LOC_JIANGUOMEN)->SetWindowText("ÓÀ°²Àï");
-       GetDlgItem(IDC_LOC_BEIJINGZHAN)->SetWindowText("·½ ×¯");
-       GetDlgItem(IDC_LOC_CHONGWENMEN)->SetWindowText("ÓÀ¶¨ÃÅ");
-       GetDlgItem(IDC_LOC_CHANGCHUNJIE)->SetWindowText("ÓñÈªÓª");
-       GetDlgItem(IDC_LOC_GONGZHUFEN)->SetWindowText("´äÎ¢Â·");
-       GetDlgItem(IDC_LOC_PINGGUOYUAN)->SetWindowText("°Ë½ÇÎ÷Â·");
-	   GetDlgItem(IDC_GO_SHANGHAI)->SetWindowText("ÎÒÒª½øµØÌú");
+      GetDlgItem(IDC_LOC)->SetWindowText("åŒ—äº¬å¸‚åœ°é¢ç¤ºæ„å›¾");
+       GetDlgItem(IDC_LOC_XIZHIMEN)->SetWindowText("æµ·æ·€å¤§è¡—");
+       GetDlgItem(IDC_LOC_FUXINGMEN)->SetWindowText("åºœå³è¡—");
+       GetDlgItem(IDC_LOC_JISHUITAN)->SetWindowText("äºšè¿æ‘");
+       GetDlgItem(IDC_LOC_DONGZHIMEN)->SetWindowText("ä¸‰å…ƒè¥¿æ¡¥");
+       GetDlgItem(IDC_LOC_JIANGUOMEN)->SetWindowText("æ°¸å®‰é‡Œ");
+       GetDlgItem(IDC_LOC_BEIJINGZHAN)->SetWindowText("æ–¹ åº„");
+       GetDlgItem(IDC_LOC_CHONGWENMEN)->SetWindowText("æ°¸å®šé—¨");
+       GetDlgItem(IDC_LOC_CHANGCHUNJIE)->SetWindowText("ç‰æ³‰è¥");
+       GetDlgItem(IDC_LOC_GONGZHUFEN)->SetWindowText("ç¿ å¾®è·¯");
+       GetDlgItem(IDC_LOC_PINGGUOYUAN)->SetWindowText("å…«è§’è¥¿è·¯");
+	   GetDlgItem(IDC_GO_SHANGHAI)->SetWindowText("æˆ‘è¦è¿›åœ°é“");
 	   break;
    case SHANGHAI: //user is in shanghai, he wants to go back to beijing
        m_City=BEIJING;
        //GetDlgItem(IDC_BG)->EnableWindow(FALSE);
-       GetDlgItem(IDC_LOC)->SetWindowText("±±¾©ÊĞµØÌúÊ¾ÒâÍ¼");
-       GetDlgItem(IDC_LOC_XIZHIMEN)->SetWindowText("Î÷Ö±ÃÅ");
-       GetDlgItem(IDC_LOC_FUXINGMEN)->SetWindowText("¸´ĞËÃÅ");
-       GetDlgItem(IDC_LOC_JISHUITAN)->SetWindowText("»ıË®Ì¶");
-       GetDlgItem(IDC_LOC_DONGZHIMEN)->SetWindowText("¶«Ö±ÃÅ");
-       GetDlgItem(IDC_LOC_JIANGUOMEN)->SetWindowText("½¨¹úÃÅ");
-       GetDlgItem(IDC_LOC_BEIJINGZHAN)->SetWindowText("±±¾©Õ¾");
-       GetDlgItem(IDC_LOC_CHONGWENMEN)->SetWindowText("³çÎÄÃÅ");
-       GetDlgItem(IDC_LOC_CHANGCHUNJIE)->SetWindowText("³¤´»½Ö");
-       GetDlgItem(IDC_LOC_GONGZHUFEN)->SetWindowText("¹«Ö÷·Ø");
-       GetDlgItem(IDC_LOC_PINGGUOYUAN)->SetWindowText("Æ»¹ûÔ°");
-	   GetDlgItem(IDC_GO_SHANGHAI)->SetWindowText("ÎÒÒª¹ä¾©³Ç");
+       GetDlgItem(IDC_LOC)->SetWindowText("åŒ—äº¬å¸‚åœ°é“ç¤ºæ„å›¾");
+       GetDlgItem(IDC_LOC_XIZHIMEN)->SetWindowText("è¥¿ç›´é—¨");
+       GetDlgItem(IDC_LOC_FUXINGMEN)->SetWindowText("å¤å…´é—¨");
+       GetDlgItem(IDC_LOC_JISHUITAN)->SetWindowText("ç§¯æ°´æ½­");
+       GetDlgItem(IDC_LOC_DONGZHIMEN)->SetWindowText("ä¸œç›´é—¨");
+       GetDlgItem(IDC_LOC_JIANGUOMEN)->SetWindowText("å»ºå›½é—¨");
+       GetDlgItem(IDC_LOC_BEIJINGZHAN)->SetWindowText("åŒ—äº¬ç«™");
+       GetDlgItem(IDC_LOC_CHONGWENMEN)->SetWindowText("å´‡æ–‡é—¨");
+       GetDlgItem(IDC_LOC_CHANGCHUNJIE)->SetWindowText("é•¿æ¤¿è¡—");
+       GetDlgItem(IDC_LOC_GONGZHUFEN)->SetWindowText("å…¬ä¸»åŸ");
+       GetDlgItem(IDC_LOC_PINGGUOYUAN)->SetWindowText("è‹¹æœå›­");
+	   GetDlgItem(IDC_GO_SHANGHAI)->SetWindowText("æˆ‘è¦é€›äº¬åŸ");
 	   break;
    default:
 	   break;

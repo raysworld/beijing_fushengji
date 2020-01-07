@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName>Perforce Project</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <Keyword>MFCProj</Keyword>
+    <ProjectGuid>{5255BABC-4B29-4FAE-83C9-B7E30D0FAC0E}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\Debug\DualListDemo.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\Debug\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug\</ProgramDataBaseFileName>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Debug\DualListDemo.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <RedirectOutputAndErrors>NUL</RedirectOutputAndErrors>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug\DualListDemo.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>.\Debug\DualListDemo.exe</OutputFile>
+      <AdditionalDependencies>winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MinSpace</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\Release\DualListDemo.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\Release\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Release\DualListDemo.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <RedirectOutputAndErrors>NUL</RedirectOutputAndErrors>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\DualListDemo.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>.\Release\DualListDemo.exe</OutputFile>
+      <AdditionalDependencies>winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="BankJiaoyi.cpp" />
+    <ClCompile Include="BeijingIntroDlg.cpp" />
+    <ClCompile Include="BitmapPicture.cpp" />
+    <ClCompile Include="BossComeDlg.cpp" />
+    <ClCompile Include="BtnST.cpp" />
+    <ClCompile Include="BuyDlg.cpp" />
+    <ClCompile Include="Curvefit.cpp" />
+    <ClCompile Include="Digistring.cpp" />
+    <ClCompile Include="DualListDemo.cpp" />
+    <ClCompile Include="DualListDemoDlg.cpp" />
+    <ClCompile Include="EnterBank.cpp" />
+    <ClCompile Include="Hispital.cpp" />
+    <ClCompile Include="HouseDlg.cpp" />
+    <ClCompile Include="HyperLink.cpp" />
+    <ClCompile Include="ListCtrlSortClass.cpp" />
+    <ClCompile Include="NetworkClub.cpp" />
+    <ClCompile Include="NewsDlg.cpp" />
+    <ClCompile Include="PostMoneyDlg.cpp" />
+    <ClCompile Include="ReplayLoad.cpp" />
+    <ClCompile Include="RichTop10.cpp" />
+    <ClCompile Include="RijiDlg.cpp" />
+    <ClCompile Include="SelectionDlg.cpp" />
+    <ClCompile Include="SellDlg.cpp" />
+    <ClCompile Include="SetUpGame.cpp" />
+    <ClCompile Include="ShengmingDlg.cpp" />
+    <ClCompile Include="StaticCounter.cpp" />
+    <ClCompile Include="StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="StoryDlg.cpp" />
+    <ClCompile Include="Ticker.cpp" />
+    <ClCompile Include="TipDlg.cpp" />
+    <ClCompile Include="TopPlayerDlg.cpp" />
+    <ClCompile Include="Wangba.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DualListDemo.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BankJiaoyi.h" />
+    <ClInclude Include="BeijingIntroDlg.h" />
+    <ClInclude Include="BossComeDlg.h" />
+    <ClInclude Include="BuyDlg.h" />
+    <ClInclude Include="DualListDemo.h" />
+    <ClInclude Include="DualListDemoDlg.h" />
+    <ClInclude Include="EnterBank.h" />
+    <ClInclude Include="Hispital.h" />
+    <ClInclude Include="HouseDlg.h" />
+    <ClInclude Include="ListCtrlSortClass.h" />
+    <ClInclude Include="NetworkClub.h" />
+    <ClInclude Include="NewsDlg.h" />
+    <ClInclude Include="PostMoneyDlg.h" />
+    <ClInclude Include="ReplayLoad.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="RichTop10.h" />
+    <ClInclude Include="RijiDlg.h" />
+    <ClInclude Include="SelectionDlg.h" />
+    <ClInclude Include="SetUpGame.h" />
+    <ClInclude Include="ShengmingDlg.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="StoryDlg.h" />
+    <ClInclude Include="TopPlayerDlg.h" />
+    <ClInclude Include="Wangba.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="email.bmp" />
+    <Image Include="news.bmp" />
+    <Image Include="res\32x32x256_Hand.ico" />
+    <Image Include="res\32x32x256_Lamp.ico" />
+    <Image Include="res\bg.bmp" />
+    <Image Include="res\cover.bmp" />
+    <Image Include="res\DualListDemo.ico" />
+    <Image Include="res\game1.bmp" />
+    <Image Include="res\hand3.ico" />
+    <Image Include="res\hand4.ico" />
+    <Image Include="res\hand5.ico" />
+    <Image Include="res\hand6.ico" />
+    <Image Include="res\hand7.ico" />
+    <Image Include="res\hand8.ico" />
+    <Image Include="res\hand9.ico" />
+    <Image Include="res\ico00001.ico" />
+    <Image Include="res\ico00002.ico" />
+    <Image Include="res\ico00003.ico" />
+    <Image Include="res\icon1.ico" />
+    <Image Include="res\litebulb.bmp" />
+    <Image Include="res\logo.bmp" />
+    <Image Include="res\mid1.bmp" />
+    <Image Include="res\mid2.bmp" />
+    <Image Include="res\mid3.bmp" />
+    <Image Include="res\mid4.bmp" />
+    <Image Include="res\subway.bmp" />
+    <Image Include="res\tickerbkg2.bmp" />
+    <Image Include="res\TickerDragBar.bmp" />
+    <Image Include="res\top1.bmp" />
+    <Image Include="res\top2.bmp" />
+    <Image Include="res\top3.bmp" />
+    <Image Include="res\top4.bmp" />
+    <Image Include="riji.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="res\DualListDemo.rc2" />
+    <CustomBuild Include="res\html_source.html.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

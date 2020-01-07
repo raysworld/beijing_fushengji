@@ -58,17 +58,17 @@ BOOL CBuyDlg::OnInitDialog()
 
     CString str;
 	if(m_nMaxCount!=0){
-	str.Format("%ldÔªÈËÃñ±Ò,×î¶à¿ÉÒÔÂò%d¸ö",cash,m_nMaxCount);
+	str.Format("%ldå…ƒäººæ°‘å¸,æœ€å¤šå¯ä»¥ä¹°%dä¸ª",cash,m_nMaxCount);
 	str+=drug_name;
-	str+="¡£";
+	str+="ã€‚";
 	}
 	else{
-    str.Format("%ldÔªÈËÃñ±Ò, Äú×âµÄ·¿×Ó·ÅÂúÁË¶«Î÷£¬ËùÒÔ²»ÄÜÔÙ½ø»õÁË¡£",cash);
+    str.Format("%ldå…ƒäººæ°‘å¸, æ‚¨ç§Ÿçš„æˆ¿å­æ”¾æ»¡äº†ä¸œè¥¿ï¼Œæ‰€ä»¥ä¸èƒ½å†è¿›è´§äº†ã€‚",cash);
 
 	}
 	GetDlgItem(IDC_BUY_CASH)->SetWindowText(str);
 	if(m_nMaxCount==0){
-	str.Format("ÎªÀ©´óÉúÒâ¹æÄ££¬½¨ÒéÄúÈ¥×â¸ü´óµÄ·¿×Ó¡£");
+	str.Format("ä¸ºæ‰©å¤§ç”Ÿæ„è§„æ¨¡ï¼Œå»ºè®®æ‚¨åŽ»ç§Ÿæ›´å¤§çš„æˆ¿å­ã€‚");
     GetDlgItem(IDC_NO_HOUSE)->SetWindowText(str);
     }
 	

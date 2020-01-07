@@ -46,18 +46,18 @@ BOOL CRichTop10::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	CString str[5]={
-		    "±±¾©ÊÐÓÅÐã×¬Ç®Ô±",
-			"±±¾©Ê®´ó½Ü³öÐ¡ÇàÄê",
-			"¾©³Ç×î¿áµ¹ÂôÊÖ",
-			"¾©¶¼ÀÌÇ®´óÊ¦",
-			"±±¾©µÚÒ»½ðÊÖÖ¸"};
+		    "åŒ—äº¬å¸‚ä¼˜ç§€èµšé’±å‘˜",
+			"åŒ—äº¬åå¤§æ°å‡ºå°é’å¹´",
+			"äº¬åŸŽæœ€é…·å€’å–æ‰‹",
+			"äº¬éƒ½æžé’±å¤§å¸ˆ",
+			"åŒ—äº¬ç¬¬ä¸€é‡‘æ‰‹æŒ‡"};
 	// TODO: Add extra initialization here
-	m_strMsg.Format("ÄúµÄ²Æ¸»%ldÈËÃñ±ÒÒÑ¾­½øÈë±±¾©¸»ÈËÇ°%dÃû¡£",m_Score, m_Order);
+	m_strMsg.Format("æ‚¨çš„è´¢å¯Œ%ldäººæ°‘å¸å·²ç»è¿›å…¥åŒ—äº¬å¯Œäººå‰%dåã€‚",m_Score, m_Order);
 	GetDlgItem(IDC_RICH_MSG)->SetWindowText(m_strMsg);
 	CString fm=str[rand()%5];
-    m_strMsg="Äú»¹±»ÊÚÓè¡°";
+    m_strMsg="æ‚¨è¿˜è¢«æŽˆäºˆâ€œ";
     m_strMsg+=fm;
-    m_strMsg+="¡±¡£";
+    m_strMsg+="â€ã€‚";
 	GetDlgItem(IDC_FAME_GET)->SetWindowText(m_strMsg);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE

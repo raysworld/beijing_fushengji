@@ -51,7 +51,7 @@ void CEnterBank::OnOK()
 //	MyCash
 
     CBankJiaoyi  dlg(NULL, se);
-	dlg.m_strMsg="Äú´æ¶àÉÙÇ®?";	
+	dlg.m_strMsg="æ‚¨å­˜å¤šå°‘é’±?";	
 	dlg.m_nWhatToDo=1;
 	dlg.m_nMaxMoney=se->MyCash;
 	if(dlg.DoModal()==IDOK){
@@ -65,7 +65,7 @@ void CEnterBank::OnCancel()
 {
 	// TODO: Add extra cleanup here
 	CBankJiaoyi  dlg(NULL, se);
-	dlg.m_strMsg="ÄúÌá×ß¶àÉÙÇ®?";
+	dlg.m_strMsg="æ‚¨æèµ°å¤šå°‘é’±?";
 	dlg.m_nWhatToDo=2;
 	dlg.m_nMaxMoney=se->MyBank;
 	if(dlg.DoModal()==IDOK){
@@ -79,7 +79,7 @@ BOOL CEnterBank::OnInitDialog()
 {
 	CDialog::OnInitDialog();
     CString str;
-	str.Format("¿Í»§ÄúºÃ! ÄúµÄÏÖ½ðÊÇ%d, ÄúµÄ´æ¿îÊÇ%d. ÇëÎÊÄúÒª...",
+	str.Format("å®¢æˆ·æ‚¨å¥½! æ‚¨çš„çŽ°é‡‘æ˜¯%d, æ‚¨çš„å­˜æ¬¾æ˜¯%d. è¯·é—®æ‚¨è¦...",
 		se->MyCash, se->MyBank);
 	GetDlgItem(IDC_BANK_GREETING)->SetWindowText(str);
 	// TODO: Add extra initialization here

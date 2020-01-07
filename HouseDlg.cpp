@@ -54,13 +54,13 @@ BOOL CHouseDlg::OnInitDialog()
 	
 	// TODO: Add extra initialization here
 	CString say;
-	say.Format("Ïë°ÑÉúÒâ×ö´ó?ÄúÏÖÔÚµÄ·¿×ÓÖ»ÄÜ·Å%d¸öÎïÆ·£¬Ì«Ð¡À²!",old_number);
+	say.Format("æƒ³æŠŠç”Ÿæ„åšå¤§?æ‚¨çŽ°åœ¨çš„æˆ¿å­åªèƒ½æ”¾%dä¸ªç‰©å“ï¼Œå¤ªå°å•¦!",old_number);
 	GetDlgItem(IDC_SAY1)->SetWindowText(say);
 	if(money>30000)
-	  say.Format("Äú»¨·Ñ%ldÔª£¬¿ÉÒÔ×âÄÜ·Å%d¸öÎïÆ·µÄ·¿×Ó¡£",
+	  say.Format("æ‚¨èŠ±è´¹%ldå…ƒï¼Œå¯ä»¥ç§Ÿèƒ½æ”¾%dä¸ªç‰©å“çš„æˆ¿å­ã€‚",
 	     money/2, old_number+10);
 	else
-     say.Format("Äú»¨·Ñ20000Ôª£¬¿ÉÒÔ×âÄÜ·Å%d¸öÎïÆ·µÄ·¿×Ó¡£",old_number+10);
+     say.Format("æ‚¨èŠ±è´¹20000å…ƒï¼Œå¯ä»¥ç§Ÿèƒ½æ”¾%dä¸ªç‰©å“çš„æˆ¿å­ã€‚",old_number+10);
 	GetDlgItem(IDC_SAY2)->SetWindowText(say);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE

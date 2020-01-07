@@ -81,7 +81,7 @@ BOOL CBitmapPicture::SetBitmap(LPCTSTR lpszResourceName)
     return CBitmapPicture::SetBitmap(hBmp);
 }
 
-// Suggested by Pål K. Used to reload the bitmap on system colour changes.
+// Suggested by PÃ¥l K. Used to reload the bitmap on system colour changes.
 BOOL CBitmapPicture::ReloadBitmap()
 {
     if (m_nResourceID > 0) 
@@ -176,7 +176,7 @@ void CBitmapPicture::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
     pDC->SetBkMode(nOldMode);
 }
 
-// Suggested by Pål K. Tønder.
+// Suggested by PÃ¥l K. TÃ¸nder.
 void CBitmapPicture::OnSysColorChange() 
 {
     CStatic::OnSysColorChange();

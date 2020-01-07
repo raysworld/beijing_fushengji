@@ -82,7 +82,7 @@ CDualListDemoDlg::CDualListDemoDlg(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CDualListDemoDlg)
 		// NOTE: the ClassWizard will add member initialization here
-	m_strPlayerName="Ğ¡¶şºÚ";
+	m_strPlayerName="å°äºŒé»‘";
 	m_nScore=0;
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
@@ -191,16 +191,16 @@ void CDualListDemoDlg::OnSelectionDlg()
 {
     CString name;	
 	GetDlgItem(IDC_NAME)->GetWindowText(name);
-	if(name=="¹ùÏéê»")
+	if(name=="éƒ­ç¥¥æ˜Š")
 	{
-		CString str="±¾ÓÎÏ·µÄ×÷Õß¹ùÏéê»²»ÍæÕâ¸öÓÎÏ·¡£";
+		CString str="æœ¬æ¸¸æˆçš„ä½œè€…éƒ­ç¥¥æ˜Šä¸ç©è¿™ä¸ªæ¸¸æˆã€‚";
 	CNewsDlg dlg(NULL,str);
     dlg.DoModal();
 	return ;
 	}
-    /*CString msg="ĞÛĞÄ²ª²ªµÄ";
+    /*CString msg="é›„å¿ƒå‹ƒå‹ƒçš„";
 	msg+=name;
-	msg+="À´µ½ÁË±±¾©!·¢²ÆÊÇÎ¨Ò»µÄÄ¿±ê!";
+	msg+="æ¥åˆ°äº†åŒ—äº¬!å‘è´¢æ˜¯å”¯ä¸€çš„ç›®æ ‡!";
 	CNewsDlg dlg1(NULL,msg);
     dlg1.DoModal();*/
 	if(g_showtips){
@@ -225,9 +225,9 @@ void CDualListDemoDlg::OnSelectionDlg()
 		CString name;
 		GetDlgItem(IDC_NAME)->GetWindowText(name);
 		CString str;
-		str+="¡¶±±¾©ÓÎÏ·±¨¡·±¨µÀ: Íæ¼Ò¡°";
+		str+="ã€ŠåŒ—äº¬æ¸¸æˆæŠ¥ã€‹æŠ¥é“: ç©å®¶â€œ";
 		str+=name;
-		str+="¡±ÔÚ±±¾©Ã»Õõ×ÅÇ®£¬±»Ç²ËÍ»Ø¼Ò¡£";
+		str+="â€åœ¨åŒ—äº¬æ²¡æŒ£ç€é’±ï¼Œè¢«é£é€å›å®¶ã€‚";
 		CNewsDlg dlg(NULL,str);
     dlg.DoModal();
 	}

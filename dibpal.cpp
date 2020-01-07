@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////
-// Copyright (C) 1998 by Jörg König
+// Copyright (C) 1998 by JÃ¶rg KÃ¶nig
 // All rights reserved
 //
 // This file is part of the completely free tetris clone "CGTetris".

@@ -376,7 +376,7 @@ void CHyperLink::AdjustWindow()
     GetWindowRect(rcWnd);
 
 	// For a child CWnd object, window rect is relative to the 
-	// upper-left corner of the parent window’s client area. 
+	// upper-left corner of the parent windowâ€™s client area. 
     CWnd* pParent = GetParent();
     if (pParent)
         pParent->ScreenToClient(rcWnd);

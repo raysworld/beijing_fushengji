@@ -62,11 +62,11 @@ BOOL CTopPlayerDlg::OnInitDialog()
 	m_list1.SendMessage(LVM_SETEXTENDEDLISTVIEWSTYLE, LVS_EX_FULLROWSELECT, LVS_EX_FULLROWSELECT);
 
 	// create column
-	m_list1.InsertColumn(0, "Ãû´Î", LVCFMT_LEFT, 68);
-	m_list1.InsertColumn(1, "ĞÕÃû", LVCFMT_LEFT, 100);
-	m_list1.InsertColumn(2, "½ğÇ®", LVCFMT_LEFT, 120);
-	m_list1.InsertColumn(3, "½¡¿µ³Ì¶È", LVCFMT_LEFT, 80);
-	m_list1.InsertColumn(4, "ÃûÉù", LVCFMT_LEFT, 80);
+	m_list1.InsertColumn(0, "åæ¬¡", LVCFMT_LEFT, 68);
+	m_list1.InsertColumn(1, "å§“å", LVCFMT_LEFT, 100);
+	m_list1.InsertColumn(2, "é‡‘é’±", LVCFMT_LEFT, 120);
+	m_list1.InsertColumn(3, "å¥åº·ç¨‹åº¦", LVCFMT_LEFT, 80);
+	m_list1.InsertColumn(4, "åå£°", LVCFMT_LEFT, 80);
 //    LoadSavedScore();
     ShowScores();
          
@@ -114,8 +114,8 @@ void CTopPlayerDlg::InsertScore(CString playername, long newscore,int health,int
 
 void CTopPlayerDlg::ShowScores()
 {
-	CString str[10]={"µÚÒ»Ãû","µÚ¶şÃû","µÚÈıÃû","µÚËÄÃû","µÚÎåÃû",
-	"µÚÁùÃû","µÚÆßÃû","µÚ°ËÃû","µÚ¾ÅÃû","µÚÊ®Ãû"};
+	CString str[10]={"ç¬¬ä¸€å","ç¬¬äºŒå","ç¬¬ä¸‰å","ç¬¬å››å","ç¬¬äº”å",
+	"ç¬¬å…­å","ç¬¬ä¸ƒå","ç¬¬å…«å","ç¬¬ä¹å","ç¬¬åå"};
     int i;
     CString tempstr;
 	for(i=0;i<10;i++){
@@ -156,50 +156,50 @@ void CTopPlayerDlg::LoadSavedScore()
 	{
 
 
-		strcpy (hscores [0].name, "ÀµÆ¤ÕÅ");
+		strcpy (hscores [0].name, "èµ–çš®å¼ ");
 		hscores [0].score = 12500720;
 		hscores[0].health =98;
-	    strcpy(hscores[0].fame,"ÕùÒéÈËÎï");
+	    strcpy(hscores[0].fame,"äº‰è®®äººç‰©");
 
-		strcpy (hscores [1].name, "Ïô·å");
+		strcpy (hscores [1].name, "è§å³°");
 		hscores [1].score = 830050;
 		hscores[1].health =100;
- 	    strcpy(hscores[1].fame,"½Ü³öÇàÄê");
+ 	    strcpy(hscores[1].fame,"æ°å‡ºé’å¹´");
 		
-		strcpy (hscores [2].name, "¶şºÚ");
+		strcpy (hscores [2].name, "äºŒé»‘");
 		hscores [2].score = 500447;
 			hscores[2].health =78;
-				    strcpy(hscores[2].fame,"µÂ¸ßÍûÖØ");
+				    strcpy(hscores[2].fame,"å¾·é«˜æœ›é‡");
 	    
 		strcpy (hscores [3].name, "Andy Rocky");
 		hscores [3].score = 239403;
 			hscores[3].health =97;
-				    strcpy(hscores[3].fame ,"ºÜ²î");
+				    strcpy(hscores[3].fame ,"å¾ˆå·®");
         strcpy (hscores [4].name, "li xing");
 		hscores [4].score = 34900;
 			hscores[4].health =35;
-				    strcpy(hscores[4].fame,"½­ºşÍÙÆú");
+				    strcpy(hscores[4].fame,"æ±Ÿæ¹–å”¾å¼ƒ");
 
 strcpy (hscores [5].name, "li xing");
 		hscores [5].score = 13400;
 			hscores[5].health =100;
-				    strcpy(hscores[5].fame ,"½­ºşÍÙÆú");;
+				    strcpy(hscores[5].fame ,"æ±Ÿæ¹–å”¾å¼ƒ");;
 strcpy (hscores [6].name, "li ");
 		hscores [6].score = 2300;
 			hscores[6].health =77;
-				    strcpy(hscores[6].fame,"²»¼Ñ");
+				    strcpy(hscores[6].fame,"ä¸ä½³");
 
 strcpy (hscores [7].name, "li ");
 		hscores [7].score = 45;
 			hscores[7].health =12;
-				  	    strcpy(hscores[7].fame,"½Ü³öÇàÄê");
+				  	    strcpy(hscores[7].fame,"æ°å‡ºé’å¹´");
 strcpy (hscores [8].name, "li");
 		hscores [8].score = 34;
-			hscores[8].health =100;	    strcpy(hscores[8].fame,"Ò»°ã°ã");
+			hscores[8].health =100;	    strcpy(hscores[8].fame,"ä¸€èˆ¬èˆ¬");
 				   
 strcpy (hscores [9].name, "li");
 		hscores [9].score = 3;
-			hscores[9].health =100;	    strcpy(hscores[9].fame,"½Ü³öÇàÄê");
+			hscores[9].health =100;	    strcpy(hscores[9].fame,"æ°å‡ºé’å¹´");
 				   
 	    
 	    return ;
@@ -273,23 +273,23 @@ void CTopPlayerDlg::SaveScore()
 CString GetFameStr(int fame)
 {
   if(fame>=100)
-	  return "µÂ¸ßÍûÖØ";
+	  return "å¾·é«˜æœ›é‡";
   else if(fame <100 && fame >=90)
-	  return "½Ü³öÇàÄê";
+	  return "æ°å‡ºé’å¹´";
  else if(fame <90 && fame >=80)
-	  return "Ò»°ã°ã";
+	  return "ä¸€èˆ¬èˆ¬";
  else if(fame <80 && fame >=60)
-	  return "²»¼Ñ";
+	  return "ä¸ä½³";
  else if(fame <60 && fame >=40)
-	  return "ÕùÒéÈËÎï";
+	  return "äº‰è®®äººç‰©";
  else if(fame <40 && fame >=20)
-	  return "²î";
+	  return "å·®";
  else if(fame <20 >=10)
-	  return "ºÜ²î";
+	  return "å¾ˆå·®";
  else if(fame <10)
-      return "½­ºşÍÙÆú";
+      return "æ±Ÿæ¹–å”¾å¼ƒ";
  else 
-	 return "½­ºşÍÙÆú";
+	 return "æ±Ÿæ¹–å”¾å¼ƒ";
 
 
 }
