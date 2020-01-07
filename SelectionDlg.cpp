@@ -69,9 +69,9 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 #ifdef UNICODE
-	#define _tcharcountof(array) (sizeof(array) / sizeof(TCHAR))
+#define _tcharcountof(array) (sizeof(array) / sizeof(TCHAR))
 #else
-	#define _tcharcountof(array) _countof(array) 
+#define _tcharcountof(array) _countof(array) 
 #endif // UNICODE
 
 
@@ -351,19 +351,19 @@ CSelectionDlg::CSelectionDlg(CWnd* pParent /*=NULL*/)
 		m_DrugPrice[i] = 0;
 		m_nMyDrugs[i] = -1;  // do not have any goods in the begining
 	}
-	for (i = 0; i < 9; i++)       // alloc memory for goods' name
-		m_chDrugName[i] = (TCHAR*)malloc(100);
+	//for (i = 0; i < 9; i++)       // alloc memory for goods' name
+	//	m_chDrugName[i] = (TCHAR*)malloc(100);
 
-	// init the goods' name	
-	_tcscpy(m_chDrugName[0], _TEXT("进口香烟"));
-	_tcscpy(m_chDrugName[1], _TEXT("走私汽车"));
-	_tcscpy(m_chDrugName[2], _TEXT("盗版VCD、游戏"));
-	_tcscpy(m_chDrugName[3], _TEXT("假白酒（剧毒！）"));
-	_tcscpy(m_chDrugName[4], _TEXT("《上海小宝贝》（禁书）"));
-	_tcscpy(m_chDrugName[5], _TEXT("进口玩具"));
-	_tcscpy(m_chDrugName[7], _TEXT("伪劣化妆品"));
-	_tcscpy(m_chDrugName[6], _TEXT("水货手机"));
-	_tcscpy(m_chDrugName[8], _TEXT(""));
+	//// init the goods' name	
+	//_tcscpy(m_chDrugName[0], _TEXT("进口香烟"));
+	//_tcscpy(m_chDrugName[1], _TEXT("走私汽车"));
+	//_tcscpy(m_chDrugName[2], _TEXT("盗版VCD、游戏"));
+	//_tcscpy(m_chDrugName[3], _TEXT("假白酒（剧毒！）"));
+	//_tcscpy(m_chDrugName[4], _TEXT("《上海小宝贝》（禁书）"));
+	//_tcscpy(m_chDrugName[5], _TEXT("进口玩具"));
+	//_tcscpy(m_chDrugName[7], _TEXT("伪劣化妆品"));
+	//_tcscpy(m_chDrugName[6], _TEXT("水货手机"));
+	//_tcscpy(m_chDrugName[8], _TEXT(""));
 
 	/*------------------- end of init goods -----------------------------------------*/
 }
@@ -1714,33 +1714,37 @@ void CSelectionDlg::OnPostoffice()
 	// TODO: Add your control notification handler code here
 	if (m_bCloseSound == FALSE)
 		PlaySound(_TEXT("sound\\opendoor.wav"), NULL, SND_ASYNC);
+
 	// user doesn't have debt 
 	if (MyDebt == 0) {
 		// too poor
-		if (MyCash + MyBank < 1000) {
-
-			CRijiDlg dlg(NULL, _TEXT("村长嘿嘿笑道：“你没钱,有神经病!”"));
+		if (MyCash + MyBank < 1000) 
+		{
+			CRijiDlg dlg(NULL, _TEXT("村长嘿嘿笑道：“你没钱，有神经病!”"));
 			dlg.DoModal();
 		}
 		//  richer
-		else if (MyCash + MyBank < 100000 && MyCash + MyBank>1000) {
-			CRijiDlg dlg(NULL, _TEXT("村长朝俺点头：\"兄弟,您想支援家乡1000元吗？\""));
+		else if (MyCash + MyBank < 100000 && MyCash + MyBank>1000) 
+		{
+			CRijiDlg dlg(NULL, _TEXT("村长朝俺点头：“兄弟，你想支援家乡1000元吗？”"));
 			dlg.DoModal();
 		}
 		//very rich
-		else if (MyCash + MyBank < 10000000 && MyCash + MyBank>100000) {
-			CRijiDlg dlg(NULL, _TEXT("村长在电话中朝俺鞠躬:\"富豪!我想把我女儿嫁给您.\"..."));
+		else if (MyCash + MyBank < 10000000 && MyCash + MyBank>100000) 
+		{
+			CRijiDlg dlg(NULL, _TEXT("村长在电话中朝俺鞠躬：“富豪！我想把我女儿嫁给您……”"));
 			dlg.DoModal();
 		}
 		//so rich that I admire you
-		else if (MyCash + MyBank > 10000000) {
-			CRijiDlg dlg(NULL, _TEXT("村长在电话中朝俺下跪，说：\"您简直是我亲爹！\""));
+		else if (MyCash + MyBank > 10000000) 
+		{
+			CRijiDlg dlg(NULL, _TEXT("村长在电话中朝俺下跪，说：“您简直是我亲爹！”"));
 			dlg.DoModal();
 		}
 		// may this happen? I think never.
 		else
 		{
-			CRijiDlg dlg(NULL, _TEXT("村长说：\"您是农村年轻人的典范！\""));
+			CRijiDlg dlg(NULL, _TEXT("村长说：“您是农村年轻人的典范！”"));
 			dlg.DoModal();
 		}
 
@@ -1750,11 +1754,12 @@ void CSelectionDlg::OnPostoffice()
 	// has debt
 	CReplayLoad  dlg(NULL, this);
 	CString str;
-	str.Format(_TEXT("村长在电话中说：\"铁牛，你欠俺%d元，快还!\""), MyDebt);
+	str.Format(_TEXT("村长在电话中说：“铁牛，你欠俺 %d 元，快还!”"), MyDebt);
 	dlg.m_strMsg = str;
 	if (dlg.DoModal() == IDOK) {
 		// do not have enough money to pay
-		if (dlg.m_nMaxMoney > MyCash) {
+		if (dlg.m_nMaxMoney > MyCash) 
+		{
 			CRijiDlg dlg(NULL, _TEXT("村长老婆狂吞“雪中丐”补钙片，冷笑道：“你还得起吗?”"));
 			dlg.DoModal();
 			RefreshDisplay();
@@ -2044,7 +2049,7 @@ void CSelectionDlg::OnIntro()
 		}
 		fclose(fp2);
 		fclose(fp1);
-	}
+}
 #else	 // decripty the help info and open it using IE
 
 	HINSTANCE hRun = ShellExecute(GetParent()->GetSafeHwnd(), _T("open"),
@@ -2146,17 +2151,17 @@ void CSelectionDlg::OnNewGame()
 		m_DrugPrice[i] = 0;
 		m_nMyDrugs[i] = -1;  // do not have any drug in the begining
 	}
-	for (i = 0; i < 9; i++)
-		m_chDrugName[i] = (TCHAR*)malloc(100);
-	_tcscpy(m_chDrugName[0], _TEXT("进口香烟"));
-	_tcscpy(m_chDrugName[1], _TEXT("走私汽车"));
-	_tcscpy(m_chDrugName[2], _TEXT("盗版VCD、游戏"));
-	_tcscpy(m_chDrugName[3], _TEXT("假白酒（剧毒！）"));
-	_tcscpy(m_chDrugName[4], _TEXT("《上海小宝贝》（禁书）"));
-	_tcscpy(m_chDrugName[5], _TEXT("进口玩具"));
-	_tcscpy(m_chDrugName[6], _TEXT("水货手机"));
-	_tcscpy(m_chDrugName[7], _TEXT("伪劣化妆品"));
-	_tcscpy(m_chDrugName[8], _TEXT(""));
+	//for (i = 0; i < 9; i++)
+	//	m_chDrugName[i] = (TCHAR*)malloc(100);
+	//_tcscpy(m_chDrugName[0], _TEXT("进口香烟"));
+	//_tcscpy(m_chDrugName[1], _TEXT("走私汽车"));
+	//_tcscpy(m_chDrugName[2], _TEXT("盗版VCD、游戏"));
+	//_tcscpy(m_chDrugName[3], _TEXT("假白酒（剧毒！）"));
+	//_tcscpy(m_chDrugName[4], _TEXT("《上海小宝贝》（禁书）"));
+	//_tcscpy(m_chDrugName[5], _TEXT("进口玩具"));
+	//_tcscpy(m_chDrugName[6], _TEXT("水货手机"));
+	//_tcscpy(m_chDrugName[7], _TEXT("伪劣化妆品"));
+	//_tcscpy(m_chDrugName[8], _TEXT(""));
 
 
 	// add some items

@@ -38,6 +38,7 @@ public:
 	BOOL m_bHackActs;
 	BOOL m_bCloseSound;
 	void GenerateRandomHelpFile();
+
 	CString m_strHelpFile;
 	CButtonST m_btnPost;
 	CButtonST m_btnNet;
@@ -46,6 +47,7 @@ public:
 	CButtonST m_btnTry;
 	CButtonST m_btnBoss;
 	CButtonST m_btnShanghai;
+
 	int m_MyCurrentLoc;
 	//	void RefreshDisplay();
 	int m_MyFame;
@@ -62,12 +64,23 @@ public:
 	int myCoat;
 	int myTotal;
 	void DoRandomStuff(void);
+
 	void makeDrugPrices(int leaveout);
 	CString GetDrugName(int id);
 	int m_nMyDrugs[8];   // the drug ID I have in pocket
-	TCHAR* m_chDrugName[9]; // drug names
+	TCHAR* m_chDrugName[9] = { _TEXT("进口香烟"),
+							   _TEXT("走私汽车"),
+							   _TEXT("盗版VCD、游戏"),
+							   _TEXT("假白酒（剧毒！）"),
+							   _TEXT("《上海小宝贝》（禁书）"),
+							   _TEXT("进口玩具"),
+							   _TEXT("水货手机"),
+							   _TEXT("伪劣化妆品"),
+							   _TEXT("") }; // drug names
 	long m_DrugPrice[8];  // current drug price
+
 	int m_nTimeLeft;      //how many turns left
+
 	long MyCash;
 	long MyDebt;
 	long MyBank;
