@@ -1,0 +1,166 @@
+﻿<Window x:Class="Life40Days.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Life40Days"
+        mc:Ignorable="d"
+        Title="{Binding DaysLeftLabel, Mode=OneWay}" Height="858" Width="776">
+    <!--<Window.DataContext>
+        <local:CoreContentViewModel/>
+    </Window.DataContext>-->
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <DockPanel Grid.Column="0" LastChildFill="True">
+                <TextBlock Text="Black Market" DockPanel.Dock="Top"/>
+                <DataGrid Name="dgBlackMarket" DockPanel.Dock="Bottom"
+                          AutoGenerateColumns="True" CanUserAddRows="False"
+                          IsSynchronizedWithCurrentItem="True"
+                          ItemsSource="{Binding BlackMarketList, Mode=OneWay}"
+                          SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </DockPanel>
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <TextBlock Text="Buy" />
+                <Button Content="=&gt;" 
+                        Command="{Binding BuyGoodsCommand}"
+                        CommandParameter="{Binding SelectedItem, ElementName=dgBlackMarket, Mode=OneWay}"/>
+                <TextBlock Text="Sell" />
+                <Button Content="&lt;=" 
+                        Command="{Binding SellGoodsCommand}"
+                        CommandParameter="{Binding SelectedItem, ElementName=dgMyInventory, Mode=OneWay}"/>
+            </StackPanel>
+
+            <DockPanel Grid.Column="2" LastChildFill="True">
+                <TextBlock Text="{Binding InventoryLable, Mode=OneWay}" DockPanel.Dock="Top"/>
+                <DataGrid Name="dgMyInventory" DockPanel.Dock="Bottom"
+                          AutoGenerateColumns="True" CanUserAddRows="False" 
+                          ItemsSource="{Binding InventoryList, Mode=OneWay}" 
+                          SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            </DockPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <GroupBox Grid.Column="0" Header="Status">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Cash" Grid.Row="0" Grid.Column="0"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"
+                               Text="{Binding MyCash, Mode=OneWay}"/>
+
+                    <TextBlock Text="Deposits" Grid.Row="1" Grid.Column="0"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+                               Text="{Binding MyBank, Mode=OneWay}"/>
+
+                    <TextBlock Text="Loans" Grid.Row="2" Grid.Column="0"></TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
+                               Text="{Binding MyDebt, Mode=OneWay}"/>
+
+                    <TextBlock Text="Health" Grid.Row="3" Grid.Column="0"></TextBlock>
+                    <TextBlock Grid.Row="3" Grid.Column="1" 
+                               Text="{Binding MyHealth, Mode=OneWay}"/>
+
+                    <TextBlock Text="Fame" Grid.Row="3" Grid.Column="2" />
+                    <TextBlock Grid.Row="3" Grid.Column="3"
+                               Text="{Binding MyFame, Mode=OneWay}"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Grid.Column="1" Header="Metro">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Content="Beijing" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Button x:Name="bXZM" Content="Xizhimen" Grid.Row="0" Grid.Column="2"
+                            Command="{Binding ChangeLocationCommand}"
+                            CommandParameter="{x:Static local:BJLocations.Xizhimen}"/>
+                    <Button Content="Jishuitan" Grid.Row="0" Grid.Column="3"
+                            Command="{Binding ChangeLocationCommand}"
+                            CommandParameter="{x:Static local:BJLocations.Jishuitan}"/>
+                    <Button Content="Dongzhimen" Grid.Row="0" Grid.Column="4"
+                            Command="{Binding ChangeLocationCommand}"
+                            CommandParameter="{x:Static local:BJLocations.Dongzhimen}"/>
+                    
+                    <Button Content="Pingguoyuan" Grid.Row="1" Grid.Column="0"
+                            Command="{Binding ChangeLocationCommand}"
+                            CommandParameter="{x:Static local:BJLocations.Pingguoyuan}"/>
+                    <Button Content="Gongzhufen" Grid.Row="1" Grid.Column="1"
+                            Command="{Binding ChangeLocationCommand}"
+                            CommandParameter="{x:Static local:BJLocations.Gongzhufen}"/>
+                    <Button Content="Fuxingmen" Grid.Row="1" Grid.Column="2"
+                            Command="{Binding ChangeLocationCommand}"
+                            CommandParameter="{x:Static local:BJLocations.Fuxingmen}"/>
+                    <Button Content="Jianguomen" Grid.Row="1" Grid.Column="4"
+                            Command="{Binding ChangeLocationCommand}"
+                            CommandParameter="{x:Static local:BJLocations.Jianguomen}"/>
+
+                    <Button Content="Boss Incoming" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Button Content="Changchunjie" Grid.Row="2" Grid.Column="2"
+                            Command="{Binding ChangeLocationCommand}"
+                            CommandParameter="{x:Static local:BJLocations.Changchunjie}"/>
+                    <Button Content="Chongwenmen" Grid.Row="2" Grid.Column="3"
+                            Command="{Binding ChangeLocationCommand}"
+                            CommandParameter="{x:Static local:BJLocations.Chongwenmen}"/>
+                    <Button Content="Beijingzhan" Grid.Row="2" Grid.Column="4"
+                            Command="{Binding ChangeLocationCommand}"
+                            CommandParameter="{x:Static local:BJLocations.Beijingzhan}"/>
+
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Width="120" Content="Bank" ></Button>
+                <Button Width="120" Content="Hospital"></Button>
+                <Button Width="120" Content="Post Office"></Button>
+                <Button Width="120" Content="House Agency"></Button>
+                <Button Width="120" Content="Internet Bar"></Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="3">
+            <ListView>
+                
+            </ListView>
+        </Grid>
+    </Grid>
+</Window>

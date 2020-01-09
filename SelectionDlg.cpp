@@ -331,7 +331,11 @@ CSelectionDlg::CSelectionDlg(CWnd* pParent /*=NULL*/)
 	m_pDragWnd = NULL;
 	//init game
 	int i;
+#ifdef DEBUG
+	MyCash = 2000000;    // my init cash is 2000
+#else
 	MyCash = 2000;    // my init cash is 2000
+#endif // DEBUG	
 	MyDebt = 5000;    // my init debt is 5000
 	MyBank = 0;       // bank savings is 0
 	myTotal = 0;      // init goods I have
@@ -1487,7 +1491,7 @@ void CSelectionDlg::HandleNormalEvents()
 	}
 	// one day passed
 	m_nTimeLeft--;
-	str.Format(_TEXT("北京浮生(%d/40天)"), 40 - m_nTimeLeft);
+	str.Format(_TEXT("北京浮生( %d / 40天)"), 40 - m_nTimeLeft);
 	// show this on the dialog title
 	SetWindowText(str);
 	// only one day left. Ask user to sell all goods
@@ -1525,7 +1529,6 @@ void CSelectionDlg::HandleNormalEvents()
 			{
 				for (i = 0; i < m_list2.GetItemCount(); i++)
 				{
-
 					goods_name = m_list2.GetItemText(i, 0);
 					goods_num = _tstoi(m_list2.GetItemText(i, 2));
 					// check the right for price
@@ -1536,16 +1539,10 @@ void CSelectionDlg::HandleNormalEvents()
 						{
 							// sell the goods using current black market price
 							MyCash += goods_num * (_tstoi(m_list1.GetItemText(j, 1)));
-
-
 						}
-
 					}
-
 				}
-
 			}
-
 		}
 		// exit the game
 		OnExit();
@@ -1562,17 +1559,13 @@ void CSelectionDlg::DoRandomEvent()
 	CString str, str1;
 	CString snd;
 	// where the user is found out to pass out.
-	CString loc[21] = {
-		_TEXT("建国门"),
-			_TEXT("北京站"), _TEXT("西直门"),
-			_TEXT("崇文门"),_TEXT("东直门"),
-			_TEXT("复兴门"), _TEXT("积水潭"),_TEXT("长椿街"),_TEXT("公主坟"),_TEXT("苹果园"),
-		_TEXT("永安里"),
-			_TEXT("方 庄"), _TEXT("海淀大街"),
-			_TEXT("永定门"),_TEXT("三元东桥"),
-			_TEXT("文津街"), _TEXT("北辰西路"),_TEXT("菜户营"),_TEXT("翠微路"),_TEXT("八角地铁"),
-			_TEXT("")
-	};
+	CString loc[21] = { _TEXT("建国门"),		_TEXT("北京站"),		_TEXT("西直门"),
+						_TEXT("崇文门"),		_TEXT("东直门"),		_TEXT("复兴门"),
+						_TEXT("积水潭"),		_TEXT("长椿街"),		_TEXT("公主坟"),
+						_TEXT("苹果园"),		_TEXT("永安里"),		_TEXT("方 庄"),
+						_TEXT("海淀大街"),	_TEXT("永定门"),		_TEXT("三元东桥"),
+						_TEXT("文津街"),		_TEXT("北辰西路"),	_TEXT("菜户营"),
+						_TEXT("翠微路"),		_TEXT("八角地铁"),	_TEXT("") };
 	// detailed location
 	CString coffee[30] = {
 			_TEXT("发廊里"),_TEXT("早点摊上"),_TEXT("报摊上"),_TEXT("烤羊肉摊上"),_TEXT("公共汽车里"),_TEXT("人力车上"),_TEXT("女厕所里"),
@@ -1599,10 +1592,6 @@ void CSelectionDlg::DoRandomEvent()
 			break;
 		}
 	}
-
-
-
-
 	str.Format(_TEXT("%d"), m_nMyHealth);
 	m_HealthDisplay.SetText(str);  // health critical
 	// user's health is little than 80 and it is more than 3 days to end the game.
@@ -1638,7 +1627,7 @@ void CSelectionDlg::DoRandomEvent()
 	if (m_nMyHealth < 0) {  // Opps! user dead.
 		if (m_bCloseSound == FALSE)
 			PlaySound(_TEXT("sound\\death.wav"), NULL, SND_ASYNC);
-		CRijiDlg dlg(NULL, _TEXT("俺倒在街头,身边日记本上写着：\"北京，我将再来!\""));
+		CRijiDlg dlg(NULL, _TEXT("俺倒在街头,身边日记本上写着：“北京，我将再来!”"));
 		dlg.DoModal();
 		OnCancel();
 	}
@@ -1683,7 +1672,7 @@ void CSelectionDlg::OnHospital()
 		{
 			if (dlg.m_nCurSel * 3500 > MyCash) {
 
-				CRijiDlg dlg(NULL, _TEXT("医生说，“钱不够哎! 拒绝治疗。”"));
+				CRijiDlg dlg(NULL, _TEXT("医生说，“钱不够哎!” 拒绝治疗。"));
 				dlg.DoModal();
 			}
 			else  //ok
@@ -1701,8 +1690,9 @@ void CSelectionDlg::OnHospital()
 		}
 	}
 	// user is ok, need not mediacl care at all. He must be mad.
-	else {
-		CRijiDlg dlg(NULL, _TEXT("小护士笑咪咪地望着俺：\"大哥！神经科这边挂号.\""));
+	else 
+	{
+		CRijiDlg dlg(NULL, _TEXT("小护士笑咪咪地望着俺：“大哥！神经科这边挂号.”"));
 		dlg.DoModal();
 	}
 	RefreshDisplay();
@@ -1718,25 +1708,25 @@ void CSelectionDlg::OnPostoffice()
 	// user doesn't have debt 
 	if (MyDebt == 0) {
 		// too poor
-		if (MyCash + MyBank < 1000) 
+		if (MyCash + MyBank < 1000)
 		{
 			CRijiDlg dlg(NULL, _TEXT("村长嘿嘿笑道：“你没钱，有神经病!”"));
 			dlg.DoModal();
 		}
 		//  richer
-		else if (MyCash + MyBank < 100000 && MyCash + MyBank>1000) 
+		else if (MyCash + MyBank < 100000 && MyCash + MyBank>1000)
 		{
 			CRijiDlg dlg(NULL, _TEXT("村长朝俺点头：“兄弟，你想支援家乡1000元吗？”"));
 			dlg.DoModal();
 		}
 		//very rich
-		else if (MyCash + MyBank < 10000000 && MyCash + MyBank>100000) 
+		else if (MyCash + MyBank < 10000000 && MyCash + MyBank>100000)
 		{
 			CRijiDlg dlg(NULL, _TEXT("村长在电话中朝俺鞠躬：“富豪！我想把我女儿嫁给您……”"));
 			dlg.DoModal();
 		}
 		//so rich that I admire you
-		else if (MyCash + MyBank > 10000000) 
+		else if (MyCash + MyBank > 10000000)
 		{
 			CRijiDlg dlg(NULL, _TEXT("村长在电话中朝俺下跪，说：“您简直是我亲爹！”"));
 			dlg.DoModal();
@@ -1758,7 +1748,7 @@ void CSelectionDlg::OnPostoffice()
 	dlg.m_strMsg = str;
 	if (dlg.DoModal() == IDOK) {
 		// do not have enough money to pay
-		if (dlg.m_nMaxMoney > MyCash) 
+		if (dlg.m_nMaxMoney > MyCash)
 		{
 			CRijiDlg dlg(NULL, _TEXT("村长老婆狂吞“雪中丐”补钙片，冷笑道：“你还得起吗?”"));
 			dlg.DoModal();
@@ -1776,7 +1766,6 @@ void CSelectionDlg::OnPostoffice()
 		m_CashDisplay.SetText(str);
 	}
 	RefreshDisplay();
-
 }
 //actually, this is not in Network club. It's in Airport
 void CSelectionDlg::OnNetwork()
@@ -1829,7 +1818,9 @@ void CSelectionDlg::OnSteal()
 	{
 		long num;
 		if (MyBank < 1000)   // if the savings is too little, give up
+		{
 			;
+		}
 		else if (MyBank > 100000)
 		{
 			num = (long)(MyBank / (2 + RandomNum(20)));   // 2 instead of 1, so not all the money
@@ -1859,7 +1850,8 @@ void CSelectionDlg::OnSteal()
 	}
 
 
-	if (MyCash < 0) {
+	if (MyCash < 0) 
+	{
 		MyCash = 0;
 		CRijiDlg dlg(NULL, _TEXT("俺不好办了。"));
 		dlg.DoModal();
@@ -1929,14 +1921,14 @@ void CSelectionDlg::OnExit()
 		else  // not enter top 10
 		{
 
-			str.Format(_TEXT("您挣的钱%ld元人民币太少，没能进入富人前10名，下次努力哦!"), m_nScore);
+			str.Format(_TEXT("您挣的钱 %ld 元人民币太少，没能进入富人前10名，下次努力哦!"), m_nScore);
 			CNewsDlg dlg(NULL, str);
 			dlg.DoModal();
 		}
 		playerdlg.DoModal();
 		if (m_nScore > 10000000)     // score very high, suggest report it
-		{
-			str.Format(_TEXT("您挣的钱%ld元人民币很高，建议您发给作者进行高手排行。"), m_nScore);
+		{ 
+			str.Format(_TEXT("您挣的钱 %ld 元人民币很高，建议您发给作者进行高手排行。"), m_nScore);
 			CNewsDlg dlg(NULL, str);
 			dlg.DoModal();
 		}
@@ -2016,7 +2008,7 @@ void CSelectionDlg::OnWangba()
 		int i = RandomNum(10);  //give user some money( not bigger than 10)
 		MyCash += 1 + i;
 		CString s;
-		s.Format(_TEXT("感谢电信改革，可以免费上网! 还挣了美国网络广告费%d元，嘿嘿!"), i + 1);
+		s.Format(_TEXT("感谢电信改革，可以免费上网! 还挣了美国网络广告费 %d 元，嘿嘿!"), i + 1);
 		CRijiDlg dlg1(NULL, s);
 		dlg1.DoModal();
 		RefreshDisplay();
@@ -2049,7 +2041,7 @@ void CSelectionDlg::OnIntro()
 		}
 		fclose(fp2);
 		fclose(fp1);
-}
+	}
 #else	 // decripty the help info and open it using IE
 
 	HINSTANCE hRun = ShellExecute(GetParent()->GetSafeHwnd(), _T("open"),
@@ -2107,7 +2099,7 @@ void CSelectionDlg::OnHouseAgency()
 			myCoat += 10;
 			RefreshDisplay();
 			CString str;
-			str.Format(_TEXT("我的房子可以放%d个物品了!可是，好象中介公司骗了我一些钱..."), myCoat);
+			str.Format(_TEXT("我的房子可以放 %d 个物品了!可是，好象中介公司骗了我一些钱..."), myCoat);
 			CRijiDlg dlg1(NULL, str);
 			dlg1.DoModal();
 		}

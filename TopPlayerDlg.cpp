@@ -114,16 +114,22 @@ void CTopPlayerDlg::InsertScore(CString playername, long newscore, int health, i
 
 void CTopPlayerDlg::ShowScores()
 {
-	CString str[10] = { _TEXT("第一名"),_TEXT("第二名"),_TEXT("第三名"),_TEXT("第四名"),_TEXT("第五名"),
-	_TEXT("第六名"),_TEXT("第七名"),_TEXT("第八名"),_TEXT("第九名"),_TEXT("第十名") };
+	CString str[10] = { _TEXT("第一名"),	_TEXT("第二名"),	_TEXT("第三名"),
+						_TEXT("第四名"),	_TEXT("第五名"),	_TEXT("第六名"),
+						_TEXT("第七名"),	_TEXT("第八名"),	_TEXT("第九名"),
+						_TEXT("第十名") };
 	int i;
 	CString tempstr;
-	for (i = 0; i < 10; i++) {
+	for (i = 0; i < 10; i++) 
+	{
 		int n = m_list1.InsertItem(0, str[9 - i]);
+
 		m_list1.SetItemText(n, 1, hscores[9 - i].name);
 		tempstr.Format(_TEXT("%ld"), hscores[9 - i].score);
+
 		m_list1.SetItemText(n, 2, tempstr);
 		tempstr.Format(_TEXT("%d"), hscores[9 - i].health);
+
 		m_list1.SetItemText(n, 3, tempstr);
 		//tempstr.Format(_TEXT("%d"),hscores[9-i].fame);
 		m_list1.SetItemText(n, 4, hscores[9 - i].fame);
@@ -141,18 +147,17 @@ int CTopPlayerDlg::DoModal()
 //<--
 void CTopPlayerDlg::LoadSavedScore()
 {
-	int i;
-	FILE* fp;
 	//char name[35];
-	char line[31];
 	//long score;
 	//int health;
+	int i;
+	FILE* fp;
+	char line[31];
 	CString str = AfxGetApp()->m_pszHelpFilePath;
 	int n = str.ReverseFind('\\');
-	CString str1 = str.Left(n);
-	str1 += _TEXT("\\score.txt");
-	//fp = _tfopen(str1, _TEXT("rb"));
-	errno_t err = _tfopen_s(&fp, str1, _TEXT("rb"));
+	CString score_file_path = str.Left(n);
+	score_file_path += _TEXT("\\score.txt");
+	errno_t err = _tfopen_s(&fp, score_file_path, _TEXT("rb"));
 	if (err != 0)   // not find score.txt, create a empty score list
 	{
 		_tcscpy(hscores[0].name, _TEXT("赖皮张"));
