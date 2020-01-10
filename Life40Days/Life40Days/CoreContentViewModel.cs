@@ -4,11 +4,27 @@ using System.Text;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
 using MicroMvvm;
+using System.Windows.Media;
 
 namespace Life40Days
 {
-    public class CoreContentViewModel : ObservableObject
+    public class IconButton
     {
+        // Fontawesome cheatsheet:
+        // https://fontawesome.com/cheatsheet?from=io
+        public String Glyph { get; }
+        public String Text { get; }
+        public IconButton(String glyph, String text)
+        { Glyph = glyph; Text = text; }
+    }
+    public class CoreContentViewModel : ObservableObject
+    {        
+        public IconButton BankButton { get; } = new IconButton("\uf3d1", "Bank");
+        public IconButton PostButton { get; } = new IconButton("\uf674", "Post");
+        public IconButton ClinicButton { get; } = new IconButton("\uf47d", "Clinic");
+        public IconButton HAgencyButton { get; } = new IconButton("\uf015", "House Agency");
+        public IconButton NetBarButton { get; } = new IconButton("\uf6ff", "Net Coffee");
+
         private ObservableCollection<MarketGoods> _blackMarketList;
         public ObservableCollection<MarketGoods> BlackMarketList
         {
@@ -114,14 +130,14 @@ namespace Life40Days
             BlackMarketList = new ObservableCollection<MarketGoods>(Location.GoodsList);
             InventoryList = new ObservableCollection<InventoryGoods>(MyStatus.MyInventory.MyGoods);
 
-            MyHealth = MyStatus.MyHealth;
-            MyFame = MyStatus.MyFame;
+            MyHealth = MyStatus.MyHealth.HP;
+            MyFame = MyStatus.MyFame.Value;
             MyCash = MyStatus.MyFinance.MyCash;
             MyBank = MyStatus.MyFinance.MyBank;
             MyDebt = MyStatus.MyFinance.MyDebt;
 
             InventoryLable = $"My Inventory: {MyStatus.MyInventory.ToString()}";
-            DaysLeftLabel = $"Life in Beijing (Day {41 - MyStatus.MyDaysLeft})";
+            DaysLeftLabel = $"Life in Beijing (Day {41 - MyStatus.MyDaysLeft}/40)";
         }
 
         public ICommand ChangeLocationCommand { get => new RelayCommand<BJLocations>(place => UpdateLocationExecute(place), CanUpdateLocationExecute); }
@@ -144,11 +160,18 @@ namespace Life40Days
         private bool CanBuyGoodsExecute(MarketGoods obj) => true;
         private void BuyGoodsExecute(MarketGoods goods)
         {
+            if (goods == null) return;
+
             // TODO: input goods_to_buy from UI
             // assume to buy 10 products
-            Int32 goods_to_buy = 10;
+            var tg = new TradePage(
+                "Buy from Black market", "How many do you want to buy:",
+                10, 0, goods.GoodsCount,
+                "Buy", "I changed my mind");
+            if (tg.ShowDialog() ?? true) return;
+            if (!tg.TVM.IsConfirm ?? false) return;
 
-            if (goods == null) return;
+            Int32 goods_to_buy = (Int32)tg.TVM.Value;
 
             // no enough goods to buy
             if (goods.GoodsCount < goods_to_buy) return;
@@ -159,7 +182,7 @@ namespace Life40Days
 
             if( !goods.MarketGoodsBuyIn(goods_to_buy) ||
                 !MyStatus.MyInventory.AddGoods(goods, goods_to_buy) ||
-                !MyStatus.MyFinance.UseCash(goods.GoodsPrice * goods_to_buy)) return;
+                !MyStatus.MyFinance.CashUse(goods.GoodsPrice * goods_to_buy)) return;
 
             OnDataChanged();
         }
@@ -186,7 +209,7 @@ namespace Life40Days
             var g = Location.GoodsList.Find(t => t.GoodsName == goods.GoodsName);
             var market_price = g.GoodsPrice;
 
-            MyStatus.MyFinance.GetCash(market_price * goods_to_sell);
+            MyStatus.MyFinance.CashIncrease(market_price * goods_to_sell);
 
             OnDataChanged();
         }

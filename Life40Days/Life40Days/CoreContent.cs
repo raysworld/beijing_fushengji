@@ -26,8 +26,8 @@ namespace Life40Days
     public class MyStatus
     {
         public Finance MyFinance { get; private set; }
-        public UInt16 MyHealth { get; private set; }
-        public UInt16 MyFame { get; private set; }
+        public Health MyHealth { get; private set; }
+        public Fame MyFame { get; private set; }
         public UInt16 MyDaysLeft { get; private set; }
         public BJLocations MyLocation { get; private set; }
         public MyInventory MyInventory { get; private set; }
@@ -36,13 +36,49 @@ namespace Life40Days
         {
             MyFinance = new Finance(200000, 5000, 0);
             MyInventory = new MyInventory(50);
+            MyInventory.InventoryGoodsSold += MyInventory_InventoryGoodsSold;
 
-            MyHealth = 100;
-            MyFame = 80;
+            MyHealth = new Health(100);
+            MyHealth.HealthStateChanged += MyHealth_HealthStateChanged;
+            MyFame = new Fame(80);
 
             MyDaysLeft = 40;
 
             MyLocation = BJLocations.Nowhere;
+        }
+
+        private void MyInventory_InventoryGoodsSold(Goods goods)
+        {
+            if (goods.FameDown != 0)
+            {
+                //String msg1 = $"声誉下降了";
+                MyFame.Decrease(goods.FameDown);
+            }
+        }
+
+        private void MyHealth_HealthStateChanged()
+        {
+            switch (MyHealth.State)
+            {
+                case HealthState.Perfect:
+                    break;
+                case HealthState.Good:
+                    {
+                        //String msg1 = $"好心的市民把我抬到医院，医生让我治疗{1}天。";
+                        MyHealth.Recover(10);
+                        MyFinance.DebtAdd(1000);
+                        break;
+                    }
+                case HealthState.Sick:
+                    {
+                        //String msg1 = $"I am dying...";
+                        break;
+                    }
+                case HealthState.Dead:
+                default:
+                    // game over
+                    break;
+            }
         }
 
         public void UpdateMyStatus(BJLocations place)
@@ -53,13 +89,29 @@ namespace Life40Days
             }
             else
             {
+                // change place
                 MyLocation = place;
+
+                // calculate deposit and debt
                 MyFinance.HandleBankAndDebt();
 
-                //TODO: update my health and fame
-                --MyHealth;
-                --MyFame;
+                // update health status
+                MyHealth.UpdateHealthEvent();
+                if (MyHealth.Hit)
+                {
+                    //TODO
 
+                    MyHealth.Hit = false;
+                }
+                if (true)
+                {
+
+                }
+
+                //TODO: update my fame
+                MyFame.Decrease(1);
+
+                // day minus one
                 --MyDaysLeft;
             }            
         }
@@ -85,8 +137,8 @@ namespace Life40Days
             debtRate = d_rate;
         }
 
-        public void GetCash(Double value) => MyCash += value;
-        public Boolean UseCash(Double value)
+        public void CashIncrease(Double value) => MyCash += value;
+        public Boolean CashUse(Double value)
         {
             if (MyCash > value)
             {
@@ -131,6 +183,8 @@ namespace Life40Days
                 return false;
             }
         }
+
+        public void DebtAdd(Double money) => MyDebt += money;
         public Boolean DebtPay(Double money)
         {
             if (MyCash > money)

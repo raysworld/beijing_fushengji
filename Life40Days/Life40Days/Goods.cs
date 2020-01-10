@@ -11,12 +11,14 @@ namespace Life40Days
         public String GoodsName { get; }
         public Double GoodsPrice { get; protected set; }
         public Int32 GoodsCount { get; protected set; }
+        public UInt16 FameDown { get; protected set; }
 
-        public Goods(String name, Double price, Int32 count)
+        public Goods(String name, Double price, Int32 count, UInt16 f_down = 0)
         {
             GoodsName = name;
             GoodsPrice = price;
             GoodsCount = count;
+            FameDown = f_down;
         }
 
         public override string ToString() 
@@ -35,8 +37,8 @@ namespace Life40Days
         private readonly Double goodsBasicPrice;
         private readonly Double goodsFloatPrice;
 
-        public MarketGoods(String name, Double b_price, Double f_price, Int32 count = -1)
-            : base(name, b_price, count)
+        public MarketGoods(String name, Double b_price, Double f_price, Int32 count = -1, UInt16 f_down = 0)
+            : base(name, b_price, count, f_down)
         {
             goodsBasicPrice = b_price;
             goodsFloatPrice = f_price;
@@ -64,8 +66,11 @@ namespace Life40Days
 
     public class InventoryGoods : Goods
     {
-        public InventoryGoods(String name, Double price, Int32 count)
-            :base(name, price, count) { }
+        public InventoryGoods(String name, Double price, Int32 count, UInt16 f_down)
+            :base(name, price, count, f_down) { }
+
+        public InventoryGoods(MarketGoods goods, Int32 count)
+            :base(goods.GoodsName, goods.GoodsPrice, count, goods.FameDown) { }
 
         public Boolean InventoryGoodsAdd(MarketGoods goods, Int32 count)
         {

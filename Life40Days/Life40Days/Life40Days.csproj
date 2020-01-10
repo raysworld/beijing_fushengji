@@ -7,7 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="resources\Font Awesome 5 Free-Solid-900.otf" />
+    <None Remove="resources\fontawesome-webfont.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MicroMvvm\MicroMvvm.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resources\Digital7.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\Font Awesome 5 Free-Solid-900.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <!--<Resource Include="resources\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>-->
   </ItemGroup>
 
 </Project>

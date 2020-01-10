@@ -5,28 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Life40Days"
         mc:Ignorable="d"
-        Title="{Binding DaysLeftLabel, Mode=OneWay}" Height="858" Width="776">
+        Title="{Binding DaysLeftLabel, Mode=OneWay}" Height="auto" Width="800">
     <!--<Window.DataContext>
         <local:CoreContentViewModel/>
     </Window.DataContext>-->
     
+    
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="70*" MaxHeight="300"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30*" MinHeight="20" />
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto" MinWidth="120"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <DockPanel Grid.Column="0" LastChildFill="True">
-                <TextBlock Text="Black Market" DockPanel.Dock="Top"/>
+                <TextBlock DockPanel.Dock="Top"
+                           Text="Black Market" 
+                           Style="{DynamicResource TextBlockStyleBlockTitle}"/>
                 <DataGrid Name="dgBlackMarket" DockPanel.Dock="Bottom"
                           AutoGenerateColumns="True" CanUserAddRows="False"
                           IsSynchronizedWithCurrentItem="True"
@@ -34,19 +37,21 @@
                           SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
 
-            <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                <TextBlock Text="Buy" />
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="15,0,15,0">
+                <TextBlock Style="{DynamicResource TextBlockStyleBuySell}" Text="Buy" />
                 <Button Content="=&gt;" 
                         Command="{Binding BuyGoodsCommand}"
                         CommandParameter="{Binding SelectedItem, ElementName=dgBlackMarket, Mode=OneWay}"/>
-                <TextBlock Text="Sell" />
+                <TextBlock Style="{DynamicResource TextBlockStyleBuySell}" Text="Sell" />
                 <Button Content="&lt;=" 
                         Command="{Binding SellGoodsCommand}"
                         CommandParameter="{Binding SelectedItem, ElementName=dgMyInventory, Mode=OneWay}"/>
             </StackPanel>
 
             <DockPanel Grid.Column="2" LastChildFill="True">
-                <TextBlock Text="{Binding InventoryLable, Mode=OneWay}" DockPanel.Dock="Top"/>
+                <TextBlock DockPanel.Dock="Top"
+                           Text="{Binding InventoryLable, Mode=OneWay}" 
+                           Style="{DynamicResource TextBlockStyleBlockTitle}"/>
                 <DataGrid Name="dgMyInventory" DockPanel.Dock="Bottom"
                           AutoGenerateColumns="True" CanUserAddRows="False" 
                           ItemsSource="{Binding InventoryList, Mode=OneWay}" 
@@ -59,7 +64,11 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <GroupBox Grid.Column="0" Header="Status">
+            <GroupBox Grid.Column="0">
+                <GroupBox.Header>
+                    <TextBlock Text="Status"
+                               Style="{DynamicResource TextBlockStyleBlockTitle}"/>
+                </GroupBox.Header>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -74,28 +83,47 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="Cash" Grid.Row="0" Grid.Column="0"/>
+                    <TextBlock Grid.Row="0" Grid.Column="0"
+                               Text="Cash"
+                               Style="{DynamicResource TextBlockStyleStatusLabel}"/>
                     <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"
-                               Text="{Binding MyCash, Mode=OneWay}"/>
+                               Text="{Binding MyCash, Mode=OneWay, StringFormat=F2}"
+                               Style="{DynamicResource TextBlockStyleDigital}"/>
 
-                    <TextBlock Text="Deposits" Grid.Row="1" Grid.Column="0"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0"
+                               Text="Deposits" 
+                               Style="{DynamicResource TextBlockStyleStatusLabel}"/>
                     <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
-                               Text="{Binding MyBank, Mode=OneWay}"/>
+                               Text="{Binding MyBank, Mode=OneWay, StringFormat=F2}"
+                               Style="{DynamicResource TextBlockStyleDigital}" />
 
-                    <TextBlock Text="Loans" Grid.Row="2" Grid.Column="0"></TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="0"
+                               Text="Loans" 
+                               Style="{DynamicResource TextBlockStyleStatusLabel}"/>
                     <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
-                               Text="{Binding MyDebt, Mode=OneWay}"/>
+                               Text="{Binding MyDebt, Mode=OneWay, StringFormat=F2}"
+                               Style="{DynamicResource TextBlockStyleDigital}" />
 
-                    <TextBlock Text="Health" Grid.Row="3" Grid.Column="0"></TextBlock>
+                    <TextBlock Grid.Row="3" Grid.Column="0"
+                               Text="Health" 
+                               Style="{DynamicResource TextBlockStyleStatusLabel}"/>
                     <TextBlock Grid.Row="3" Grid.Column="1" 
-                               Text="{Binding MyHealth, Mode=OneWay}"/>
+                               Text="{Binding MyHealth, Mode=OneWay}"
+                               Style="{DynamicResource TextBlockStyleDigital}" />
 
-                    <TextBlock Text="Fame" Grid.Row="3" Grid.Column="2" />
+                    <TextBlock Grid.Row="3" Grid.Column="2" 
+                               Text="Fame" 
+                               Style="{DynamicResource TextBlockStyleStatusLabel}"/>
                     <TextBlock Grid.Row="3" Grid.Column="3"
-                               Text="{Binding MyFame, Mode=OneWay}"/>
+                               Text="{Binding MyFame, Mode=OneWay}"
+                               Style="{DynamicResource TextBlockStyleDigital}" />
                 </Grid>
             </GroupBox>
-            <GroupBox Grid.Column="1" Header="Metro">
+            <GroupBox Grid.Column="1">
+                <GroupBox.Header>
+                    <TextBlock Text="Metros"
+                               Style="{DynamicResource TextBlockStyleBlockTitle}"/>
+                </GroupBox.Header>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -150,15 +178,25 @@
         </Grid>
         <Grid Grid.Row="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Width="120" Content="Bank" ></Button>
-                <Button Width="120" Content="Hospital"></Button>
-                <Button Width="120" Content="Post Office"></Button>
-                <Button Width="120" Content="House Agency"></Button>
-                <Button Width="120" Content="Internet Bar"></Button>
+                <Button Content="{Binding BankButton}"
+                        Style="{DynamicResource ButtonStylePlace}"
+                        ContentTemplate="{DynamicResource ButtonContentTemplatePlaces}"/>
+                <Button Content="{Binding ClinicButton}"
+                        Style="{DynamicResource ButtonStylePlace}"
+                        ContentTemplate="{DynamicResource ButtonContentTemplatePlaces}"/>
+                <Button Content="{Binding PostButton}"
+                        Style="{DynamicResource ButtonStylePlace}"
+                        ContentTemplate="{DynamicResource ButtonContentTemplatePlaces}"/>
+                <Button Content="{Binding HAgencyButton}"
+                        Style="{DynamicResource ButtonStylePlace}"
+                        ContentTemplate="{DynamicResource ButtonContentTemplatePlaces}"/>
+                <Button Content="{Binding NetBarButton}"
+                        Style="{DynamicResource ButtonStylePlace}"
+                        ContentTemplate="{DynamicResource ButtonContentTemplatePlaces}"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="3">
-            <ListView>
+            <ListView HorizontalAlignment="Stretch">
                 
             </ListView>
         </Grid>

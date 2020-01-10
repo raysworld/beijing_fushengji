@@ -1,0 +1,86 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Life40Days.resources"
+                    xmlns:view="clr-namespace:Life40Days">
+    
+    <Style x:Key="TextBlockStyleMessage" TargetType="{x:Type TextBlock}">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="TextTrimming" Value="None"/>
+        <Setter Property="TextAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="8,8,8,8"/>
+    </Style>
+    <Style x:Key="TextBlockStyleDigital" TargetType="{x:Type TextBlock}">
+        <Setter Property="TextWrapping" Value="NoWrap"/>
+        <Setter Property="TextTrimming" Value="None"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="pack://application:,,,/resources/#Digital-7"/>
+        <Setter Property="FontStyle" Value="Normal"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Background" Value="Black"/>
+        <Setter Property="Foreground" Value="LightGreen"/>
+        <Setter Property="Margin" Value="4,2,4,2"/>
+    </Style>
+    <Style x:Key="TextBlockStyleBlockTitle" TargetType="{x:Type TextBlock}">
+        <Setter Property="TextWrapping" Value="NoWrap"/>
+        <Setter Property="TextTrimming" Value="None"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="TextBlockStyleStatusLabel" TargetType="{x:Type TextBlock}">
+        <Setter Property="TextWrapping" Value="NoWrap"/>
+        <Setter Property="TextTrimming" Value="None"/>
+        <Setter Property="TextAlignment" Value="Right"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Margin" Value="8,0,12,0"/>
+    </Style>
+    <Style x:Key="TextBlockStyleBuySell" TargetType="{x:Type TextBlock}">
+        <Setter Property="TextWrapping" Value="NoWrap"/>
+        <Setter Property="TextTrimming" Value="None"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <Style x:Key="ButtonStylePlace" TargetType="{x:Type Button}">
+        <Setter Property="Margin" Value="4,8,4,8"/>
+    </Style>
+    <DataTemplate x:Key="ButtonContentTemplatePlaces" DataType="{x:Type view:IconButton}">
+        <Grid MinWidth="120" MinHeight="40">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Margin="4,0,2,0"
+                       Text="{Binding Glyph}" FontFamily="pack://application:,,,/resources/#Font Awesome 5 Free Solid"
+                       FontSize="14"
+                       TextAlignment="Left"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="1" Margin="2,0,4,0"
+                       Text="{Binding Text}"
+                       FontSize="14" FontWeight="SemiBold"
+                       TextAlignment="Left"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+    </DataTemplate>
+
+    <Style x:Key="ButtonStyleYesNo" TargetType="{x:Type Button}">
+        <Setter Property="MinWidth" Value="80"/>
+        <Setter Property="MinHeight" Value="30"/>
+        <Setter Property="Margin" Value="4,8,4,8"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+</ResourceDictionary>

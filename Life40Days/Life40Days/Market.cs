@@ -22,6 +22,10 @@ namespace Life40Days
         }
         public Int32 LeftCapacity => MaxCapacity - CurCapacity;
 
+        public delegate void InventoryGoodsSellHandler(Goods goods);
+        public event InventoryGoodsSellHandler InventoryGoodsSold;
+        public void OnInventoryGoodsSold(Goods goods) => InventoryGoodsSold?.Invoke(goods);
+
         public MyInventory(Int32 max = 50)
         {
             MyGoods = new List<InventoryGoods>();
@@ -44,7 +48,7 @@ namespace Life40Days
                     }
                     else
                     {
-                        var g = new InventoryGoods(goods.GoodsName, goods.GoodsPrice, count);
+                        var g = new InventoryGoods(goods, count);
                         MyGoods.Add(g);
                     }
                     return true;
@@ -60,14 +64,17 @@ namespace Life40Days
             if (MyGoods.Exists(t => t.GoodsName == goods.GoodsName))
             {
                 // check if goods count > count
-                InventoryGoods t = MyGoods.Find(t => t.GoodsName == goods.GoodsName);
-                if (t.GoodsCount > count)
+                InventoryGoods ig = MyGoods.Find(t => t.GoodsName == goods.GoodsName);
+                if (ig.GoodsCount > count)
                 {
-                    return t.InventoryGoodsSellOut(count);
+                    ig.InventoryGoodsSellOut(count);
+                    OnInventoryGoodsSold(goods);
+                    return true;
                 }
-                else if (t.GoodsCount == count)
+                else if (ig.GoodsCount == count)
                 {
-                    MyGoods.Remove(t);
+                    MyGoods.Remove(ig);
+                    OnInventoryGoodsSold(goods);
                     return true;
                 }
                 else
@@ -94,8 +101,8 @@ namespace Life40Days
             AllGoods.Add(new MarketGoods("进口香烟", 100, 350));
             AllGoods.Add(new MarketGoods("走私汽车", 15000, 15000));
             AllGoods.Add(new MarketGoods("盗版VCD、游戏", 5, 50));
-            AllGoods.Add(new MarketGoods("假白酒（剧毒！）", 1000, 2500));
-            AllGoods.Add(new MarketGoods("《上海小宝贝》（禁书）", 5000, 9000));
+            AllGoods.Add(new MarketGoods("假白酒（剧毒！）", 1000, 2500, -1, 10));
+            AllGoods.Add(new MarketGoods("《上海小宝贝》（禁书）", 5000, 9000, -1, 7));
             AllGoods.Add(new MarketGoods("进口玩具", 250, 600));
             AllGoods.Add(new MarketGoods("水货手机", 750, 750));
             AllGoods.Add(new MarketGoods("伪劣化妆品", 65, 180));
