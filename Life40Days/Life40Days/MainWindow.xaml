@@ -31,10 +31,18 @@
                            Text="Black Market" 
                            Style="{DynamicResource TextBlockStyleBlockTitle}"/>
                 <DataGrid Name="dgBlackMarket" DockPanel.Dock="Bottom"
-                          AutoGenerateColumns="True" CanUserAddRows="False"
+                          CanUserAddRows="False" AutoGenerateColumns="False"
                           IsSynchronizedWithCurrentItem="True"
                           ItemsSource="{Binding BlackMarketList, Mode=OneWay}"
-                          SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                          SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleBlackMarkt}" 
+                          CellStyle="{DynamicResource DataGridCellStyleBlackMarket}" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding GoodsName}"/>
+                        <DataGridTextColumn Header="Price" Binding="{Binding GoodsPrice, StringFormat=F2}"/>
+                        <DataGridTextColumn Header="Count" Binding="{Binding GoodsCount}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </DockPanel>
 
             <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="15,0,15,0">
@@ -53,16 +61,24 @@
                            Text="{Binding InventoryLable, Mode=OneWay}" 
                            Style="{DynamicResource TextBlockStyleBlockTitle}"/>
                 <DataGrid Name="dgMyInventory" DockPanel.Dock="Bottom"
-                          AutoGenerateColumns="True" CanUserAddRows="False" 
+                          CanUserAddRows="False" AutoGenerateColumns="False"
                           ItemsSource="{Binding InventoryList, Mode=OneWay}" 
-                          SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                          SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyleBlackMarkt}" 
+                          CellStyle="{DynamicResource DataGridCellStyleBlackMarket}" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding GoodsName}"/>
+                        <DataGridTextColumn Header="Price" Binding="{Binding GoodsPrice, StringFormat=F2}"/>
+                        <DataGridTextColumn Header="Count" Binding="{Binding GoodsCount}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
 
             </DockPanel>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="60*"/>
             </Grid.ColumnDefinitions>
             <GroupBox Grid.Column="0">
                 <GroupBox.Header>
@@ -141,37 +157,47 @@
                     <Button Content="Beijing" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
                     <Button x:Name="bXZM" Content="Xizhimen" Grid.Row="0" Grid.Column="2"
                             Command="{Binding ChangeLocationCommand}"
-                            CommandParameter="{x:Static local:BJLocations.Xizhimen}"/>
+                            CommandParameter="{x:Static local:BJLocations.Xizhimen}"
+                            Style="{DynamicResource ButtonStyleStation}"/>
                     <Button Content="Jishuitan" Grid.Row="0" Grid.Column="3"
                             Command="{Binding ChangeLocationCommand}"
-                            CommandParameter="{x:Static local:BJLocations.Jishuitan}"/>
+                            CommandParameter="{x:Static local:BJLocations.Jishuitan}"
+                            Style="{DynamicResource ButtonStyleStation}"/>
                     <Button Content="Dongzhimen" Grid.Row="0" Grid.Column="4"
                             Command="{Binding ChangeLocationCommand}"
-                            CommandParameter="{x:Static local:BJLocations.Dongzhimen}"/>
+                            CommandParameter="{x:Static local:BJLocations.Dongzhimen}"
+                            Style="{DynamicResource ButtonStyleStation}"/>
                     
                     <Button Content="Pingguoyuan" Grid.Row="1" Grid.Column="0"
                             Command="{Binding ChangeLocationCommand}"
-                            CommandParameter="{x:Static local:BJLocations.Pingguoyuan}"/>
+                            CommandParameter="{x:Static local:BJLocations.Pingguoyuan}"
+                            Style="{DynamicResource ButtonStyleStation}"/>
                     <Button Content="Gongzhufen" Grid.Row="1" Grid.Column="1"
                             Command="{Binding ChangeLocationCommand}"
-                            CommandParameter="{x:Static local:BJLocations.Gongzhufen}"/>
+                            CommandParameter="{x:Static local:BJLocations.Gongzhufen}"
+                            Style="{DynamicResource ButtonStyleStation}"/>
                     <Button Content="Fuxingmen" Grid.Row="1" Grid.Column="2"
                             Command="{Binding ChangeLocationCommand}"
-                            CommandParameter="{x:Static local:BJLocations.Fuxingmen}"/>
+                            CommandParameter="{x:Static local:BJLocations.Fuxingmen}"
+                            Style="{DynamicResource ButtonStyleStation}"/>
                     <Button Content="Jianguomen" Grid.Row="1" Grid.Column="4"
                             Command="{Binding ChangeLocationCommand}"
-                            CommandParameter="{x:Static local:BJLocations.Jianguomen}"/>
+                            CommandParameter="{x:Static local:BJLocations.Jianguomen}"
+                            Style="{DynamicResource ButtonStyleStation}"/>
 
                     <Button Content="Boss Incoming" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
                     <Button Content="Changchunjie" Grid.Row="2" Grid.Column="2"
                             Command="{Binding ChangeLocationCommand}"
-                            CommandParameter="{x:Static local:BJLocations.Changchunjie}"/>
+                            CommandParameter="{x:Static local:BJLocations.Changchunjie}"
+                            Style="{DynamicResource ButtonStyleStation}"/>
                     <Button Content="Chongwenmen" Grid.Row="2" Grid.Column="3"
                             Command="{Binding ChangeLocationCommand}"
-                            CommandParameter="{x:Static local:BJLocations.Chongwenmen}"/>
+                            CommandParameter="{x:Static local:BJLocations.Chongwenmen}"
+                            Style="{DynamicResource ButtonStyleStation}"/>
                     <Button Content="Beijingzhan" Grid.Row="2" Grid.Column="4"
                             Command="{Binding ChangeLocationCommand}"
-                            CommandParameter="{x:Static local:BJLocations.Beijingzhan}"/>
+                            CommandParameter="{x:Static local:BJLocations.Beijingzhan}"
+                            Style="{DynamicResource ButtonStyleStation}"/>
 
                 </Grid>
             </GroupBox>

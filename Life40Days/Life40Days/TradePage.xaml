@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Life40Days"
       mc:Ignorable="d" 
-      Height="160" Width="240"
+      Height="Auto" Width="240" MaxHeight="350"
       Title="{Binding TitleMsg, Mode=OneWay}" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" Loaded="Window_Loaded" Topmost="True">
     <!--<Page.DataContext>
         <local:TradeViewModel/>
@@ -13,7 +13,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" MaxHeight="200"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -27,14 +27,18 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="{Binding Min, Mode=OneWay}"/>
+                <TextBlock Grid.Column="0" Text="{Binding Min, Mode=OneWay}"
+                           Style="{DynamicResource TextBlockStyleDigital}"/>
                 <Slider Grid.Column="1" 
                         Value="{Binding Value, Mode=TwoWay}"
                         Minimum="{Binding Min, Mode=OneWay}"
-                        Maximum="{Binding Max, Mode=OneWay}"/>
-                <TextBlock Grid.Column="2" Text="{Binding Max, Mode=OneWay}"/>
+                        Maximum="{Binding Max, Mode=OneWay}" 
+                        IsSnapToTickEnabled="True" TickFrequency="1"/>
+                <TextBlock Grid.Column="2" Text="{Binding Max, Mode=OneWay}"
+                           Style="{DynamicResource TextBlockStyleDigital}"/>
             </Grid>            
-            <TextBox Width="200" MaxLines="1" Text="{Binding Value, Mode=TwoWay}"/>            
+            <TextBox Text="{Binding Value, Mode=TwoWay}"
+                     Style="{DynamicResource TextBoxStyleDigital}"/>            
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="{Binding ConfirmBtnText}"
